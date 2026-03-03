@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Footer from './components/Footer';
 
 export const metadata: Metadata = {
   title: 'SMK Angkatan 2026 – Digital Memory Archive',
@@ -17,9 +18,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="id">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

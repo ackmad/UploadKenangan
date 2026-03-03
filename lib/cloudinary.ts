@@ -90,6 +90,8 @@ export interface CloudinaryFile {
     fullUrl: string;
     createdAt: string;
     resourceType: ResourceType;
+    width: number;
+    height: number;
 }
 
 type CloudinaryResource = {
@@ -97,6 +99,8 @@ type CloudinaryResource = {
     secure_url: string;
     created_at: string;
     resource_type: string;
+    width: number;
+    height: number;
 };
 
 async function fetchResources(folder: string, resourceType: 'image' | 'video'): Promise<CloudinaryResource[]> {
@@ -150,6 +154,8 @@ export async function listFilesFromCloudinary(className: string): Promise<Cloudi
             fullUrl: r.secure_url,
             createdAt: r.created_at,
             resourceType: type,
+            width: r.width,
+            height: r.height,
         };
     };
 

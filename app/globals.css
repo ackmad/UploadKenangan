@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Architects+Daughter&family=Nanum+Pen+Script&display=swap');
 
 /* ─── CSS Custom Properties ────────────────────────────────── */
 :root {
@@ -72,9 +72,11 @@ a {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-surface);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-gold);
   border-radius: 3px;
@@ -98,6 +100,7 @@ body::before {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -105,8 +108,13 @@ body::before {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInScale {
@@ -114,6 +122,7 @@ body::before {
     opacity: 0;
     transform: scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -121,14 +130,30 @@ body::before {
 }
 
 @keyframes shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 @keyframes pulse-ring {
-  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5); }
-  70%  { transform: scale(1);    box-shadow: 0 0 0 12px rgba(201, 169, 110, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 169, 110, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0.5);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(201, 169, 110, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0);
+  }
 }
 
 @keyframes confettiFall {
@@ -136,6 +161,7 @@ body::before {
     transform: translateY(-10px) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;
@@ -143,8 +169,15 @@ body::before {
 }
 
 @keyframes heroFloat {
-  0%, 100% { transform: scale(1.05) translateY(0); }
-  50%       { transform: scale(1.05) translateY(-6px); }
+
+  0%,
+  100% {
+    transform: scale(1.05) translateY(0);
+  }
+
+  50% {
+    transform: scale(1.05) translateY(-6px);
+  }
 }
 
 /* ─── Utility Classes ───────────────────────────────────────── */
@@ -161,10 +194,25 @@ body::before {
 }
 
 /* anim-delay helpers */
-.delay-1 { animation-delay: 0.3s; opacity: 0; }
-.delay-2 { animation-delay: 0.7s; opacity: 0; }
-.delay-3 { animation-delay: 1.1s; opacity: 0; }
-.delay-4 { animation-delay: 1.5s; opacity: 0; }
+.delay-1 {
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+.delay-2 {
+  animation-delay: 0.7s;
+  opacity: 0;
+}
+
+.delay-3 {
+  animation-delay: 1.1s;
+  opacity: 0;
+}
+
+.delay-4 {
+  animation-delay: 1.5s;
+  opacity: 0;
+}
 
 /* ─── Button Styles ─────────────────────────────────────────── */
 .btn {
@@ -235,7 +283,9 @@ body::before {
 
 /* ─── Spinner ───────────────────────────────────────────────── */
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .spinner {

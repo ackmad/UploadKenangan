@@ -1,0 +1,116 @@
+.footer {
+    width: 100%;
+    padding: 18px 24px;
+    /* sits below all page content */
+    margin-top: auto;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* "Made with ♥ by Ackmad" */
+.credit {
+    font-size: 0.72rem;
+    color: rgba(155, 142, 130, 0.45);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+    transition: color 0.25s;
+}
+
+.credit:hover {
+    color: rgba(155, 142, 130, 0.7);
+}
+
+.heart {
+    color: rgba(220, 100, 100, 0.55);
+    font-size: 0.78rem;
+    display: inline-block;
+    animation: heartbeat 2.8s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.25);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.15);
+    }
+
+    56% {
+        transform: scale(1);
+    }
+}
+
+.authorLink {
+    color: rgba(201, 169, 110, 0.55);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    position: relative;
+}
+
+.authorLink::after {
+    content: ' ↗';
+    font-size: 0.6rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    vertical-align: super;
+}
+
+.authorLink:hover {
+    color: rgba(201, 169, 110, 0.9);
+    border-bottom-color: rgba(201, 169, 110, 0.4);
+}
+
+.authorLink:hover::after {
+    opacity: 1;
+}
+
+/* separator dot */
+.dot {
+    color: rgba(155, 142, 130, 0.25);
+    font-size: 0.7rem;
+}
+
+/* version badge */
+.version {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(155, 142, 130, 0.35);
+    font-variant-numeric: tabular-nums;
+    padding: 2px 7px;
+    border: 1px solid rgba(155, 142, 130, 0.12);
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: color 0.2s, border-color 0.2s;
+    cursor: default;
+    white-space: nowrap;
+}
+
+.version:hover {
+    color: rgba(201, 169, 110, 0.6);
+    border-color: rgba(201, 169, 110, 0.2);
+}
