@@ -1,0 +1,371 @@
+.page {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    padding-bottom: 80px;
+}
+
+/* Nav */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(15, 13, 11, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+    gap: 12px;
+}
+
+.backLink {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    transition: color var(--transition);
+    white-space: nowrap;
+}
+
+.backLink:hover {
+    color: var(--color-text);
+}
+
+.navCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.navTitle {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    color: var(--color-gold);
+    letter-spacing: 0.02em;
+}
+
+.navCount {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.05em;
+}
+
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Gallery header */
+.galleryHeader {
+    text-align: center;
+    padding: 40px 0 24px;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-warm);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.filterBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 20px;
+    border-radius: 100px;
+    border: 1.5px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.filterBtn:hover {
+    border-color: rgba(201, 169, 110, 0.4);
+    color: var(--color-text);
+}
+
+.filterBtnActive {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+    background: rgba(201, 169, 110, 0.1);
+}
+
+.filterCount {
+    background: rgba(155, 142, 130, 0.15);
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+    padding: 1px 7px;
+    border-radius: 100px;
+    font-weight: 400;
+}
+
+/* Masonry Grid */
+.masonry {
+    columns: 3;
+    column-gap: 14px;
+}
+
+@media (max-width: 768px) {
+    .masonry {
+        columns: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry {
+        columns: 2;
+        column-gap: 8px;
+    }
+}
+
+/* Skeleton */
+.skeleton {
+    break-inside: avoid;
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, var(--color-surface) 25%, var(--color-surface-2) 50%, var(--color-surface) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 14px;
+    aspect-ratio: 3/4;
+}
+
+/* Photo Card */
+.photoCard {
+    break-inside: avoid;
+    display: block;
+    width: 100%;
+    margin-bottom: 14px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: var(--color-surface);
+    border: none;
+    padding: 0;
+}
+
+.photoCard:hover .photoImg {
+    transform: scale(1.06);
+}
+
+.photoCard:hover .photoOverlay {
+    opacity: 1;
+}
+
+.photoImg {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: cover;
+}
+
+.photoOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 12px 14px;
+}
+
+.photoClass {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.videoPlayBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Empty state */
+.emptyState {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.emptyIcon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.emptyTitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-warm);
+    margin-bottom: 8px;
+}
+
+.emptyDesc {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+/* ─── Lightbox ────────────────────────────────────────────── */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 4, 3, 0.96);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.25s ease;
+    padding: 20px;
+}
+
+.lightboxContent {
+    position: relative;
+    max-width: min(90vw, 900px);
+    max-height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.lightboxImg {
+    max-width: 100%;
+    max-height: 80dvh;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    animation: fadeInScale 0.3s ease;
+}
+
+.lightboxMeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 4px;
+}
+
+.lightboxClass {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.lightboxCounter {
+    font-size: 0.8rem;
+    color: rgba(240, 232, 221, 0.4);
+}
+
+.lightboxClose {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+}
+
+.lightboxClose:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.lightboxArrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition);
+    z-index: 10;
+    border: none;
+    cursor: pointer;
+}
+
+.lightboxArrow:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.lightboxArrow:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+
+.lightboxPrev {
+    left: 16px;
+}
+
+.lightboxNext {
+    right: 16px;
+}
+
+@media (max-width: 600px) {
+    .lightboxPrev {
+        left: 8px;
+    }
+
+    .lightboxNext {
+        right: 8px;
+    }
+
+    .lightboxArrow {
+        width: 40px;
+        height: 40px;
+    }
+}
