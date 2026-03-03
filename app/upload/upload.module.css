@@ -340,11 +340,40 @@
     font-size: 1rem;
 }
 
-.footerNote {
-    text-align: center;
-    font-size: 0.75rem;
-    color: rgba(155, 142, 130, 0.5);
-    letter-spacing: 0.02em;
+/* Info & Warning Notes */
+.infoNote,
+.warningNote {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    line-height: 1.65;
+    margin-top: 12px;
+}
+
+.infoNote {
+    background: rgba(201, 169, 110, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    color: rgba(201, 169, 110, 0.75);
+}
+
+.warningNote {
+    background: rgba(252, 180, 80, 0.05);
+    border: 1px solid rgba(252, 180, 80, 0.15);
+    color: rgba(240, 200, 130, 0.7);
+}
+
+.warningNote strong {
+    color: rgba(252, 190, 100, 0.9);
+    font-weight: 600;
+}
+
+.infoIcon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
 }
 
 /* Mobile */

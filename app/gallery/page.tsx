@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import styles from './gallery.module.css';
+import lockedStyles from './locked.module.css';
 
 interface GalleryFile {
     id: string;
@@ -130,24 +131,42 @@ export default function GalleryPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+    const [isLocked, setIsLocked] = useState<boolean | null>(null); // null = belum tahu
 
+    // Cek status lock terlebih dahulu
     useEffect(() => {
-        async function fetchGallery() {
-            setIsLoading(true);
-            setError('');
+        async function checkLock() {
             try {
-                const res = await fetch('/api/gallery');
+                const res = await fetch('/api/gallery-status');
                 const data = await res.json();
-                if (!res.ok) throw new Error(data.error ?? 'Gagal memuat galeri');
-                setAllFiles(data.files ?? []);
-            } catch (e: unknown) {
-                setError(e instanceof Error ? e.message : 'Terjadi kesalahan.');
-            } finally {
-                setIsLoading(false);
+                setIsLocked(data.locked === true);
+            } catch {
+                setIsLocked(false); // Kalau gagal fetch, default buka
             }
         }
-        fetchGallery();
+        checkLock();
     }, []);
+
+    useEffect(() => {
+        if (isLocked === false) {
+            // Hanya fetch galeri kalau tidak terkunci
+            async function fetchGallery() {
+                setIsLoading(true);
+                setError('');
+                try {
+                    const res = await fetch('/api/gallery');
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.error ?? 'Gagal memuat galeri');
+                    setAllFiles(data.files ?? []);
+                } catch (e: unknown) {
+                    setError(e instanceof Error ? e.message : 'Terjadi kesalahan.');
+                } finally {
+                    setIsLoading(false);
+                }
+            }
+            fetchGallery();
+        }
+    }, [isLocked]);
 
     const filteredFiles = filter === 'Semua'
         ? allFiles
@@ -157,6 +176,101 @@ export default function GalleryPage() {
     const closeLightbox = useCallback(() => setLightboxIndex(null), []);
     const prevPhoto = useCallback(() => setLightboxIndex((i) => (i !== null && i > 0 ? i - 1 : i)), []);
     const nextPhoto = useCallback(() => setLightboxIndex((i) => (i !== null && i < filteredFiles.length - 1 ? i + 1 : i)), [filteredFiles.length]);
+
+    // Tampilkan loading minimal saat cek status lock
+    if (isLocked === null) {
+        return (
+            <main className={lockedStyles.lockedPage}>
+                <div className={lockedStyles.lockedCard} style={{ padding: '60px 40px' }}>
+                    <div className={lockedStyles.lockIconWrap}>
+                        <div className={lockedStyles.lockIconBg}>
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Memuat...</p>
+                </div>
+            </main>
+        );
+    }
+
+    // Tampilkan halaman terkunci
+    if (isLocked) {
+        return (
+            <main className={lockedStyles.lockedPage}>
+                {/* Floating stars */}
+                <span className={lockedStyles.star}>✦</span>
+                <span className={lockedStyles.star}>✦</span>
+                <span className={lockedStyles.star}>✦</span>
+                <span className={lockedStyles.star}>✦</span>
+                <span className={lockedStyles.star}>✦</span>
+
+                <div className={lockedStyles.lockedCard}>
+                    {/* Lock icon */}
+                    <div className={lockedStyles.lockIconWrap}>
+                        <div className={lockedStyles.pulseRing} />
+                        <div className={lockedStyles.pulseRing} />
+                        <div className={lockedStyles.lockIconBg}>
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    {/* Badge */}
+                    <div className={lockedStyles.badge}>
+                        <span>✦</span>
+                        SMK Angkatan 2026
+                    </div>
+
+                    {/* Headline */}
+                    <h1 className={lockedStyles.headline}>
+                        Sabar dulu,{' '}
+                        <span className={lockedStyles.headlineAccent}>ya~</span>
+                    </h1>
+
+                    {/* Message */}
+                    <p className={lockedStyles.message}>
+                        Saat ini kamu{' '}
+                        <span className={lockedStyles.messageHighlight}>belum bisa lihat foto-fotonya dulu.</span>
+                        <br />
+                        Galeri masih kami tutup sementara.
+                    </p>
+
+                    <p className={lockedStyles.submessage}>
+                        Kumpulin aja foto sebanyak-banyaknya! 📸
+                        <br />
+                        Setelah galeri dibuka, semua kenangan kita bisa dilihat bersama.
+                    </p>
+
+                    <div className={lockedStyles.divider} />
+
+                    {/* Actions */}
+                    <div className={lockedStyles.actions}>
+                        <Link href="/upload" className={lockedStyles.btnUpload}>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                <polyline points="17 8 12 3 7 8" />
+                                <line x1="12" y1="3" x2="12" y2="15" />
+                            </svg>
+                            Upload Fotomu Sekarang
+                        </Link>
+                        <Link href="/" className={lockedStyles.btnBack}>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                            Kembali ke Beranda
+                        </Link>
+                    </div>
+                </div>
+
+                <p className={lockedStyles.footerNote}>SMK · Angkatan 2026</p>
+            </main>
+        );
+    }
 
     return (
         <main className={styles.page}>

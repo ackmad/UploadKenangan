@@ -144,9 +144,9 @@ export default function UploadPage() {
                 <div className={`${styles.header} animate-fade-in-up`}>
                     <h1 className={styles.title}>Bagikan Momenmu</h1>
                     <p className={styles.subtitle}>
-                        Pilih kelasmu dan upload foto terbaik masa SMK.
+                        Foto & video yang kamu upload akan tersimpan di arsip digital angkatan 2026.
                         <br />
-                        Kenangan ini akan tersimpan selamanya untuk kita semua.
+                        Galeri akan dibuka pada waktu yang sudah ditentukan — jadi simpen dulu semangatnya! ✦
                     </p>
                 </div>
 
@@ -302,9 +302,23 @@ export default function UploadPage() {
                         )}
                     </button>
 
-                    <p className={styles.footerNote}>
-                        Foto yang diunggah akan tersimpan di arsip digital angkatan 2026 ✦
-                    </p>
+                    <div className={styles.infoNote}>
+                        <span className={styles.infoIcon}>📁</span>
+                        <p>
+                            Foto & video tersimpan aman di arsip digital angkatan 2026.
+                            Galeri akan dibuka pada waktu yang sudah ditentukan, dan bisa dilihat bersama-sama.
+                        </p>
+                    </div>
+
+                    <div className={styles.warningNote}>
+                        <span className={styles.infoIcon}>⚠️</span>
+                        <p>
+                            Harap upload foto & video yang <strong>layak dan sopan</strong>.
+                            Jangan upload konten yang mengandung unsur <strong>kekerasan, pornografi, SARA,
+                                bullying, atau hal negatif lainnya</strong>. Konten yang melanggar dapat dihapus
+                            dan dikenakan sanksi sesuai peraturan sekolah.
+                        </p>
+                    </div>
                 </div>
             </div>
         </main>
