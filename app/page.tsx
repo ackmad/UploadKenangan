@@ -7,6 +7,7 @@ import HeroSection from './components/HeroSection';
 import TimelineSection from './components/TimelineSection';
 import GallerySection from './components/GallerySection';
 import ConfessionsSection from './components/ConfessionsSection';
+import FilmSection from './components/FilmSection';
 import ProfileSection from './components/ProfileSection';
 
 // Lazy-load splash so it doesn't block first paint
@@ -26,6 +27,7 @@ export default function ScrapbookPage() {
         <HeroSection />
         <TimelineSection />
         <GallerySection />
+        <FilmSection />
         <ConfessionsSection />
         <ProfileSection />
       </div>
