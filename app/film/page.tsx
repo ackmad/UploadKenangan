@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
-import ScrapbookNav from '@/app/components/ScrapbookNav';
+import ScrapbookNav from '@/components/ui/ScrapbookNav';
 
 const CAST = [
   { role: 'Sutradara', name: 'Tim Produksi DKV', emoji: '🎬', bg: '#FF9B9B' },

@@ -1,91 +1,77 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './SplashScreen.module.css';
 
 export default function SplashScreen({ onDone }: { onDone: () => void }) {
   const [phase, setPhase] = useState<'enter' | 'hold' | 'exit'>('enter');
   const [progress, setProgress] = useState(0);
-  const splashRef = useRef<HTMLDivElement>(null);
 
-  // Parallax effect
+  // Timers optimized for 2-3 seconds total duration
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!splashRef.current) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 20; // max 20px
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      splashRef.current.style.setProperty('--px', `${x}px`);
-      splashRef.current.style.setProperty('--py', `${y}px`);
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  // Timers
-  useEffect(() => {
-    // Reveal and load
-    const t1 = setTimeout(() => setPhase('hold'), 1200);
+    // Reveal and hold phase
+    const t1 = setTimeout(() => setPhase('hold'), 300);
     
-    // Simulate loading
+    // Simulate loading progress
     const interval = setInterval(() => {
       setProgress(p => {
-        const next = p + Math.random() * 15;
+        const next = p + Math.random() * 30;
         return next >= 100 ? 100 : next;
       });
-    }, 300);
+    }, 150);
 
-    // Transition out
+    // Transition out (Exit phase)
     const t2 = setTimeout(() => {
       clearInterval(interval);
       setProgress(100);
       setPhase('exit');
-    }, 4500); // 4.5 seconds of immersive intro
+    }, 2000); // 2 seconds total hold time
 
-    // Unmount
-    const t3 = setTimeout(() => onDone(), 5800);
+    // Unmount completely
+    const t3 = setTimeout(() => onDone(), 2800);
 
-    return () => { clearTimeout(t1); clearInterval(interval); clearTimeout(t2); clearTimeout(t3); };
+    return () => { 
+      clearTimeout(t1); 
+      clearInterval(interval); 
+      clearTimeout(t2); 
+      clearTimeout(t3); 
+    };
   }, [onDone]);
 
-  // Floating Elements Data
+  // Floating Elements Data (Reduced count and simple icons)
   const floatingElements = [
     { id: 1, icon: '📷', cls: styles.float1 },
     { id: 2, icon: '🎓', cls: styles.float2 },
-    { id: 3, icon: '📓', cls: styles.float3 },
-    { id: 4, icon: '✨', cls: styles.float4 },
-    { id: 5, icon: '💛', cls: styles.float5 },
-    { id: 6, icon: '🎞️', cls: styles.float6 },
-    { id: 7, icon: '📝', cls: styles.float7 },
-    { id: 8, icon: '🌟', cls: styles.float8 },
+    { id: 3, icon: '✨', cls: styles.float3 },
+    { id: 4, icon: '🎞️', cls: styles.float4 },
   ];
 
   return (
-    <div ref={splashRef} className={`${styles.splash} ${phase === 'exit' ? styles.exitPhase : ''}`}>
+    <div className={`${styles.splash} ${phase === 'exit' ? styles.exitPhase : ''}`}>
       
       {/* Background Layers */}
       <div className={styles.bgDark} />
       <div className={styles.bgGlow} />
       <div className={styles.vignette} />
       <div className={styles.grain} />
-      <div className={styles.flicker} />
 
-      {/* Floating Dust Particles */}
+      {/* Floating Dust Particles (Reduced count) */}
       <div className={styles.particlesContainer}>
-        {Array.from({ length: 30 }).map((_, i) => (
+        {Array.from({ length: 12 }).map((_, i) => (
           <div 
             key={i} 
             className={styles.dust} 
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${10 + Math.random() * 10}s`
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${6 + Math.random() * 4}s`
             }}
           />
         ))}
       </div>
 
-      {/* Floating Nostalgia Icons (Parallax) */}
+      {/* Floating Nostalgia Icons */}
       <div className={styles.parallaxLayer}>
         {floatingElements.map(el => (
           <div key={el.id} className={`${styles.iconBase} ${el.cls}`}>
@@ -99,11 +85,17 @@ export default function SplashScreen({ onDone }: { onDone: () => void }) {
         
         {/* Logo Text */}
         <div className={styles.logoContainer}>
-          <div className={styles.lightSweep} />
           <h1 className={styles.mainLogo}>
-            <span className={styles.skinfa}>SKINFA</span>
-            <span className={styles.verse}>VERSE</span>
-            <span className={styles.num21}>21</span>
+            <span className={`${styles.fontSkinfa} ${styles.colorSkinfa}`}>SKINFA</span>
+            <span className={`${styles.fontVerse} ${styles.colorVerse}`}>VERSE</span>
+            <span className={`${styles.fontNum21} ${styles.colorNum21}`}>21</span>
+
+            {/* Shiny Overlay Masked Exactly to Text */}
+            <span className={styles.mainLogoShine} aria-hidden="true">
+              <span className={styles.fontSkinfa}>SKINFA</span>
+              <span className={styles.fontVerse}>VERSE</span>
+              <span className={styles.fontNum21}>21</span>
+            </span>
           </h1>
         </div>
 

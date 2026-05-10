@@ -1,0 +1,318 @@
+/* BASE SPLASH CONTAINER */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050505; /* Deep black/charcoal */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+}
+
+/* ── EXIT TRANSITION (Cinematic Zoom Out & Fade) ── */
+.exitPhase {
+  animation: filmExit 0.8s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  pointer-events: none;
+}
+
+/* Optimized exit: pure opacity and transform, no filter blurs/sepia */
+@keyframes filmExit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* ── BACKGROUND LAYERS ── */
+.bgDark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, #151515 0%, #050505 80%);
+  z-index: 1;
+}
+
+.bgGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  z-index: 2;
+  /* Removed heavy breathe animation */
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.95) 100%);
+  z-index: 10;
+  pointer-events: none;
+  /* Removed mix-blend-mode: multiply as it's slow on mobile */
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  /* Optimized SVG noise: 1 octave, lower baseFrequency */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  z-index: 11;
+  pointer-events: none;
+  /* Removed mix-blend-mode and animation to save CPU/GPU */
+}
+
+/* ── FLOATING PARTICLES (Film Dust) ── */
+.particlesContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.dust {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 230, 180, 0.4);
+  border-radius: 50%;
+  /* Removed box-shadow, using background only for perf */
+  opacity: 0;
+  animation: floatDust linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes floatDust {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-150px); opacity: 0; }
+}
+
+/* Hide particles on small devices */
+@media (max-width: 768px) {
+  .particlesContainer {
+    display: none;
+  }
+}
+
+/* ── PARALLAX ICONS ── */
+.parallaxLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.iconBase {
+  position: absolute;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  opacity: 0;
+  /* Removed heavy filters */
+  color: rgba(200, 180, 150, 0.15); /* Replaces grayscale/sepia filter */
+  animation: iconReveal 1s ease-out forwards, iconFloat 10s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes iconReveal {
+  to { opacity: 0.8; }
+}
+
+@keyframes iconFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(10deg); }
+}
+
+.float1 { top: 15%; left: 10%; animation-delay: 0.2s, 0s; font-size: 3rem; }
+.float2 { top: 20%; right: 15%; animation-delay: 0.4s, 1s; font-size: 2.5rem; }
+.float3 { bottom: 25%; right: 10%; animation-delay: 0.6s, 0.5s; font-size: 2rem; }
+.float4 { bottom: 15%; left: 20%; animation-delay: 0.8s, 1.5s; font-size: 3rem; }
+
+@media (max-width: 768px) {
+  .iconBase {
+    font-size: 1.5rem; /* Smaller on mobile */
+  }
+}
+
+/* ── MAIN CONTENT ── */
+.contentCenter {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── LOGO & TYPOGRAPHY ── */
+.logoContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  overflow: hidden; 
+  padding: 20px;
+  /* Optimized cinematic entrance: scale and opacity only */
+  animation: logoCinematic 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: scale(0.95);
+  will-change: transform, opacity;
+}
+
+@keyframes logoCinematic {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.mainLogo {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  line-height: 1;
+  margin: 0;
+  position: relative; /* Container for absolute shine overlay */
+}
+
+/* ── SHINY TEXT MASK OVERLAY ── */
+.mainLogoShine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: linear-gradient(
+    110deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: sweepText 2.5s infinite linear;
+}
+
+@keyframes sweepText {
+  0% { background-position: 200% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── FONT BASES ── */
+.fontSkinfa {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.fontVerse {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.fontNum21 {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: -4px;
+  position: relative;
+  top: 5px; 
+}
+
+/* ── ORIGINAL COLORS & SHADOWS ── */
+.colorSkinfa {
+  color: #fff9f0;
+  text-shadow: 0 0 10px rgba(255, 249, 240, 0.3);
+}
+
+.colorVerse {
+  background: linear-gradient(to bottom, #cccccc, #888888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.colorNum21 {
+  background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.4));
+}
+
+/* ── BOTTOM INFO ── */
+.bottomInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeInUp 1s 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.timeline {
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: 1.1rem;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: var(--font-hand); 
+  font-size: 1.4rem;
+  color: rgba(255, 230, 180, 0.8);
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .timeline { font-size: 0.9rem; letter-spacing: 5px; }
+  .subtitle { font-size: 1.1rem; margin-bottom: 20px; }
+  .bottomInfo { margin-top: 20px; }
+}
+
+/* ── LOADING BAR ── */
+.loadingWrapper {
+  width: min(300px, 60vw);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.loadingGlowLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #FF8C00, #FFD700, transparent);
+  /* Simplified glow: opacity instead of blur */
+  opacity: 0.5;
+  transition: width 0.2s linear;
+}
+
+.loadingCoreLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #FF8C00, #FFD700);
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  transition: width 0.2s linear;
+}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import biodata from '@/data/biodata_siswa.json';
 import styles from './page.module.css';
-import ScrapbookNav from '@/app/components/ScrapbookNav';
+import ScrapbookNav from '@/components/ui/ScrapbookNav';
 
 export default function StudentDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = use(params);

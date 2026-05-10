@@ -2,16 +2,16 @@
 
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import ScrapbookNav from './components/ScrapbookNav';
-import HeroSection from './components/HeroSection';
-import TimelineSection from './components/TimelineSection';
-import GallerySection from './components/GallerySection';
-import ConfessionsSection from './components/ConfessionsSection';
-import FilmSection from './components/FilmSection';
-import ProfileSection from './components/ProfileSection';
+import ScrapbookNav from '@/components/ui/ScrapbookNav';
+import HeroSection from '@/components/sections/HeroSection';
+import TimelineSection from '@/components/sections/TimelineSection';
+import GallerySection from '@/components/sections/GallerySection';
+import ConfessionsSection from '@/components/sections/ConfessionsSection';
+import FilmSection from '@/components/sections/FilmSection';
+import ProfileSection from '@/components/sections/ProfileSection';
 
 // Lazy-load splash so it doesn't block first paint
-const SplashScreen = dynamic(() => import('./components/SplashScreen'), { ssr: false });
+const SplashScreen = dynamic(() => import('@/components/ui/SplashScreen'), { ssr: false });
 
 export default function ScrapbookPage() {
   const [showSplash, setShowSplash] = useState(true);

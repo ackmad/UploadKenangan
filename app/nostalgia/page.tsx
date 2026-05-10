@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import content from '@/data/content.json';
 import styles from './page.module.css';
-import ScrapbookNav from '@/app/components/ScrapbookNav';
+import ScrapbookNav from '@/components/ui/ScrapbookNav';
 
 const { gallery } = content;
 

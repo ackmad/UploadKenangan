@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import biodata from '@/data/biodata_siswa.json';
 import styles from './page.module.css';
-import ScrapbookNav from '@/app/components/ScrapbookNav';
+import ScrapbookNav from '@/components/ui/ScrapbookNav';
 
 const JURUSAN_LIST = ["Semua", "RPL", "TKJ", "DKV"];
 const BG_COLORS = ['#FF9B9B', '#A8E6CF', '#C3B1E1', '#FFD166', '#89C4E1', '#FFCBA4'];
