@@ -2,15 +2,22 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import styles from './ScrapbookNav.module.css';
-import content from '@/data/content.json';
 
-const { nav } = content;
+const NAV_LINKS = [
+  { href: '/',          label: '🏠 Home' },
+  { href: '/students',  label: '🎓 Kelas & Siswa' },
+  { href: '/nostalgia', label: '📷 Nostalgia' },
+  { href: '/stories',   label: '💬 Stories' },
+  { href: '/yearbook',  label: '📚 Yearbook' },
+];
 
 export default function ScrapbookNav() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => {
@@ -23,12 +30,8 @@ export default function ScrapbookNav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
-    setMenuOpen(false);
-    if (href.startsWith('#')) {
-      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Close mobile menu on route change
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   return (
     <>
@@ -36,26 +39,18 @@ export default function ScrapbookNav() {
       <div className={styles.progressBar} style={{ width: `${scrollProgress}%` }} />
 
       <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
-        <a href="#hero" className={styles.logo} onClick={e => { e.preventDefault(); handleNavClick('#hero'); }}>
-          <span className={styles.logoIcon}>{nav.logoIcon}</span>
-          <span className={styles.logoText}>{nav.logoText} <strong>{nav.logoHighlight}</strong></span>
-        </a>
+        <Link href="/" className={styles.logo}>
+          <span className={styles.logoIcon}>📓</span>
+          <span className={styles.logoText}>SKINFA<strong>VERSE21</strong></span>
+        </Link>
 
         {/* Desktop links */}
         <ul className={styles.links}>
-          {nav.links.map(link => (
+          {NAV_LINKS.map(link => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={styles.link}
-                onClick={e => { 
-                  if (link.href.startsWith('#')) {
-                    e.preventDefault(); 
-                    handleNavClick(link.href);
-                  } else {
-                    setMenuOpen(false);
-                  }
-                }}
+                className={`${styles.link} ${pathname === link.href ? styles.linkActive : ''}`}
               >
                 {link.label}
               </Link>
@@ -81,19 +76,12 @@ export default function ScrapbookNav() {
         <div className={styles.mobileMenuInner}>
           <p className={styles.mobileMenuTitle}>📖 Menu</p>
           <ul className={styles.mobileLinks}>
-            {nav.links.map(link => (
+            {NAV_LINKS.map(link => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={styles.mobileLink}
-                  onClick={e => { 
-                    if (link.href.startsWith('#')) {
-                      e.preventDefault(); 
-                      handleNavClick(link.href);
-                    } else {
-                      setMenuOpen(false);
-                    }
-                  }}
+                  className={`${styles.mobileLink} ${pathname === link.href ? styles.mobileLinkActive : ''}`}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
