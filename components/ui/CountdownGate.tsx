@@ -2,17 +2,27 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import styles from './CountdownGate.module.css';
+import WelcomeSequence from './WelcomeSequence';
 
-type Phase = 'loading' | 'countdown' | 'welcome' | 'unlocked';
+type Phase = 'loading' | 'countdown' | 'welcome' | 'sequence' | 'unlocked';
 
 export default function CountdownGate({ children }: { children: React.ReactNode }) {
   const [phase, setPhase] = useState<Phase>('loading');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
+  // Dev mode states
+  const [showDevInput, setShowDevInput] = useState(false);
+  const [devPassword, setDevPassword] = useState('');
+  const [showDevMenu, setShowDevMenu] = useState(false);
+  const [pressTimer, setPressTimer] = useState<NodeJS.Timeout | null>(null);
+
   // Read config from env (falls back to defaults)
   const graduationDateStr = process.env.NEXT_PUBLIC_GRADUATION_DATE || '2026-05-16T00:00:00+07:00';
-  const gateMode = process.env.NEXT_PUBLIC_GATE_MODE || 'auto';
+  const initialGateMode = process.env.NEXT_PUBLIC_GATE_MODE || 'auto';
+  const expectedDevPassword = process.env.NEXT_PUBLIC_DEV_PASSWORD || '22150108';
   const targetDate = new Date(graduationDateStr).getTime();
+
+  const [gateMode, setGateMode] = useState(initialGateMode);
 
   const checkDevBypass = useCallback(() => {
     if (typeof window === 'undefined') return false;
@@ -83,11 +93,16 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
     return () => clearInterval(interval);
   }, [targetDate, gateMode, checkDevBypass]);
 
-  // Handle entering the site from welcome screen
+  // Handle entering the site from welcome screen → start cinematic sequence
   const handleEnterSite = () => {
+    setPhase('sequence');
+  };
+
+  // Handle sequence completion → unlock the site
+  const handleSequenceComplete = useCallback(() => {
     sessionStorage.setItem('seen_welcome', '1');
     setPhase('unlocked');
-  };
+  }, []);
 
   // Secret dev bypass: double-click badge
   const handleSecretBypass = () => {
@@ -95,6 +110,37 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
       localStorage.setItem('skip_countdown', '1');
       setPhase('unlocked');
     }
+  };
+
+  // Dev Mode Interactions
+  const handlePressStart = () => {
+    const timer = setTimeout(() => {
+      setShowDevInput(true);
+    }, 5000);
+    setPressTimer(timer);
+  };
+
+  const handlePressEnd = () => {
+    if (pressTimer) {
+      clearTimeout(pressTimer);
+      setPressTimer(null);
+    }
+  };
+
+  const handleDevPasswordSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (devPassword === expectedDevPassword) {
+      setShowDevMenu(true);
+      setShowDevInput(false);
+    } else {
+      setShowDevInput(false);
+      setDevPassword('');
+    }
+  };
+
+  const changeMode = (newMode: string) => {
+    setGateMode(newMode);
+    setShowDevMenu(false);
   };
 
   // ── LOADING STATE ──
@@ -105,6 +151,11 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
   // ── UNLOCKED: show actual site ──
   if (phase === 'unlocked') {
     return <>{children}</>;
+  }
+
+  // ── CINEMATIC SEQUENCE ──
+  if (phase === 'sequence') {
+    return <WelcomeSequence onComplete={handleSequenceComplete} />;
   }
 
   // Floating nostalgia elements (subtle, cinematic)
@@ -265,16 +316,47 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
           tapi semoga kita nggak lupa rasanya jadi <span className={styles.highlight}>anak SKINFA.</span>
         </p>
 
-        {/* CTA Button */}
-        <a
-          href="https://forms.gle/zvbJDUUmMYMtAvVH7"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.cta}
-        >
-          <span className={styles.ctaIcon}>✦</span>
-          Titipin Kenangan Sebelum Lulus
-        </a>
+        {/* CTA Button / Dev Input / Dev Menu */}
+        <div className={styles.ctaContainer}>
+          {showDevMenu ? (
+            <div className={styles.devMenu}>
+              <p className={styles.devMenuTitle}>Developer Mode</p>
+              <div className={styles.devMenuButtons}>
+                <button onClick={() => changeMode('countdown')}>Countdown</button>
+                <button onClick={() => changeMode('welcome')}>Welcome</button>
+                <button onClick={() => changeMode('open')}>Unlocked</button>
+                <button onClick={() => changeMode('auto')}>Auto</button>
+              </div>
+            </div>
+          ) : showDevInput ? (
+            <form onSubmit={handleDevPasswordSubmit} className={styles.devForm}>
+              <input 
+                type="password" 
+                value={devPassword} 
+                onChange={(e) => setDevPassword(e.target.value)} 
+                placeholder="Enter Dev Code"
+                className={styles.devInput}
+                autoFocus
+              />
+              <button type="submit" className={styles.devSubmit}>&gt;</button>
+            </form>
+          ) : (
+            <a
+              href="https://forms.gle/zvbJDUUmMYMtAvVH7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.cta}
+              onMouseDown={handlePressStart}
+              onMouseUp={handlePressEnd}
+              onMouseLeave={handlePressEnd}
+              onTouchStart={handlePressStart}
+              onTouchEnd={handlePressEnd}
+            >
+              <span className={styles.ctaIcon}>✦</span>
+              Titipin Kenangan Sebelum Lulus
+            </a>
+          )}
+        </div>
 
         {/* Footer line */}
         <p className={styles.footer}>
