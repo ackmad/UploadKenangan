@@ -1,0 +1,902 @@
+{
+  "site": {
+    "name": "SKINFAVERSE21",
+    "title": "SKINFAVERSE21 — Semesta Digital Angkatan 21",
+    "description": "Platform digital interaktif Angkatan 21 SMK Informatika Al-Irsyad Al-Islamiyyah (SKINFA) Cirebon. RPL, TKJ, DKV — Tiga tahun perjalanan yang tidak terlupakan.",
+    "ogTitle": "SKINFAVERSE21 — Semesta Digital Angkatan 21",
+    "ogDescription": "Tiga Tahun. Seribu Cerita. Satu Kenangan. — SKINFA Angkatan 21 · 2026",
+    "slogan": "Tiga Tahun. Seribu Cerita. Satu Kenangan.",
+    "school": {
+      "name": "SMK Informatika Al-Irsyad Al-Islamiyyah",
+      "short": "SKINFA",
+      "city": "Cirebon",
+      "address": "Jl. Perjuangan No.31, Sunyaragi, Kecamatan Kesambi, Kota Cirebon, Jawa Barat 45131",
+      "founded": "2003",
+      "vision": "Terwujudnya insan yang Islami, berprestasi, dan berkompeten."
+    },
+    "batch": {
+      "number": "21",
+      "year": "2026",
+      "label": "Angkatan 21",
+      "majors": [
+        "RPL",
+        "TKJ",
+        "DKV"
+      ]
+    }
+  },
+  "nav": {
+    "logoText": "SKINFA",
+    "logoHighlight": "A21",
+    "logoIcon": "📚",
+    "links": [
+      { "href": "/", "label": "Home" },
+      { "href": "/students", "label": "Students" },
+      { "href": "/classes", "label": "Classes" },
+      { "href": "/nostalgia", "label": "Nostalgia" },
+      { "href": "/gallery", "label": "Gallery" },
+      { "href": "/stories", "label": "Stories" },
+      { "href": "/film", "label": "Film" },
+      { "href": "/yearbook", "label": "Yearbook" },
+      { "href": "/timeline", "label": "Timeline" },
+      { "href": "/about", "label": "About" }
+    ]
+  },
+  "hero": {
+    "badge": "Angkatan 21 · SKINFAVERSE21 · Cirebon",
+    "headline": [
+      "Tiga",
+      "Tahun.",
+      "Seribu",
+      "Cerita.",
+      "Satu Kenangan."
+    ],
+    "subtitle": "Ini bukan sekadar arsip foto — ini adalah dunia digital yang menjaga setiap tawa, air mata, dan momen berharga kalian selama tiga tahun bersama.",
+    "scrollHint": "scroll ke bawah",
+    "cta": {
+      "primary": {
+        "label": "🗓️ Jelajahi Kenangan",
+        "href": "#timeline"
+      },
+      "secondary": {
+        "label": "📷 Lihat Galeri",
+        "href": "#gallery"
+      }
+    },
+    "polaroids": [
+      {
+        "caption": "PKL 2024",
+        "emoji": "📸"
+      },
+      {
+        "caption": "Class Meeting!",
+        "emoji": "🎉"
+      },
+      {
+        "caption": "Wisuda ✨",
+        "emoji": "🎓"
+      },
+      {
+        "caption": "Juara Lomba!",
+        "emoji": "🏆"
+      },
+      {
+        "caption": "Study Tour",
+        "emoji": "🌟"
+      }
+    ]
+  },
+  "timeline": {
+    "sectionTag": "📅 Perjalanan Kita",
+    "title": "Angkatan",
+    "titleEm": "Timeline",
+    "subtitle": "Dari hari pertama sampai hari terakhir — setiap momen yang membentuk kita.",
+    "specialBadge": "✨ The End & The Beginning ✨",
+    "events": [
+      {
+        "id": 1,
+        "date": "Juli 2023",
+        "title": "Hari Pertama! 🎒",
+        "desc": "MPLS — Masa Pengenalan Lingkungan Sekolah. Nervous tapi excited banget! Kenalan sama temen baru, guru baru, dan lingkungan sekolah yang baru.",
+        "emoji": "🏫",
+        "color": "var(--coral-light)",
+        "rot": "-2deg"
+      },
+      {
+        "id": 2,
+        "date": "Agustus 2023",
+        "title": "Upacara 17-an 🇮🇩",
+        "desc": "Upacara Hari Kemerdekaan pertama bareng angkatan. Panas-panasan di lapangan tapi tetep semangat merah putih!",
+        "emoji": "🇮🇩",
+        "color": "var(--peach)",
+        "rot": "1.5deg"
+      },
+      {
+        "id": 3,
+        "date": "Oktober 2023",
+        "title": "Ujian Tengah Semester 📝",
+        "desc": "UTS pertama yang bikin deg-degan. Begadang sampai jam 3 pagi, tapi akhirnya kelar juga. Kelas penuh dengan coretan rumus!",
+        "emoji": "✏️",
+        "color": "var(--mint)",
+        "rot": "-1deg"
+      },
+      {
+        "id": 4,
+        "date": "Desember 2023",
+        "title": "Class Meeting & Turnamen 🏆",
+        "desc": "Class meeting pertama! Ada futsal, badminton, dan tarik tambang. RPL vs TKJ vs DKV — seru banget dan penuh drama.",
+        "emoji": "⚽",
+        "color": "var(--yellow)",
+        "rot": "2deg"
+      },
+      {
+        "id": 5,
+        "date": "Februari 2024",
+        "title": "PKL Dimulai 💼",
+        "desc": "Mulai magang! RPL ke perusahaan software & IT, TKJ ke ISP dan kantor jaringan, DKV ke studio kreatif & percetakan. Pengalaman nyata pertama kita di industri!",
+        "emoji": "💼",
+        "color": "var(--sky)",
+        "rot": "-3deg"
+      },
+      {
+        "id": 6,
+        "date": "Juni 2024",
+        "title": "PKL Selesai! 🎉",
+        "desc": "Setelah 4 bulan PKL, akhirnya balik ke sekolah. Banyak cerita gila dan pengalaman yang tidak ternilai. Welcome back, gang!",
+        "emoji": "🎉",
+        "color": "var(--rose)",
+        "rot": "1deg"
+      },
+      {
+        "id": 7,
+        "date": "Agustus 2024",
+        "title": "SKINFA Ulang Tahun ke-21 🎂",
+        "desc": "Hari jadi SMK Informatika Al-Irsyad Al-Islamiyyah ke-21! Ada penampilan dari tiap kelas, lomba-lomba seru, dan DKV bikin dekorasi yang estetik banget!",
+        "emoji": "🎂",
+        "color": "var(--lavender)",
+        "rot": "-1.5deg"
+      },
+      {
+        "id": 8,
+        "date": "Oktober 2024",
+        "title": "Study Tour 🚌",
+        "desc": "Akhirnya study tour yang ditunggu-tunggu! Pergi bareng seluruh angkatan, foto bareng, makan bareng, ketawa bareng. Best day ever!",
+        "emoji": "🚌",
+        "color": "var(--sage)",
+        "rot": "2.5deg"
+      },
+      {
+        "id": 9,
+        "date": "Februari 2025",
+        "title": "Ujian Nasional 😰",
+        "desc": "Musim ujian paling intense sepanjang masa. Semua orang belajar keras, tapi tetep sempat bikin meme di grup wa kelas.",
+        "emoji": "📚",
+        "color": "var(--peach)",
+        "rot": "-2.5deg"
+      },
+      {
+        "id": 10,
+        "date": "Mei 2026",
+        "title": "WISUDA! 🎓✨",
+        "desc": "Hari yang paling ditunggu-tunggu. Toga, air mata, tawa, dan pelukan. Tiga tahun terasa singkat — tapi kenangan kita abadi selamanya.",
+        "emoji": "🎓",
+        "color": "var(--yellow)",
+        "rot": "0deg",
+        "special": true
+      }
+    ]
+  },
+  "gallery": {
+    "sectionTag": "📷 Momen Abadi",
+    "title": "Scrapbook",
+    "titleEm": "Galeri",
+    "subtitle": "Klik foto untuk lihat lebih dekat. Setiap gambar punya ceritanya sendiri.",
+    "categories": [
+      "Semua",
+      "Kelas",
+      "Acara",
+      "PKL",
+      "Teman",
+      "BTS"
+    ],
+    "photos": [
+      {
+        "id": 1,
+        "cat": "Kelas",
+        "caption": "RPL ngoding bareng 💻",
+        "emoji": "💻",
+        "bg": "linear-gradient(135deg,#FF9B9B,#FF6B6B)",
+        "rot": "-3deg",
+        "wide": false
+      },
+      {
+        "id": 2,
+        "cat": "Acara",
+        "caption": "Class meeting seru Angkatan 21!",
+        "emoji": "⚽",
+        "bg": "linear-gradient(135deg,#A8E6CF,#7EC8A4)",
+        "rot": "2deg",
+        "wide": true
+      },
+      {
+        "id": 3,
+        "cat": "PKL",
+        "caption": "Hari pertama PKL 💼",
+        "emoji": "🏢",
+        "bg": "linear-gradient(135deg,#C3B1E1,#9B85D4)",
+        "rot": "-1deg",
+        "wide": false
+      },
+      {
+        "id": 4,
+        "cat": "Teman",
+        "caption": "Geng SKINFA gak ada matinya 💪",
+        "emoji": "🤝",
+        "bg": "linear-gradient(135deg,#89C4E1,#5BAED0)",
+        "rot": "4deg",
+        "wide": false
+      },
+      {
+        "id": 5,
+        "cat": "Kelas",
+        "caption": "TKJ pasang kabel sampe malem",
+        "emoji": "🔧",
+        "bg": "linear-gradient(135deg,#FFCBA4,#FF9D6C)",
+        "rot": "-2deg",
+        "wide": true
+      },
+      {
+        "id": 6,
+        "cat": "BTS",
+        "caption": "Balik dari kantin SKINFA tercinta",
+        "emoji": "🍜",
+        "bg": "linear-gradient(135deg,#FFD166,#E8BB44)",
+        "rot": "1deg",
+        "wide": false
+      },
+      {
+        "id": 7,
+        "cat": "Acara",
+        "caption": "HUT SKINFA ke-21 🎂",
+        "emoji": "🎉",
+        "bg": "linear-gradient(135deg,#E8A0BF,#CF7DA6)",
+        "rot": "-4deg",
+        "wide": false
+      },
+      {
+        "id": 8,
+        "cat": "PKL",
+        "caption": "Presentasi project PKL 🎯",
+        "emoji": "📊",
+        "bg": "linear-gradient(135deg,#A8E6CF,#5BAF8A)",
+        "rot": "2.5deg",
+        "wide": true
+      },
+      {
+        "id": 9,
+        "cat": "Teman",
+        "caption": "Lunch bareng squad DKV",
+        "emoji": "🎨",
+        "bg": "linear-gradient(135deg,#C3B1E1,#89C4E1)",
+        "rot": "-1.5deg",
+        "wide": false
+      },
+      {
+        "id": 10,
+        "cat": "Kelas",
+        "caption": "DKV pameran karya!",
+        "emoji": "🖼️",
+        "bg": "linear-gradient(135deg,#FFB3B3,#FF6B6B)",
+        "rot": "3deg",
+        "wide": false
+      },
+      {
+        "id": 11,
+        "cat": "BTS",
+        "caption": "Rebahan di kelas pas guru keluar",
+        "emoji": "😴",
+        "bg": "linear-gradient(135deg,#FFCBA4,#FFD166)",
+        "rot": "-2deg",
+        "wide": false
+      },
+      {
+        "id": 12,
+        "cat": "Acara",
+        "caption": "Study tour Angkatan 21 🚌",
+        "emoji": "🗺️",
+        "bg": "linear-gradient(135deg,#89C4E1,#A8E6CF)",
+        "rot": "1.5deg",
+        "wide": true
+      }
+    ]
+  },
+  "confessions": {
+    "sectionTag": "📌 Curhat Anonim",
+    "title": "Confessions",
+    "titleEm": "& Nostalgia",
+    "subtitle": "Cerita yang tidak pernah diceritakan langsung — akhirnya punya tempatnya.",
+    "addBtn": "Tulis Confessionmu",
+    "modal": {
+      "title": "📝 Tulis Confessionmu",
+      "subtitle": "Anonim. Bebas. Jujur. Tidak ada yang tahu kamu yang nulis.",
+      "placeholder": "Tulis cerita, momen lucu, atau perasaan yang belum pernah kamu ungkapkan...",
+      "submitBtn": "📌 Tempel ke Papan!",
+      "successMsg": "✅ Tempel! Confession kamu sudah di papan~"
+    },
+    "initialNotes": [
+      {
+        "id": 1,
+        "text": "Pernah tidur di kelas pas pelajaran dan guru nanya jawaban, tapi entah gimana bisa jawab bener. Sampai sekarang masih bingung gimana caranya 😂",
+        "color": "#FFD166",
+        "rot": "-2deg",
+        "author": "Anonim RPL"
+      },
+      {
+        "id": 2,
+        "text": "Waktu PKL pertama hari, nyasar 2 jam karena salah naik angkot di Cirebon. Malu banget tapi sekarang jadi cerita legendaris!",
+        "color": "#FF9B9B",
+        "rot": "2.5deg",
+        "author": "Anonim TKJ"
+      },
+      {
+        "id": 3,
+        "text": "Ada yang punya crush sama guru olahraga sejak kelas X sampai lulus. Kamu tahu siapa kamu 👀",
+        "color": "#A8E6CF",
+        "rot": "-1deg",
+        "author": "Anonim DKV"
+      },
+      {
+        "id": 4,
+        "text": "Tugas yang kita kerjain 5 menit sebelum dikumpulin ternyata nilainya paling tinggi di kelas. Sistem ini tidak adil 😭",
+        "color": "#C3B1E1",
+        "rot": "3deg",
+        "author": "Anonim RPL"
+      },
+      {
+        "id": 5,
+        "text": "Geng kita punya kode rahasia buat bilang \"gurunya galak banget hari ini\" tanpa ketahuan. Sampe sekarang masih work 🤫",
+        "color": "#89C4E1",
+        "rot": "-3.5deg",
+        "author": "Anonim TKJ"
+      },
+      {
+        "id": 6,
+        "text": "Pernah lupa bawa tugas dan bilang \"ketinggalan di rumah\" padahal belum dikerjain sama sekali. Klasik.",
+        "color": "#FFCBA4",
+        "rot": "1.5deg",
+        "author": "Anonim SKINFA"
+      },
+      {
+        "id": 7,
+        "text": "Kantin SKINFA yang harganya bikin dompet menjerit tapi kita tetep beli tiap hari. Ekonomi kita tidak pernah sehat.",
+        "color": "#E8A0BF",
+        "rot": "-2deg",
+        "author": "Anonim DKV"
+      },
+      {
+        "id": 8,
+        "text": "Kita pernah kompak bohong ke guru \"belum belajar\" padahal semua udah belajar dari seminggu sebelumnya. Solidaritas level dewa 😂",
+        "color": "#B5EAD7",
+        "rot": "2deg",
+        "author": "Anonim Angkatan 21"
+      },
+      {
+        "id": 9,
+        "text": "Tiga tahun duduk bareng di SKINFA, dan sekarang baru sadar betapa berharganya waktu itu. Miss you all 🥺",
+        "color": "#FFD166",
+        "rot": "-1.5deg",
+        "author": "Anonim"
+      },
+      {
+        "id": 10,
+        "text": "Ada grup WA kelas yang buat saling berbagi jawaban ulangan. Itu rahasia Angkatan 21 selamanya ya 🤐",
+        "color": "#C3B1E1",
+        "rot": "3.5deg",
+        "author": "Anonim RPL"
+      }
+    ]
+  },
+  "hallOfFame": {
+    "sectionTag": "🏆 Penghargaan Angkatan",
+    "title": "Hall of",
+    "titleEm": "Fame",
+    "subtitle": "Dipilih langsung oleh teman-teman sekelas. Gelar yang tidak akan terlupakan.",
+    "winners": [
+      {
+        "id": 1,
+        "emoji": "😴",
+        "category": "Paling Sering Terlambat",
+        "name": "Si Bintang",
+        "jurusan": "TKJ",
+        "color": "var(--coral-light)",
+        "ribbonColor": "var(--coral)",
+        "note": "\"Gue selalu dateng on time... ke kantin.\""
+      },
+      {
+        "id": 2,
+        "emoji": "💡",
+        "category": "Future CEO",
+        "name": "Rafi A.",
+        "jurusan": "RPL",
+        "color": "var(--yellow)",
+        "ribbonColor": "var(--yellow-dark)",
+        "note": "\"Startup-ku belum ada, tapi visi udah 10 tahun ke depan.\""
+      },
+      {
+        "id": 3,
+        "emoji": "🎨",
+        "category": "Paling Artistik",
+        "name": "Nadia S.",
+        "jurusan": "DKV",
+        "color": "var(--rose)",
+        "ribbonColor": "var(--rose-dark)",
+        "note": "\"Binder-ku lebih rapi dari portofolio manapun.\""
+      },
+      {
+        "id": 4,
+        "emoji": "😂",
+        "category": "Class Clown",
+        "name": "Dimas P.",
+        "jurusan": "TKJ",
+        "color": "var(--peach)",
+        "ribbonColor": "var(--coral)",
+        "note": "\"Guru marah aja gue masih sempet bikin meme.\""
+      },
+      {
+        "id": 5,
+        "emoji": "📚",
+        "category": "Paling Rajin",
+        "name": "Annisa R.",
+        "jurusan": "RPL",
+        "color": "var(--mint)",
+        "ribbonColor": "var(--sage-dark)",
+        "note": "\"Bukan rajin, tapi takut nilai jelek aja.\""
+      },
+      {
+        "id": 6,
+        "emoji": "💑",
+        "category": "Couple Goals",
+        "name": "Rizky & Sari",
+        "jurusan": "DKV & TKJ",
+        "color": "var(--lavender)",
+        "ribbonColor": "#9B85D4",
+        "note": "\"Tiga tahun bareng — semoga seumur hidup.\""
+      },
+      {
+        "id": 7,
+        "emoji": "🍜",
+        "category": "Paling Lapar",
+        "name": "Bagas F.",
+        "jurusan": "TKJ",
+        "color": "var(--peach)",
+        "ribbonColor": "var(--yellow-dark)",
+        "note": "\"Jam 7 pagi udah nanya jam berapa istirahat.\""
+      },
+      {
+        "id": 8,
+        "emoji": "🌟",
+        "category": "Best PKL Story",
+        "name": "Keisya M.",
+        "jurusan": "RPL",
+        "color": "var(--sky)",
+        "ribbonColor": "var(--sky-dark)",
+        "note": "\"Dikira anak magang, ehnya ditawarin jadi karyawan tetap.\""
+      }
+    ]
+  },
+  "notes": {
+    "sectionTag": "💌 Surat Digital",
+    "title": "Digital",
+    "titleEm": "Notes Wall",
+    "subtitle": "Tinggalkan pesan untuk teman-temanmu. Kata-kata yang akan diingat selamanya.",
+    "form": {
+      "title": "✍️ Tulis Pesanmu",
+      "subtitle": "Seperti mengisi buku tamu — tulis namamu dan pesan tulus untuk angkatan.",
+      "namePlaceholder": "Tulis namamu di sini...",
+      "msgPlaceholder": "Tulis pesan, harapan, atau doa tulus untuk angkatan...",
+      "submitBtn": "💌 Kirim Pesan",
+      "successMsg": "Pesanmu sudah terkirim! Terima kasih~"
+    },
+    "initialNotes": [
+      {
+        "id": 1,
+        "name": "Alya",
+        "msg": "Makasih udah jadi temen terbaik selama 3 tahun di SKINFA. Kita pasti ketemu lagi di puncak! 🌟",
+        "color": "#FFF8E1",
+        "time": "2 jam lalu"
+      },
+      {
+        "id": 2,
+        "name": "Rizky",
+        "msg": "Buat RPL semua — kalian bukan cuma temen sekelas, kalian keluarga. Sukses ya semuanya! 💙",
+        "color": "#E3F2FD",
+        "time": "4 jam lalu"
+      },
+      {
+        "id": 3,
+        "name": "Nadia",
+        "msg": "Tiga tahun berjuang bareng DKV di SKINFA. Karya kita mungkin belum sempurna, tapi perjalanannya luar biasa ✨",
+        "color": "#FCE4EC",
+        "time": "5 jam lalu"
+      },
+      {
+        "id": 4,
+        "name": "Dimas",
+        "msg": "Buat siapapun yang pernah duduk bareng di kelas: makasih udah bikin SKINFA jadi tempat yang asyik 😄",
+        "color": "#E8F5E9",
+        "time": "1 hari lalu"
+      },
+      {
+        "id": 5,
+        "name": "Keisya",
+        "msg": "Dear masa depan, tolong ingat betapa berharganya teman-teman SKINFA yang kamu punya sekarang. Jangan pernah lupa. 💌",
+        "color": "#F3E5F5",
+        "time": "1 hari lalu"
+      },
+      {
+        "id": 6,
+        "name": "Bagas",
+        "msg": "TKJ squad — dari pasang kabel sampe pasang mimpi. Kita bisa! Jangan lupa makan yang bener ya wkwk 🍜",
+        "color": "#FFF3E0",
+        "time": "2 hari lalu"
+      },
+      {
+        "id": 7,
+        "name": "Sari",
+        "msg": "Buat yang pernah nemenin belajar dan nemenin nangis pas nilai jelek — you guys are everything 🤍",
+        "color": "#FFF8E1",
+        "time": "2 hari lalu"
+      },
+      {
+        "id": 8,
+        "name": "Annisa",
+        "msg": "Selamat wisuda Angkatan 21! Yang sekarang terasa berat, percayalah suatu saat akan jadi cerita yang membanggakan.",
+        "color": "#E3F2FD",
+        "time": "3 hari lalu"
+      },
+      {
+        "id": 9,
+        "name": "Fajar",
+        "msg": "Gak menyangka 3 tahun di SKINFA bisa se-epic ini. Makasih buat semua kenangan yang udah kita buat bareng. See you at the top! 🚀",
+        "color": "#E8F5E9",
+        "time": "3 hari lalu"
+      }
+    ]
+  },
+  "profile": {
+    "sectionTag": "📋 Profil Angkatan",
+    "title": "Tentang",
+    "titleEm": "Angkatan 21",
+    "school": "SMK Informatika Al-Irsyad Al-Islamiyyah — RPL · TKJ · DKV",
+    "stamp": {
+      "line1": "ANGKATAN",
+      "year": "21",
+      "line2": "SKINFA · 2026"
+    },
+    "stats": [
+      {
+        "label": "Siswa Terdata",
+        "value": "78",
+        "emoji": "👥"
+      },
+      {
+        "label": "Jurusan",
+        "value": "3",
+        "emoji": "📚"
+      },
+      {
+        "label": "Tahun Bersama",
+        "value": "3",
+        "emoji": "🗓️"
+      }
+    ],
+    "manifesto": [
+      "Kami bukan sekadar angkatan — kami adalah satu keluarga besar yang terbentuk dari tiga tahun tawa, tantangan, ibadah, dan pertumbuhan bersama di bawah naungan SKINFA.",
+      "Kami datang dari dunia yang berbeda: RPL yang membangun masa depan dengan kode, TKJ yang menghubungkan dunia dengan jaringan, dan DKV yang menceritakan segalanya lewat visual.",
+      "Tapi di sini, di sekolah tercinta kita — SMK Informatika Al-Irsyad Al-Islamiyyah — kami adalah satu. Angkatan 21 · 2026 — dan kami siap meninggalkan bekas yang tidak terlupakan."
+    ],
+    "manifestoTitle": "📜 Manifesto Angkatan",
+    "manifestoSig": "Angkatan 21",
+    "classesTitle": "Daftar Kelas",
+    "classes": [
+      {
+        "name": "RPL",
+        "count": 36,
+        "color": "var(--coral-light)",
+        "icon": "💻"
+      },
+      {
+        "name": "TKJ",
+        "count": 18,
+        "color": "var(--mint)",
+        "icon": "🔧"
+      },
+      {
+        "name": "DKV",
+        "count": 33,
+        "color": "var(--lavender)",
+        "icon": "🎨"
+      }
+    ],
+    "cta": {
+      "title": "Kita Sudah Sejauh Ini. 🎓",
+      "subtitle": "Jaga kenangan ini. Bagikan ke teman-teman. Dan ingat — Angkatan 21 SKINFA tidak akan pernah terlupakan.",
+      "btnGallery": "📷 Lihat Galeri",
+      "btnUpload": "⬆️ Upload Kenangan"
+    },
+    "footer": {
+      "credit": "Made with 💛 by Angkatan 21 · SKINFA 2026",
+      "slogan": "Tiga Tahun. Seribu Cerita. Satu Kenangan.",
+      "address": "SMK Informatika Al-Irsyad Al-Islamiyyah · Jl. Perjuangan No.31, Cirebon"
+    }
+  },
+  "upload": {
+    "backLabel": "Kembali ke SKINFAVERSE21",
+    "navTitle": "Upload Kenangan · Angkatan 21",
+    "title": "Bagikan Momenmu ✨",
+    "subtitle": "Upload foto & video kenangan SKINFA Angkatan 21 ke arsip digital SKINFAVERSE21.",
+    "subtitle2": "Setiap momen yang kamu bagikan akan menjadi bagian dari sejarah kita bersama — diabadikan selamanya. 💛",
+    "cardTitle": "Upload via Google Form",
+    "cardDesc": "Untuk menjaga kualitas arsip SKINFAVERSE21, silakan upload foto dan video kenangan Angkatan 21 melalui link Google Form berikut. Setiap momen berharga yang kamu bagikan akan menjadi bagian dari sejarah SKINFA kita.",
+    "uploadBtnLabel": "Buka Link Upload",
+    "formUrl": "https://forms.gle/BgzdSJZC5PkkTeiG9",
+    "infoNote": "Foto & video tersimpan aman di arsip digital SKINFAVERSE21 — Angkatan 21, SMK Informatika Al-Irsyad Al-Islamiyyah. Galeri akan dibuka bersama pada waktu yang sudah ditentukan sebagai momen nostalgia kita bersama.",
+    "warningNote": "Harap upload foto & video yang layak dan sopan. Jangan upload konten yang mengandung unsur kekerasan, pornografi, SARA, bullying, atau hal negatif lainnya. Konten yang melanggar dapat dihapus dan dikenakan sanksi sesuai peraturan sekolah."
+  },
+  "events": {
+    "list": [
+      {
+        "slug": "mpls",
+        "title": "MPLS — Masa Pengenalan Lingkungan Sekolah",
+        "short": "MPLS 2023",
+        "date": "Juli 2023",
+        "location": "SMK SKINFA Cirebon",
+        "emoji": "🏫",
+        "color": "#A8E6CF",
+        "description": "Hari pertama resmi jadi bagian dari SKINFA. Canggung, deg-degan, tapi penuh semangat.",
+        "caption": "Hari pertama yang deg-degan tapi nggak mau diakuin.",
+        "cover": "/images/events/mpls.jpg",
+        "stats": { "photos": 24, "videos": 3, "attendees": 78 },
+        "things_we_remember": [
+          "Seragam masih licin banget, belum ada bekas duduk di lantai",
+          "Kenalan sama orang asing yang sekarang jadi teman paling deket",
+          "Kakak kelas yang serem ternyata baik banget",
+          "Makan siang di kantin bareng orang-orang yang baru dikenal"
+        ],
+        "chaos_moment": "Waktu ada yel-yel kelas yang dadakan dan semua orang bingung mau ngapain 😭"
+      },
+      {
+        "slug": "classmeet",
+        "title": "Class Meeting Angkatan 21",
+        "short": "Classmeet",
+        "date": "Desember 2023",
+        "location": "Lapangan SKINFA",
+        "emoji": "⚽",
+        "color": "#FFD166",
+        "description": "Kompetisi antar kelas yang penuh drama, tawa, dan energi yang nggak habis-habis.",
+        "caption": "RPL vs TKJ vs DKV — dan semua orang pura-pura serius.",
+        "cover": "/images/events/classmeet.jpg",
+        "stats": { "photos": 156, "videos": 12, "attendees": 78 },
+        "things_we_remember": [
+          "Pertandingan futsal yang berakhir dengan kontroversi abadi",
+          "Momen semua kelas bikin yel-yel dadakan",
+          "Waktu ada yang cedera tapi tetep maksa main",
+          "Podium pemenang yang disambut lebih meriah dari upacara 17an"
+        ],
+        "chaos_moment": "Wasit diberondong protes dari dua tim sekaligus selama 15 menit tanpa henti 😂"
+      },
+      {
+        "slug": "pkl",
+        "title": "PKL — Praktik Kerja Lapangan",
+        "short": "PKL 2024",
+        "date": "Februari — Juni 2024",
+        "location": "Berbagai Kota",
+        "emoji": "💼",
+        "color": "#89C4E1",
+        "description": "Empat bulan yang mengubah semua orang. Dari anak sekolah jadi (hampir) orang dewasa.",
+        "caption": "Pertama kali ngerasain dunia nyata — dan sedikit panik.",
+        "cover": "/images/events/pkl.jpg",
+        "stats": { "photos": 312, "videos": 28, "attendees": 78 },
+        "things_we_remember": [
+          "Hari pertama yang nyasar dan pura-pura santai di depan pembimbing",
+          "Meeting pertama yang grogi tapi entah gimana berhasil",
+          "Teman PKL yang jadi sahabat karib meskipun beda jurusan",
+          "Momen kangen sekolah padahal dulu pengen PKL mulu"
+        ],
+        "chaos_moment": "Deadline laporan PKL dikerjakan satu malam sebelum dikumpulkan — sambil tetap WA-an 😭"
+      },
+      {
+        "slug": "study-tour",
+        "title": "Study Tour Angkatan 21",
+        "short": "Study Tour",
+        "date": "Oktober 2024",
+        "location": "Yogyakarta & Semarang",
+        "emoji": "🚌",
+        "color": "#FFCBA4",
+        "description": "Perjalanan bareng seluruh angkatan. Bus penuh nyanyian, foto bareng di mana-mana, dan kenangan yang nggak terlupakan.",
+        "caption": "Foto bareng seisi bus dan nggak ada yang tidur.",
+        "cover": "/images/events/study-tour.jpg",
+        "stats": { "photos": 487, "videos": 45, "attendees": 78 },
+        "things_we_remember": [
+          "Nyanyi bareng di bus dari malam sampai subuh",
+          "Foto di semua spot wisata sampai memori HP penuh",
+          "Makan malam bareng seluruh angkatan pertama dan terakhir kalinya",
+          "Drama koper hilang yang ternyata cuma salah bus"
+        ],
+        "chaos_moment": "Bus 3 ketinggalan di rest area dan baru ketahuan 30 menit kemudian 😂"
+      },
+      {
+        "slug": "graduation",
+        "title": "Wisuda & Perpisahan Angkatan 21",
+        "short": "Graduation",
+        "date": "Mei 2026",
+        "location": "SMK SKINFA Cirebon",
+        "emoji": "🎓",
+        "color": "#C3B1E1",
+        "description": "Hari yang paling ditunggu-tunggu. Toga, air mata, tawa, dan pelukan. Tiga tahun terasa singkat.",
+        "caption": "Hari di mana semua orang pura-pura nggak sedih… tapi gagal.",
+        "cover": "/images/events/graduation.jpg",
+        "stats": { "photos": 623, "videos": 67, "attendees": 78 },
+        "things_we_remember": [
+          "Momen lempar toga yang sempat diulang berkali-kali buat foto",
+          "Tangisan yang awalnya ditahan tapi akhirnya nggak bisa dibendung",
+          "Pelukan panjang sama guru yang dulu sering bikin nervous",
+          "Foto terakhir di depan sekolah sebelum jalan masing-masing"
+        ],
+        "chaos_moment": "Toga terbang kena angin dan mendarat di kepala orang yang salah 😂"
+      },
+      {
+        "slug": "film-angkatan",
+        "title": "Film Angkatan 21",
+        "short": "Film Angkatan",
+        "date": "2025 — 2026",
+        "location": "SMK SKINFA & Berbagai Lokasi",
+        "emoji": "🎬",
+        "color": "#E8A0BF",
+        "description": "Proyek kolaborasi terbesar Angkatan 21. Sebuah film tentang perjalanan tiga tahun di SKINFA.",
+        "caption": "Ambil satu! — kata sutradara yang juga masih siswa.",
+        "cover": "/images/events/film.jpg",
+        "stats": { "photos": 89, "videos": 134, "attendees": 42 },
+        "things_we_remember": [
+          "Syuting jam 6 pagi sebelum sekolah dimulai",
+          "Improvisasi dialog yang ternyata malah jadi adegan terbaik",
+          "Kru yang lebih ramai dari pemain",
+          "Preview pertama di depan seluruh angkatan"
+        ],
+        "chaos_moment": "Microphone mati pas adegan paling emosional setelah 10 take 😭"
+      }
+    ]
+  },
+  "quotes": {
+    "list": [
+      { "id": 1, "text": "Bukan cuma soal lulus. Ini soal bertahan dan tumbuh.", "author": "Anonim RPL", "category": "Motivasi", "color": "#FFD166" },
+      { "id": 2, "text": "Terima kasih untuk setiap hari yang terasa biasa tapi ternyata luar biasa.", "author": "XII DKV", "category": "Perpisahan", "color": "#FF9B9B" },
+      { "id": 3, "text": "Teman terbaik bukan yang selalu ada. Tapi yang tetap ada meski sudah tidak ada alasan.", "author": "Anonim TKJ", "category": "Persahabatan", "color": "#A8E6CF" },
+      { "id": 4, "text": "PKL itu pelajaran yang paling mahal. Bukan karena biayanya, tapi karena pengalamannya.", "author": "Anonim RPL", "category": "PKL", "color": "#89C4E1" },
+      { "id": 5, "text": "Dulu pengen cepat lulus. Sekarang pengen balik lima menit sebelumnya.", "author": "Anonim Angkatan 21", "category": "Perpisahan", "color": "#C3B1E1" },
+      { "id": 6, "text": "Guru yang paling bikin kesal ternyata yang paling banyak ngajarin hal beneran.", "author": "Anonim DKV", "category": "Random", "color": "#FFCBA4" },
+      { "id": 7, "text": "Kantin SKINFA: tempat semua masalah terpecahkan dengan gorengan.", "author": "Anonim TKJ", "category": "Lucu", "color": "#B5EAD7" },
+      { "id": 8, "text": "Yang paling diingat bukan nilai ujiannya. Tapi suara ribut kelas setelah ujian selesai.", "author": "Anonim RPL", "category": "Lucu", "color": "#E8A0BF" },
+      { "id": 9, "text": "Jatuh cinta di sekolah itu aneh. Tapi itu salah satu perasaan yang paling jujur.", "author": "Anonim", "category": "Cinta 😭", "color": "#FF9B9B" },
+      { "id": 10, "text": "Tiga tahun bukan waktu yang sebentar. Tapi terasa singkat ketika akhirnya harus berakhir.", "author": "Angkatan 21", "category": "Perpisahan", "color": "#FFD166" },
+      { "id": 11, "text": "Di PKL baru sadar: dunia nyata lebih keras dari ulangan matematika.", "author": "Anonim RPL", "category": "PKL", "color": "#89C4E1" },
+      { "id": 12, "text": "Persahabatan terbaik dibangun dari momen paling random yang nggak direncanakan.", "author": "Anonim DKV", "category": "Persahabatan", "color": "#A8E6CF" }
+    ]
+  },
+  "teachers": {
+    "list": [
+      {
+        "id": 1,
+        "nama": "Bapak/Ibu Wali Kelas RPL",
+        "nickname": "Pak/Bu RPL",
+        "mapel": "Wali Kelas XII RPL",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Kerjakan dengan hati, hasilnya pasti luar biasa.",
+        "pesan": "Anak-anak RPL — kalian lebih hebat dari yang kalian kira. Terus coding, terus belajar, jangan menyerah.",
+        "momen_lucu": "Pas praktek lab, tiba-tiba semua laptop error bareng dan kita semua cuma bisa ketawa 😂",
+        "color": "#89C4E1",
+        "emoji": "💻",
+        "role": "Wali Kelas"
+      },
+      {
+        "id": 2,
+        "nama": "Bapak/Ibu Wali Kelas TKJ",
+        "nickname": "Pak/Bu TKJ",
+        "mapel": "Wali Kelas XII TKJ",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Jaringan itu seperti kehidupan — harus terus terhubung.",
+        "pesan": "TKJ — kalian adalah penghubung dunia. Jadilah profesional yang tidak hanya pintar teknis, tapi juga punya karakter.",
+        "momen_lucu": "Waktu kabel LAN sepanjang koridor dirouting dan malah bikin kelas sebelah juga ikut tersambung 😭",
+        "color": "#A8E6CF",
+        "emoji": "🔌",
+        "role": "Wali Kelas"
+      },
+      {
+        "id": 3,
+        "nama": "Bapak/Ibu Wali Kelas DKV",
+        "nickname": "Pak/Bu DKV",
+        "mapel": "Wali Kelas XII DKV",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Desain bukan sekadar gambar — itu komunikasi.",
+        "pesan": "DKV — dunia butuh kreativitas kalian. Jangan pernah berhenti berkarya meskipun sudah lulus.",
+        "momen_lucu": "Deadline poster kelas H-1 dan semua orang baru mulai... dan hasilnya justru yang paling bagus 🎨",
+        "color": "#FFCBA4",
+        "emoji": "🎨",
+        "role": "Wali Kelas"
+      },
+      {
+        "id": 4,
+        "nama": "Guru Matematika",
+        "nickname": "Pak/Bu Matek",
+        "mapel": "Matematika",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Kalau nggak bisa, coba lagi. Kalau masih nggak bisa, coba lagi.",
+        "pesan": "Matematika bukan soal angka. Ini soal cara berpikir. Dan cara berpikir itulah yang akan kalian pakai seumur hidup.",
+        "momen_lucu": "Soal ulangan yang katanya 'mudah' tapi setengah kelas nilainya di bawah KKM 😭",
+        "color": "#FFD166",
+        "emoji": "📐",
+        "role": "Guru Mapel"
+      },
+      {
+        "id": 5,
+        "nama": "Guru Bahasa Indonesia",
+        "nickname": "Pak/Bu BI",
+        "mapel": "Bahasa Indonesia",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Bahasa adalah identitas. Jaga dengan baik.",
+        "pesan": "Kalian tumbuh dengan story, caption, dan konten — semua itu bahasa. Gunakan dengan bijak dan penuh makna.",
+        "momen_lucu": "Waktu disuruh bikin puisi dan hasilnya malah lebih mirip caption Instagram 😂",
+        "color": "#E8A0BF",
+        "emoji": "📝",
+        "role": "Guru Mapel"
+      },
+      {
+        "id": 6,
+        "nama": "Guru Olahraga",
+        "nickname": "Pak/Bu OR",
+        "mapel": "Pendidikan Jasmani",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Lari terus, jangan sampai ketinggalan!",
+        "pesan": "Sehat itu investasi jangka panjang. Jaga badan kalian sebaik kalian jaga gadget kalian.",
+        "momen_lucu": "Lari keliling lapangan yang harusnya 5 putaran tapi semua orang laporan udah 5 padahal baru 3 😂",
+        "color": "#A8E6CF",
+        "emoji": "⚽",
+        "role": "Guru Mapel"
+      },
+      {
+        "id": 7,
+        "nama": "Guru Agama",
+        "nickname": "Pak/Bu Agama",
+        "mapel": "Pendidikan Agama Islam",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "Ilmu tanpa akhlak itu berbahaya. Akhlak tanpa ilmu itu lemah.",
+        "pesan": "Apapun yang kalian raih nanti, jangan lupa akar kalian. Jadilah manusia yang bermanfaat.",
+        "momen_lucu": "Diskusi agama yang berujung debat sengit tentang hal random dan guru malah ikut ketawa 😂",
+        "color": "#C3B1E1",
+        "emoji": "📖",
+        "role": "Guru Mapel"
+      },
+      {
+        "id": 8,
+        "nama": "Kepala Sekolah",
+        "nickname": "Pak/Bu Kepsek",
+        "mapel": "Kepala Sekolah SKINFA",
+        "foto": "/images/teachers/placeholder-guru.jpg",
+        "quote_khas": "SKINFA bukan sekadar sekolah. Ini keluarga.",
+        "pesan": "Kalian adalah kebanggan SKINFA. Bawa nama baik sekolah ke mana pun kalian pergi, dan jadilah cahaya bagi lingkungan sekitar.",
+        "momen_lucu": "Upacara bendera yang speeches-nya selalu bisa bikin satu lapangan terdiam haru 🎓",
+        "color": "#FF9B9B",
+        "emoji": "🏫",
+        "role": "Kepala Sekolah"
+      }
+    ],
+    "iconic_quotes": [
+      { "text": "Kalau nggak ngerti, tanya. Jangan diam tapi nggak paham!", "source": "Guru Favorit" },
+      { "text": "Tugas dikumpulin hari ini ya. Nggak ada alasan.", "source": "Hampir Semua Guru 😭" },
+      { "text": "Ini bukan soal nilai, ini soal proses.", "source": "Guru Bijak" },
+      { "text": "Kalian ini pintar-pintar, tapi kok kelakuannya gitu 😂", "source": "Wali Kelas" },
+      { "text": "Yang di belakang, sudah paham atau belum?", "source": "Guru yang Perhatian" },
+      { "text": "Masa sekolah itu emas. Nanti kalian baru sadar.", "source": "Setiap Guru, Setiap Tahun" }
+    ]
+  }
+}

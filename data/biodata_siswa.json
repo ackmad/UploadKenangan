@@ -1,0 +1,2453 @@
+{
+  "metadata": {
+    "judul": "Data Biodata Siswa",
+    "keterangan": "Data telah dibersihkan dari duplikat. Setiap siswa hanya memiliki 1 entri berdasarkan pengisian terbaru.",
+    "total_siswa": 78,
+    "kelas": [
+      "DKV",
+      "RPL",
+      "TKJ"
+    ],
+    "terakhir_diperbarui": "2026-05-08"
+  },
+  "siswa": [
+    {
+      "id": 1,
+      "nama_lengkap": "Abdul Aziz",
+      "nama_panggilan": "Abdul",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kuwait, 14 Juli 2007",
+      "alamat": "Jl. Raya Gunung Jati, Blok piliran Kalisapu Kec. Gunung Jati RT 003 RW 001 Cirebon",
+      "no_hp": "0895 3498 07744",
+      "hobi": "Fotografi & Videografi",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kesempatan tidak datang dua kali bagi mereka yang takut mencoba",
+      "motto_hidup": "Terus berkembang",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "only.verda",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 06:43:27"
+    },
+    {
+      "id": 2,
+      "nama_lengkap": "Adaniah",
+      "nama_panggilan": "Adaniah",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Tegal, 07 April 2008",
+      "alamat": "Jl. Saleh GG. Mulya I no. 97b",
+      "no_hp": "088210511043",
+      "hobi": "Membaca dan memasak",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Be your own kind of beautiful",
+      "motto_hidup": "Learn from yesterday",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@Itsmey_niah",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:31:39"
+    },
+    {
+      "id": 3,
+      "nama_lengkap": "ADITYA EKA",
+      "nama_panggilan": "ADITYA",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "2 Juni 2007",
+      "alamat": "Perumahan green astpada blok B 26",
+      "no_hp": "085779421889",
+      "hobi": "Fotografi & basket",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Life is like riding a bicycle. To keep your balance, you must keep moving",
+      "motto_hidup": "Jangan takut",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@Ekditya556",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 07:10:42"
+    },
+    {
+      "id": 4,
+      "nama_lengkap": "Agam Wira Yuda",
+      "nama_panggilan": "Agam",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "26 Februari 2008",
+      "alamat": "Desa Pamengkang Cirebon Kecamatan Mundu Kabupaten Cirebon",
+      "no_hp": "+62 812-1472-2267",
+      "hobi": "Menggambar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Hidup itu pilihan, maka pilih lah yang terbaik",
+      "motto_hidup": "Keep going",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "agam_gum",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:42:38"
+    },
+    {
+      "id": 5,
+      "nama_lengkap": "Ahmad",
+      "nama_panggilan": "Ahmad",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 2 Juni 2007",
+      "alamat": "Jl. Cipto mangunkusumo. Gg miana",
+      "no_hp": "0882000872201",
+      "hobi": "Workout, basket, membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Don't worry what other people think, be authentic, and be you.",
+      "motto_hidup": "Dan janganlah kamu seperti orang-orang yang melupakan Allah, sehingga Dia menjadikan mereka lupa akan diri sendiri. (QS. Al-Hasyr: 19)",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@ahmeedanoez",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 08:41:34"
+    },
+    {
+      "id": 6,
+      "nama_lengkap": "Ali Afiff",
+      "nama_panggilan": "Ali",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "29 Agustus 2005",
+      "alamat": "Jl. sukasari no 51 cirebon",
+      "no_hp": "082126457844",
+      "hobi": "Basket",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Win in silence",
+      "motto_hidup": "Stay low, move loud",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "aleeafiff_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 08:40:34"
+    },
+    {
+      "id": 7,
+      "nama_lengkap": "Bagus Threeyanto",
+      "nama_panggilan": "Bagus",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Jakarta, 10 Agustus 2007",
+      "alamat": "Graha Keandra Kalijaga Tahap 3 Area E Blok Q2 No 47 RT 11 RW 10",
+      "no_hp": "0895340561305",
+      "hobi": "Bulutangkis",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Ga harus selalu tau arah, yang penting gak berhenti.",
+      "motto_hidup": "Ga semua cerita harus diceritakan.",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "immgoooddd",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 07:43:05"
+    },
+    {
+      "id": 8,
+      "nama_lengkap": "Cyrilla Khairunnisa Indayati Sumari",
+      "nama_panggilan": "Cyrilla",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "22 April 2008",
+      "alamat": "Keandra Park Cluster Canna blok 17 no 31",
+      "no_hp": "085703055761",
+      "hobi": "Menggambar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Now then, it's time to see what kind of a story is waiting for us.",
+      "motto_hidup": "I definitely gave it everything I had.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "lyyie.c",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "21/04/2026 17:57:32"
+    },
+    {
+      "id": 9,
+      "nama_lengkap": "Desta Azkiya' Jihad",
+      "nama_panggilan": "Desta",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 22 April 2008",
+      "alamat": "Perumahan Bumi Cirebon Adipura, Jalan Indah I No BA 49 Rt.05 Rw.13, Desa Pamengkang",
+      "no_hp": "081290106383",
+      "hobi": "Olahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kebanyakan motivasi tapi tanpa aksi",
+      "motto_hidup": "Jadilah seperti matahari, walaupun sendiri tapi tetap bersinar",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "_destazky",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "20/04/2026 19:30:50"
+    },
+    {
+      "id": 10,
+      "nama_lengkap": "dimitrio milan novsky",
+      "nama_panggilan": "dimitrio",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 15 Februari 2008",
+      "alamat": "Graha Alana desa Jatimulya",
+      "no_hp": "089603419077",
+      "hobi": "Main game, bikin hal yang baru, menggambar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Lebih pilih gagal mencoba atau gagal karena takut?",
+      "motto_hidup": "Kesabaran adalah bagian dari kemenangan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "-",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:38:38"
+    },
+    {
+      "id": 11,
+      "nama_lengkap": "Dzilhij Queen Zumrotum Magnolia",
+      "nama_panggilan": "Dzilhij",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 08 Desember 2008",
+      "alamat": "Perumahan Griya Jadimulya",
+      "no_hp": "089613130604",
+      "hobi": "Main game, dengerin lagu, nonton",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jadi kuat itu ga enak, apa lagi cuma pura-pura. – Park Jihoon",
+      "motto_hidup": "Stay true to yourself",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "z.mliaa",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 16:42:46"
+    },
+    {
+      "id": 12,
+      "nama_lengkap": "Dzulfikar Taufiqur Rahman",
+      "nama_panggilan": "Dzulfikar",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 08 Mei 2008",
+      "alamat": "JLN. SISINGAMANGARAJA, GG. CUCUT, RT02, RW01",
+      "no_hp": "0882000335374",
+      "hobi": "Bermain bola",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kesalahan adalah pelajaran yang paling berharga...",
+      "motto_hidup": "Jangan takut memulai sesuatu...",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "dezulfkr",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 07:48:04"
+    },
+    {
+      "id": 13,
+      "nama_lengkap": "Faiz ahsan",
+      "nama_panggilan": "Faiz",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 20 Oktober 2007",
+      "alamat": "Blok Kebuyutan wetan, Desa astapada, Kec. tengah tani",
+      "no_hp": "085703104599",
+      "hobi": "Belajar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Sekolah pasti kuliah bisa usaha sukses",
+      "motto_hidup": "Sepakat",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "faizztyz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 08:19:35"
+    },
+    {
+      "id": 14,
+      "nama_lengkap": "fauziyyah juliandari",
+      "nama_panggilan": "fauziyyah",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Kota Cirebon, 15 Juli 2008",
+      "alamat": "JL. Cendana raya no 07",
+      "no_hp": "082121259703",
+      "hobi": "Nonton film",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Be yourself; everyone else is already taken.",
+      "motto_hidup": "Dream big. Pray bigger",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@fzahyy",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 20:10:42"
+    },
+    {
+      "id": 15,
+      "nama_lengkap": "Helmi Dzaki",
+      "nama_panggilan": "Helmi",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 26 April 2008",
+      "alamat": "Puri Celangcang 01, RT 02, RW 07",
+      "no_hp": "085320687766",
+      "hobi": "Mendengarkan Musik",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Semua jatuh bangunmu hal yang biasa",
+      "motto_hidup": "Hidup bukan untuk saling mendahului",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "hlmidzk_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 21:07:56"
+    },
+    {
+      "id": 16,
+      "nama_lengkap": "irsyad putra pratama",
+      "nama_panggilan": "irsyad",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 15 Oktober 2008",
+      "alamat": "Jln pandesan",
+      "no_hp": "087834662594",
+      "hobi": "Futsal",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Hidup itu pilihan, pilihlah yang terbaik",
+      "motto_hidup": "Tetap semangat",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "irsa_d09",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:38:04"
+    },
+    {
+      "id": 17,
+      "nama_lengkap": "M. Izhar Baihaqy",
+      "nama_panggilan": "M.",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 5 September 2007",
+      "alamat": "Perum Bumi Arumsari Jl. Rasamala X No. 98 RT 005 RW 007 Desa Cirebon Girang, Kecamatan Talun, Kabupaten Cirebon",
+      "no_hp": "0822-6284-6867",
+      "hobi": "Badminton, futsal, atau jogging",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Apa yang ditakdirkan untukmu, tidak akan pernah melewatimu.",
+      "motto_hidup": "Apa yang kamu tanam hari ini, itu yang kamu tuai nanti",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "M Izhar Baihaqy",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 07:32:45",
+      "catatan": "Asli kelas DKV. Entry RPL (17/04/2026) diabaikan karena salah input kelas."
+    },
+    {
+      "id": 18,
+      "nama_lengkap": "Marini Zahwa Azzahra",
+      "nama_panggilan": "Marini",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "17 November 2007",
+      "alamat": "Jl. Pangeran Antra Wulan, RT 05/RW 17, Kota Cirebon",
+      "no_hp": "089526389802",
+      "hobi": "Create, edit, repeat.",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Keep on going with your silly dream",
+      "motto_hidup": "\"What if I fall\" but what if you fly?",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "azzhra_zaa07",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 21:38:16"
+    },
+    {
+      "id": 19,
+      "nama_lengkap": "Muhammad Adrian Putra Pratama",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "22 Maret 2008",
+      "alamat": "Jl Abdi Negara VI, Korpri, kec. sumber, kab. cirebon",
+      "no_hp": "087812381696",
+      "hobi": "Menggambar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Bersyukur",
+      "motto_hidup": "Fokus pada apa yang bisa dikendalikan, abaikan apa yang tidak bisa diubah",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "dreaaant",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 08:18:26"
+    },
+    {
+      "id": 20,
+      "nama_lengkap": "nadia",
+      "nama_panggilan": "nadia",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "08 November 2007",
+      "alamat": "Jalan kedurunan 3, gg.merdeka no 171a",
+      "no_hp": "085641051204",
+      "hobi": "Traveling",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Sabar, karena yang baik sedang disiapkan.",
+      "motto_hidup": "Jalani, syukuri, dan perbaiki.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@nadia.thlb",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 07:29:21"
+    },
+    {
+      "id": 21,
+      "nama_lengkap": "nala erlia",
+      "nama_panggilan": "nala",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Kota Cirebon, 30 Mei 2008",
+      "alamat": "Jl Permata Harjamukti Tahap 6",
+      "no_hp": "089629180252",
+      "hobi": "Listening music",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "If comfort were a person, it would be you",
+      "motto_hidup": "The best way to get started is to quit talking and begin doing",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@_nalaalia",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 11:33:15"
+    },
+    {
+      "id": 22,
+      "nama_lengkap": "nazwa rizky aprilla",
+      "nama_panggilan": "nazwa",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 6 Mei 2008",
+      "alamat": "Jl permata hijau blok j1 no 24 rt 06 rw 19",
+      "no_hp": "08999234878",
+      "hobi": "Masak",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Ada masa yang tidak bisa diulang, hanya dikenang.",
+      "motto_hidup": "Dari ragu jadi mampu, dari mimpi jadi nyata.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "lulaasja",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:57:08"
+    },
+    {
+      "id": 23,
+      "nama_lengkap": "putri",
+      "nama_panggilan": "putri",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 22 November 2007",
+      "alamat": "Jl. pramuka rt.001 rw.009 kel.kalijaga kec.harjamukti kota cirebon",
+      "no_hp": "082298581863",
+      "hobi": "Nonton",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Pacta sunt servanda",
+      "motto_hidup": "Fa inna ma'al-'usri yusra, inna ma'al-'usri yusra",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@putriejowy",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 12:18:21"
+    },
+    {
+      "id": 24,
+      "nama_lengkap": "Qoyyimah",
+      "nama_panggilan": "Qoyyimah",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "30 April 2008",
+      "alamat": "Kalitanjung komplek As-Sunnah Jl Abdurrahman bin auf RT 01 RW 09",
+      "no_hp": "087846795257",
+      "hobi": "Melukis, menulis, berenang, traveling",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "You can't stop me love in my self",
+      "motto_hidup": "Takut melangkah?, kamu ga akan tau dimana garis finish.. Ga bisa terbang, lari. Ga bisa lari, jalan. Ga bisa jalan merangkak. Pokonya maju",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "qyzim_zah",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 14:39:43"
+    },
+    {
+      "id": 25,
+      "nama_lengkap": "Raffa Alif Permana",
+      "nama_panggilan": "Raffa",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 5 Juni 2008",
+      "alamat": "Jl. Pramuka Jl. Prabayaksa No.4, Kalijaga, Kec. Harjamukti, Kota Cirebon",
+      "no_hp": "081298509655",
+      "hobi": "Futsal, Playstation",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kamu harus berjuang untuk mencapai impianmu",
+      "motto_hidup": "Disiplin adalah jembatan tujuan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "seerafft",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 20:04:18"
+    },
+    {
+      "id": 26,
+      "nama_lengkap": "Raisah Karimah",
+      "nama_panggilan": "Raisah",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 30 Juli 2008",
+      "alamat": "Perumahan bima indah estate jalan kresna IV",
+      "no_hp": "087760577790",
+      "hobi": "Traveling",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "-",
+      "motto_hidup": "People come and go that's life",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "caa_rraaz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 21:30:31"
+    },
+    {
+      "id": 27,
+      "nama_lengkap": "Raisya Raffa Rahmadina",
+      "nama_panggilan": "Raisya",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "26 April 2008",
+      "alamat": "Jl. Salam 10 Gg. Salam Raya II No. 39, Simaja Kepongpongan, Talun, Cirebon",
+      "no_hp": "089523951994",
+      "hobi": "Journaling, watching series",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Ok we made it now we here.",
+      "motto_hidup": "Good things take time (guess that explains me being late)",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "raisyqs",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 22:20:36"
+    },
+    {
+      "id": 28,
+      "nama_lengkap": "Rifella Livinaswaly",
+      "nama_panggilan": "Rifella",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 20 November 2007",
+      "alamat": "Kota Cirebon, Jl. Cemara Gg kegiren 1",
+      "no_hp": "089694841181",
+      "hobi": "Baking",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "فَاِنَّ مَعَ الْعُسْرِ يُسْرًا",
+      "motto_hidup": "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@livilyna_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 08:37:30"
+    },
+    {
+      "id": 29,
+      "nama_lengkap": "Roihan Firdaus",
+      "nama_panggilan": "Roihan",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 13 Januari 2007",
+      "alamat": "Blok Pabean Kulon RT/RW 1/4, PURWAWINANGUN, Suranenggala 45152",
+      "no_hp": "085794723497",
+      "hobi": "Bermain",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Work hard, Dream big, Never give up",
+      "motto_hidup": "Jangan mau memanfaatkan jika tidak mau di manfaatkan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "roi_r07",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 06:54:20"
+    },
+    {
+      "id": 30,
+      "nama_lengkap": "Sena Ramadanti",
+      "nama_panggilan": "Sena",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "21 September 2008",
+      "alamat": "Jl.kesunean selatan GG.setia 1",
+      "no_hp": "083120364625",
+      "hobi": "Menggambar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "I want to read this story a little bit longer",
+      "motto_hidup": "I gotta \"live\" not just \"survive\"",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "-",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "23/04/2026 11:19:12"
+    },
+    {
+      "id": 31,
+      "nama_lengkap": "Siti Sarah",
+      "nama_panggilan": "Siti",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 07 Juli 2008",
+      "alamat": "Griya Lobunta Lestari Blok BA-3 No.12",
+      "no_hp": "081994954374",
+      "hobi": "Olahraga, memasak, jalan jalan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Anyone can be anything!",
+      "motto_hidup": "Study hard, pray hard, istirahard",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@sarah_eooo",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 19:09:05"
+    },
+    {
+      "id": 32,
+      "nama_lengkap": "Welby Rizka Permana",
+      "nama_panggilan": "Welby",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "21 Juni 2008",
+      "alamat": "Jl. Gunung laya Perum Perawat RSPC, Klayan, Cirebon.",
+      "no_hp": "082262328282",
+      "hobi": "Menggambar, membaca buku, bernyanyi, berenang.",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "You only live once, but if you do it right, once is enough. — Mae West.",
+      "motto_hidup": "Do your best, and let God do the rest",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "sooby_miw",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 08:59:45"
+    },
+    {
+      "id": 33,
+      "nama_lengkap": "Zaskia Nafisa",
+      "nama_panggilan": "Zaskia",
+      "kelas": "XII DKV",
+      "jurusan": "DKV",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 20 April 2007",
+      "alamat": "Jln. Karang Anyar, Jagasatru Barat, Kota Cirebon",
+      "no_hp": "085213960215",
+      "hobi": "Baking, Badminton",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Do whatever you want",
+      "motto_hidup": "Embrace the journey, and be grateful",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@zzaskianafisaa_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 08:32:05"
+    },
+    {
+      "id": 34,
+      "nama_lengkap": "Abdurachman",
+      "nama_panggilan": "Abdurachman",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "07 September 2007",
+      "alamat": "Jl kalitanjung Komplek Assunah Gang Wanagati VI",
+      "no_hp": "085523510949",
+      "hobi": "Olahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kamu tidak akan benar-benar memahami seseorang sampai kamu melihat sesuatu dari sudut pandangnya",
+      "motto_hidup": "Gagal itu biasa nyerah itu pilihan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "4bdurbktir_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 23:00:03"
+    },
+    {
+      "id": 35,
+      "nama_lengkap": "Ackmad Elfan Purnama",
+      "nama_panggilan": "Ackmad",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 22 Januari 2008",
+      "alamat": "Jl. Ampera Raya No. 34, Kec. Kesambi, Kel. Pekiringan, RT 001/RW 002, Kota Cirebon 45131",
+      "no_hp": "089666192392",
+      "hobi": "Membaca Novel, Basket, Nonton Film",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Sebelum kamu menyerah, pikirkanlah alasan apa yang membuatmu bertahan selama ini",
+      "motto_hidup": "Nikmati prosesnya",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "Ackmad2019",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "05/05/2026 06:21:14"
+    },
+    {
+      "id": 36,
+      "nama_lengkap": "Ahmad Syauqi",
+      "nama_panggilan": "Ahmad",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 8 September 2007",
+      "alamat": "Jl. Kanci - Sindang Laut No.1, Japura Kidul, Kec. Astanajapura, Kabupaten Cirebon, Jawa Barat 45181",
+      "no_hp": "081294272759",
+      "hobi": "Traveling",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jangan menyesuaikan pemikiran dengan hidup, namun hidup sesuai dengan pikiran.",
+      "motto_hidup": "Keringat tak pernah berbohong!",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "_4hmddsyq1",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 13:01:38",
+      "catatan": "Diambil dari entry 13:01:38. Entry 18:46:33 diabaikan karena data tidak lengkap/konsisten."
+    },
+    {
+      "id": 37,
+      "nama_lengkap": "Aisha Husna Kamila",
+      "nama_panggilan": "Aisha",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "13 September 2008",
+      "alamat": "Taman Nuansa Majasem, Jln. Majalengka B6 NO. 08",
+      "no_hp": "+62 851-9923-3329",
+      "hobi": "Membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Terbentur, terbentur, terbentur, dan terbentuk.",
+      "motto_hidup": "Jangan biarkan mindset yang jelek menelan habis habis dirimu.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@shammile13_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 20:43:13"
+    },
+    {
+      "id": 38,
+      "nama_lengkap": "Aldi Aziz Faidlurrahman",
+      "nama_panggilan": "Aldi",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 27 April 2008",
+      "alamat": "Dekat Jl. Puri Mulia No.11, Jatimerta, Kec. Gunungjati, Kabupaten Cirebon, Jawa Barat 45151",
+      "no_hp": "0881 0231 71046",
+      "hobi": "BasketBall, Script Writing, Exploring and Riding",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "And if things don't go as planned, let it be. There will always be great things out there waiting for you.",
+      "motto_hidup": "Be the change you wish to see in the world",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "_aldiazf",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 11:09:55"
+    },
+    {
+      "id": 39,
+      "nama_lengkap": "Arestu Irsyad Murtaza",
+      "nama_panggilan": "Arestu",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 29 November 2007",
+      "alamat": "PERUM GUNUNG INTAN NO. B 14A",
+      "no_hp": "089664519986",
+      "hobi": "Olahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Keep it simple, keep it real",
+      "motto_hidup": "Gagal itu biasa, menyerah itu pilihan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "3arthur4_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 15:44:13"
+    },
+    {
+      "id": 40,
+      "nama_lengkap": "Dani",
+      "nama_panggilan": "Dani",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 17 Agustus 2008",
+      "alamat": "Jl. Nyi mas pakungwati ds Tuk",
+      "no_hp": "087730547378",
+      "hobi": "Mempelajari hal baru",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "-",
+      "motto_hidup": "Membahagiakan orang tua",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "danihermawann84",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 09:16:29"
+    },
+    {
+      "id": 41,
+      "nama_lengkap": "Deni Firmansyah",
+      "nama_panggilan": "Deni",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 19 Desember 2006",
+      "alamat": "Desa kalikoa blok Ledok RT 01 RW 03 no. 13 kecamatan Kedawung kabupaten Cirebon",
+      "no_hp": "08995683767",
+      "hobi": "Main game",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kebahagiaan besar sering datang dari rasa syukur atas hal-hal sederhana.",
+      "motto_hidup": "Syukuri hal kecil",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "denfir19",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 22:34:39"
+    },
+    {
+      "id": 42,
+      "nama_lengkap": "DILA MAULIDIA ANJANI",
+      "nama_panggilan": "DILA",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Kota Cirebon, 19 Maret 2008",
+      "alamat": "Jl. Permata Hijau J1 No.36, Kecapi, Kec. Harjamukti, Kota Cirebon, Jawa Barat 45142",
+      "no_hp": "082127134913",
+      "hobi": "Berjualan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Berbagai cobaan dan hal yang buat kau ragu, jadikan percikan 'tuk menerpa tekad mu, jalan hidupmu hanya milik mu sendiri, rasakan nikmatnya hidupmu hariini.",
+      "motto_hidup": "Jadilah versi terbaik dari dirimu, bukan salinan orang lain.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "dilanjaniii",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 16:57:31"
+    },
+    {
+      "id": 43,
+      "nama_lengkap": "Dimas Shofwan Nauval",
+      "nama_panggilan": "Dimas",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 5 Juli 2008",
+      "alamat": "Pilang Mas Garden Blok D.199",
+      "no_hp": "085196028572",
+      "hobi": "Jajan cilok sambil mikirin masa depan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kalau cape, istirahat. Kalau nyerah, keterlaluan",
+      "motto_hidup": "Hidup mengalir aja kayak kuota, kalau habis ya diisi lagi",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@dimsnaufl",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 16:53:41"
+    },
+    {
+      "id": 44,
+      "nama_lengkap": "Dzaki Fakhruddin",
+      "nama_panggilan": "Dzaki",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 18 Juni 2008",
+      "alamat": "Sultan Residence Kedawung Blok D4",
+      "no_hp": "0821-2546-3731",
+      "hobi": "Belajar",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Bilang Ke Mamah Kamu, Kalo Mau Punya Cucu Yang Lucu Menantu Nya Harus Aku",
+      "motto_hidup": "Lorem Ipsum Dolor Sit Amet",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "jakijakian_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:07:15"
+    },
+    {
+      "id": 45,
+      "nama_lengkap": "Fajar satria",
+      "nama_panggilan": "Fajar",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "03 September 2008",
+      "alamat": "Permata Harjamukti d1/no5",
+      "no_hp": "087720477183",
+      "hobi": "Membaca artikel, membaca komik, berolahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Pergilah jika bukan kamu orang yang dia inginkan",
+      "motto_hidup": "Pantang menyerah terus berjuang",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "jarmakesense",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 02:45:08"
+    },
+    {
+      "id": 46,
+      "nama_lengkap": "Farras abdillah heryana",
+      "nama_panggilan": "Farras",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 09 Oktober 2007",
+      "alamat": "Pilang mas garden block c.no 66",
+      "no_hp": "087796953426",
+      "hobi": "Berenang",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jadilah yang berkualitas, jangan menindas untuk jadi yang teratas",
+      "motto_hidup": "Prestasi tidak menentukan mu sukses, tetapi sukses di tentukan oleh cara mu berproses",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "frsabdillah",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 06:07:50"
+    },
+    {
+      "id": 47,
+      "nama_lengkap": "Firza Inayah",
+      "nama_panggilan": "Firza",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 08 September 2007",
+      "alamat": "Perumahan Jala Graha Kesenden",
+      "no_hp": "085724012431",
+      "hobi": "Berenang dan bersepeda",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "God gave you what you could handle",
+      "motto_hidup": "You only live once",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@nayabinseff",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 08:57:07"
+    },
+    {
+      "id": 48,
+      "nama_lengkap": "Guntur Oktavian Priyatna",
+      "nama_panggilan": "Guntur",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 10 Oktober 2008",
+      "alamat": "Jl cideng raya gg.kebon pring",
+      "no_hp": "083821087982",
+      "hobi": "Main game",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kebanyakan dari kita tidak mensyukuri apa yang sudah kita miliki, tetapi kita menyesali apa yang belum kita capai",
+      "motto_hidup": "Belajar dari kemarin, hidup untuk hari ini, berharap untuk hari esok",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "gugunnn1080p60",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:16:29"
+    },
+    {
+      "id": 49,
+      "nama_lengkap": "Haidar Farros",
+      "nama_panggilan": "Haidar",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 08 Mei 2007",
+      "alamat": "Jl. Kalitanjung No. 52B, Komplek As-Sunnah, Gang Utsman bin Affan",
+      "no_hp": "087884084366",
+      "hobi": "Bersepeda, bulu tangkis",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Bukan nikmat allah yang sedikit, tapi hati kita yang sibuk mengeluh sehingga lupa untuk bersyukur",
+      "motto_hidup": "Tauhid number wahid",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "-",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 12:43:56"
+    },
+    {
+      "id": 50,
+      "nama_lengkap": "Indra Maulana Akhsan",
+      "nama_panggilan": "Indra",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 5 Agustus 2008",
+      "alamat": "Desa Grogol kecamatan Gunung Jati",
+      "no_hp": "089652481300",
+      "hobi": "Ngoding",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Apakegituyakan",
+      "motto_hidup": "Jangan sampai mati",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "Indrasudahsmk",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 09:46:39"
+    },
+    {
+      "id": 51,
+      "nama_lengkap": "Istiqomah",
+      "nama_panggilan": "Istiqomah",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "26 Maret 2008",
+      "alamat": "Komplek Assunah Cirebon",
+      "no_hp": "083141773783",
+      "hobi": "Membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Not all goodbyes are sad. Example: \"goodbye school\"",
+      "motto_hidup": "Whatever you are, be a good one",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@flufflypuffy",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "23/04/2026 22:42:12"
+    },
+    {
+      "id": 52,
+      "nama_lengkap": "kaysan fawazi",
+      "nama_panggilan": "kaysan",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 16 Oktober 2008",
+      "alamat": "Lobunta lestari jalan Saturnus 2 d32 no 1",
+      "no_hp": "083173651517",
+      "hobi": "Hiking",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jangan pernah menyerah pada mimpimu. Lanjut tidur aja, siapa tahu mimpinya dapet season 2.",
+      "motto_hidup": "Kendalikan apa yang bisa dikendalikan, lupakan sisanya",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "kysnnnn_21",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:02:02"
+    },
+    {
+      "id": 53,
+      "nama_lengkap": "LUVENAYA JAVANESYA HAMIDA",
+      "nama_panggilan": "LUVENAYA",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 24 Agustus 2008",
+      "alamat": "Perumahan Kaliwadas Indah Blok D211A",
+      "no_hp": "0895330865149",
+      "hobi": "Membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Today is where your book begins, the rest is still unwritten.",
+      "motto_hidup": "الأحلام لا تتحقق بالرغبة فحسب، بل بالعمل الجاد والاجتهاد",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@javaneslvn_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 16:16:19"
+    },
+    {
+      "id": 54,
+      "nama_lengkap": "M. Rafli Sukmana",
+      "nama_panggilan": "M.",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "30 Agustus 2007",
+      "alamat": "Perumahan dauwan regency blok b.08",
+      "no_hp": "085659208057",
+      "hobi": "Bermain/menikmati game",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jadi diri sendiri itu lebih baik daripada harus berusaha jadi orang lain",
+      "motto_hidup": "Terus berusaha walau susah",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "-",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 09:38:50"
+    },
+    {
+      "id": 55,
+      "nama_lengkap": "Muh. Zidan Arkana",
+      "nama_panggilan": "Muh.",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Makassar, 31 Oktober 2008",
+      "alamat": "Jalan Pembangunan Barat No 3 RT 01 / RW 07 Kampung Mekarsari Desa Tuk Kecamatan Kedawung Kabupaten Cirebon",
+      "no_hp": "0821-1948-7138",
+      "hobi": "Lari, bermain sepakbola",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "If you are tired, learn to rest, don't give up, be happy, take care of your health, be confident, be the best version of yourself, and be proud of yourself.",
+      "motto_hidup": "Hidup itu pilihan, pilihlah yang TERBAIK!",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "zidanarkanaaa",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "21/04/2026 18:52:48"
+    },
+    {
+      "id": 56,
+      "nama_lengkap": "Muhammad Faiz Akbar Mulyaman",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 14 Oktober 2007",
+      "alamat": "Kesambi dalam",
+      "no_hp": "082127470708",
+      "hobi": "Jalan-jalan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Berhenti menyalahkan segalanya ambillah resiko dan bermimpi yang besar",
+      "motto_hidup": "Hidup itu pilihan maka pilihlah yang terbaik",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "faiz.akbarrl",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 09:36:00"
+    },
+    {
+      "id": 57,
+      "nama_lengkap": "Muhammad Wildan Firdaus",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 3 Mei 2008",
+      "alamat": "Gg kembar 1 No. 165, RT.5/RW.1, Kelurahan Pekalipan, Kecamatan Pekalipan, Kota Cirebon",
+      "no_hp": "088218919496",
+      "hobi": "Olahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Yang sudah boleh pulang",
+      "motto_hidup": "Selesaikan apa yang sudah dimulai",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "._wildannn",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 22:14:26"
+    },
+    {
+      "id": 58,
+      "nama_lengkap": "Mujahid Abdurrozaq Sudrajat",
+      "nama_panggilan": "Mujahid",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 04 April 2007",
+      "alamat": "Jl.Pancuran No.117",
+      "no_hp": "085862247545",
+      "hobi": "Basket, futsal, boxing, hiking",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Lebih baik menyesal karna sudah melakukan daripada menyesal karna tidak sempat melakukan",
+      "motto_hidup": "Sukses",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "razqabdur_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 21:32:48"
+    },
+    {
+      "id": 59,
+      "nama_lengkap": "Nabila Bilbina",
+      "nama_panggilan": "Nabila",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "14 Februari 2008",
+      "alamat": "Taman Pulo Mas A2 No. 20 Kec. Kedawung Kab. Cirebon",
+      "no_hp": "085861221490",
+      "hobi": "Merajut",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "In blue, I finally bloom.",
+      "motto_hidup": "Long story short, i survived.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@blbynaa_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 20:36:05"
+    },
+    {
+      "id": 60,
+      "nama_lengkap": "Nazwah Alkaff",
+      "nama_panggilan": "Nazwah",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 20 Februari 2008",
+      "alamat": "Jalan kapten damsur gg bayu 1 no 16",
+      "no_hp": "0819 1144 9507",
+      "hobi": "Mendengarkan Musik",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Dream Big. Live your life. Be the happiest person every single day",
+      "motto_hidup": "Find Joy In The Little Things",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "nazwalkaff",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "21/04/2026 23:58:36"
+    },
+    {
+      "id": 61,
+      "nama_lengkap": "Niha Laelatul Maulidi",
+      "nama_panggilan": "Niha",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 13 Maret 2008",
+      "alamat": "PERUMAHAN KANDANG PERAHU ESTATE KAV.10",
+      "no_hp": "08815180106",
+      "hobi": "Traveling",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Diam bukan berarti lemah, tapi sedang menyiapkan langkah",
+      "motto_hidup": "Jangan takut gagal, takutlah untuk tidak mencoba",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@niha.lailatul",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 06:07:50"
+    },
+    {
+      "id": 62,
+      "nama_lengkap": "Rafiif Fadillah Putra",
+      "nama_panggilan": "Rafiif",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 7 Desember 2007",
+      "alamat": "BLOK BANDUNG, DESA SETU WETAN, KECAMATAN WERU KABUPATEN CIREBON",
+      "no_hp": "088220991295",
+      "hobi": "Trail running & mendaki",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Allah tidak membebani seseorang melainkan sesuai dengan kesanggupan nya",
+      "motto_hidup": "Jangan bandingkan perjalanan mu dengan orang lain, bulan tetap bersinar meskipun bintang lebih banyak",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "rafiiff_fdllh",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "17/04/2026 06:49:35"
+    },
+    {
+      "id": 63,
+      "nama_lengkap": "Rafiiqah Faqihah Putri",
+      "nama_panggilan": "Rafiiqah",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 07 Desember 2007",
+      "alamat": "Plered, desa setu wetan rt 011/rw 04 blok bandung, kec. weru",
+      "no_hp": "088220987945",
+      "hobi": "Badminton",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Satu bab selesai, ribuan mimpi menunggu",
+      "motto_hidup": "Pelan-pelan gapapa, yang penting terus melangkah",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "ceeyss___",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:00:24"
+    },
+    {
+      "id": 64,
+      "nama_lengkap": "Raka Haedar Pramana",
+      "nama_panggilan": "Raka",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 24 Mei 2008",
+      "alamat": "JL. Kalibaru Utara No 149",
+      "no_hp": "0812-2064-7052",
+      "hobi": "Bermain Game, Membaca komik dan novel",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Yesterday is history, tomorrow is a mystery, today is a gift of God, which is why we call it the present. — Bil Keane",
+      "motto_hidup": "Hiduplah untuk hari ini",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "usernameraga",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 22:13:01"
+    },
+    {
+      "id": 65,
+      "nama_lengkap": "Ralf Jibril Anthonijsz",
+      "nama_panggilan": "Ralf",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 29 Oktober 2007",
+      "alamat": "Jalan Cangkring 1 No.12 Kota Cirebon",
+      "no_hp": "085183263376",
+      "hobi": "Nonton film, nyanyi, dengerin lagu",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Akhirnya lulus dari sekolah islam",
+      "motto_hidup": "Kalo sama orang lain, ambil sisi baik nya buang sifat buruknya. Hidup cuma sekali please jadi orang baik itu ga rugi",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@anthonijsz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 22:44:13"
+    },
+    {
+      "id": 66,
+      "nama_lengkap": "Saka Putra Pratama",
+      "nama_panggilan": "Saka",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "16 Mei 2008",
+      "alamat": "Jl.Gelatik I No23",
+      "no_hp": "08978844260",
+      "hobi": "Membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Sukses atau tidak itu tidaklah penting yang penting berhasil",
+      "motto_hidup": "Lawanlah Rasa Ngantukmu dengan tidur",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "Skaa__0",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "19/04/2026 20:31:33"
+    },
+    {
+      "id": 67,
+      "nama_lengkap": "Salman Alfarisy Jawas",
+      "nama_panggilan": "Salman",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "10 April 2008",
+      "alamat": "Pilang setrayasa",
+      "no_hp": "085158160501",
+      "hobi": "Berenang",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Bukan gunung yang kita taklukan, tapi diri kita sendiri. – Sir Edmund Hillary",
+      "motto_hidup": "Do'a kan usahamu dan usahakan do'a mu",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "jawas_4",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:43:38"
+    },
+    {
+      "id": 68,
+      "nama_lengkap": "AURA EKSAMAYORA",
+      "nama_panggilan": "AURA",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Indramayu, 24 September 2008",
+      "alamat": "Jl. Siliwangi Gang Masjid No. 47 RT/RW 004 003 Kec. Kejaksan Kel. Kesenden",
+      "no_hp": "082117528983",
+      "hobi": "Memasak",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Alhamdulillah lulus",
+      "motto_hidup": "Tetap semangat biar jadi juragan kos kosan",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@eksamayora",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 17:19:22"
+    },
+    {
+      "id": 69,
+      "nama_lengkap": "Yanuar Bintang Pratama",
+      "nama_panggilan": "Yanuar",
+      "kelas": "XII RPL",
+      "jurusan": "RPL",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 09 Januari 2008",
+      "alamat": "Pamengkang, Mundu, Cirebon, West Java 45173",
+      "no_hp": "081312176078",
+      "hobi": "Membaca Buku, Bermain Game, Mendengarkan Musik, Desain 3D dan 2D",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Hidup memang tidak selalu indah, tapi karena itu kita belajar arti kebahagiaan",
+      "motto_hidup": "Fokus, lalu eksekusi.",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": ".",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 22:59:42"
+    },
+    {
+      "id": 70,
+      "nama_lengkap": "Alief Maulana",
+      "nama_panggilan": "Alief",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 26 Maret 2008",
+      "alamat": "Jl. Langensari Gg. Kedondong No.65 Kota Cirebon",
+      "no_hp": "0895606025167",
+      "hobi": "Touring",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Rendahkan lah sesukamu pesanku jangan hancur dulu",
+      "motto_hidup": "Kalo takut jangan ikut, Kalo ikut jangan takut",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "alpmlnaa",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 15:13:18"
+    },
+    {
+      "id": 71,
+      "nama_lengkap": "Andhika Pratama putra",
+      "nama_panggilan": "Andhika",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 09 Agustus 2008",
+      "alamat": "Desa kenanga, blok lebak timur, kecamatan sumber",
+      "no_hp": "085321851127",
+      "hobi": "Belajar hal baru tentang teknologi",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Engineer your life like you engineer your Systems",
+      "motto_hidup": "Membangun dengan logika, menyempurnakan dengan hati",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "dikxnet",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 08:37:03"
+    },
+    {
+      "id": 72,
+      "nama_lengkap": "Azzafa Rameyza Prawira",
+      "nama_panggilan": "Azzafa",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 20 Januari 2008",
+      "alamat": "Jl. Sechmagelung III NO 10",
+      "no_hp": "082120335400",
+      "hobi": "Badminton, futsal, minsoc, renang, running, dll",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Perbaiki yang kurang, kurangi yang berlebihan, dan bersyukur dengan apa yang sudah di takdirkan",
+      "motto_hidup": "Hidup bukan saling mendahului, bermimpilah sendiri",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "zafaboy",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 18:54:10"
+    },
+    {
+      "id": 73,
+      "nama_lengkap": "Fadhil Muzaffar",
+      "nama_panggilan": "Fadhil",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 17 Januari 2008",
+      "alamat": "Bumi Arum Sari, Jalan Jati II No. 72, RT.3/RW.12, Desa Cirebon Girang, Talun, KAB. CIREBON",
+      "no_hp": "081585965140",
+      "hobi": "Membaca",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Berusahalah atas apa apa yang bermanfaat bagimu, dan minta tolong lah kepada Allah",
+      "motto_hidup": "Gagal yang sesungguhnya adalah berhenti mencoba",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "irmy_zr",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 06:51:03"
+    },
+    {
+      "id": 74,
+      "nama_lengkap": "Kevin Septa Raharjo",
+      "nama_panggilan": "Kevin",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Jakarta, 15 September 2007",
+      "alamat": "Jln kebantenan semper timur jakarta utara",
+      "no_hp": "083866914817",
+      "hobi": "Main laptop",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kegagalan adalah kunci dari ke suksesan",
+      "motto_hidup": "Nikmati prosesnya percaya pada hasil",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@kepinnrah",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 14:05:43"
+    },
+    {
+      "id": 75,
+      "nama_lengkap": "marvelyta aprillika",
+      "nama_panggilan": "marvelyta",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "09 April 2008",
+      "alamat": "Perumahan grand firdaus 3",
+      "no_hp": "08886206645",
+      "hobi": "Tidur",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Everything you lose is a step you take",
+      "motto_hidup": "God is the best solution for everything",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@mrvllytaa_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "21/04/2026 22:42:40"
+    },
+    {
+      "id": 76,
+      "nama_lengkap": "Mohamad Wahid Farros",
+      "nama_panggilan": "Mohamad",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 8 Mei 2008",
+      "alamat": "Permata Harjamukti Bloki5 No1A",
+      "no_hp": "089637683060",
+      "hobi": "Membaca dan Memancing",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Sukses terus buat teman teman saya diluar sana",
+      "motto_hidup": "Tetap lah melangkah kedepan",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "ffffrrss_yaa",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 11:09:17"
+    },
+    {
+      "id": 77,
+      "nama_lengkap": "Muhammad Fadil Hibatullah",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 15 Desember 2008",
+      "alamat": "Jln. di ponorogo kp. baru kesenden",
+      "no_hp": "0895634530604",
+      "hobi": "Tergantung mood",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Tidur",
+      "motto_hidup": "Uang adalah segala nya",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "padilhibatullah",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 08:41:27"
+    },
+    {
+      "id": 78,
+      "nama_lengkap": "Muhammad Hafidz Ali Khan Najib",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 30 Agustus 2008",
+      "alamat": "Jln Abdi Negara 4 No 209 Sumber Cirebon",
+      "no_hp": "0857 2431 6337",
+      "hobi": "Baca & Lari",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Fortis Fortuna Adiuvat",
+      "motto_hidup": "Fokus tujuan, abaikan gangguan.",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "ali.mhafidz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 07:12:21"
+    },
+    {
+      "id": 79,
+      "nama_lengkap": "Muhammad Wildan Syutansyah",
+      "nama_panggilan": "Muhammad",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "23 April 2008",
+      "alamat": "Jalan banjarwangunan blok F 2 no 7",
+      "no_hp": "085920629101",
+      "hobi": "Bermain bola, bermain game",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Menjadi pengusaha muda",
+      "motto_hidup": "Proses tidak akan menghianati hasil, jadi tetaplah percaya proses",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "wldnzajhh",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "22/04/2026 21:15:39"
+    },
+    {
+      "id": 80,
+      "nama_lengkap": "Nabil Satrio Ghaisan",
+      "nama_panggilan": "Nabil",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Kota Cirebon, 23 Mei 2007",
+      "alamat": "Puri Argasunya A3 Jl. Kedung Mendeng RT/RW 004/003 Kel. Argasunya Kec. Harjamukti",
+      "no_hp": "082117488043",
+      "hobi": "Menggambar, membaca, main game",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Diam dan fokus bekerja lebih baik daripada banyak bicara",
+      "motto_hidup": "Berani mengambil risiko adalah kunci untuk meraih kesuksesan.",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "Little_ToT",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 12:10:56"
+    },
+    {
+      "id": 81,
+      "nama_lengkap": "Nasir Fadhlurrohman",
+      "nama_panggilan": "Nasir",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 23 Juli 2008",
+      "alamat": "Jl.Sutawinangun Gg.Berkah No.14",
+      "no_hp": "0895321714842",
+      "hobi": "Workout",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kegagalan adalah satu-satunya kesempatan untuk memulai lagi dengan lebih cerdas",
+      "motto_hidup": "Tetaplah merasa lapar akan ilmu dan jangan merasa paling pintar",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "nasrrz_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 06:50:52"
+    },
+    {
+      "id": 82,
+      "nama_lengkap": "Nazhiifah Kaamilah",
+      "nama_panggilan": "Nazhiifah",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "16 Mei 2008",
+      "alamat": "Perumahan Lobunta Lestari Jl. Pelangi II No.21 D33",
+      "no_hp": "0856 0349 0749",
+      "hobi": "Nonton, melihat orang ganteng dan cantik, hunting food",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Kalo mimpi nya besar, maka effort nya harus lebih besar",
+      "motto_hidup": "Take the risk or lose the chance",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@naaa_divaaa",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "21/04/2026 21:21:54"
+    },
+    {
+      "id": 83,
+      "nama_lengkap": "Riana HermaDiana",
+      "nama_panggilan": "Riana",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "27 Maret 2008",
+      "alamat": "Jl.Ciremaj Raya Perumnas no.291 (foto copy depan SMAN 3)",
+      "no_hp": "089528808652",
+      "hobi": "Touring",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Jika orang lain bisa, makan kita juga harus bisa",
+      "motto_hidup": "Berbuat lah kebaikan kepada seseorang, namun jika seseorang itu jahat padamu, makan balas kejahatan nya.",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "@demenscousian",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "20/04/2026 22:29:58"
+    },
+    {
+      "id": 84,
+      "nama_lengkap": "Rijal Ariefudhin",
+      "nama_panggilan": "Rijal",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "14 Oktober 2008",
+      "alamat": "Jln pelangin 2 D33 No26",
+      "no_hp": "08971864182",
+      "hobi": "Olahraga, tidur, makan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Dunia ini cukup untuk memenuhi kebutuhan manusia, bukan untuk memenuhi keserakahan manusia",
+      "motto_hidup": "Kebanyakan kegagalan berasal dari takut gagal",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "jallwaysux_",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "19/04/2026 09:02:22"
+    },
+    {
+      "id": 85,
+      "nama_lengkap": "Siti Nur Annafi",
+      "nama_panggilan": "Siti",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Perempuan",
+      "tempat_tanggal_lahir": "Cirebon, 11 Juli 2008",
+      "alamat": "Jalan surapandan 2 Perumahan taman pandan wangi blok a4",
+      "no_hp": "087716774006",
+      "hobi": "Renang, makan",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Makin kamu membuang buang waktu, makin jauh pula kamu dari kesuksesan",
+      "motto_hidup": "Hidup adalah pilihan, jadi pilih lah yang terbaik",
+      "foto": "/images/students/placeholder-cewek.jpg",
+      "sosial_media": {
+        "instagram": "annf_11",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "06/05/2026 09:34:41"
+    },
+    {
+      "id": 86,
+      "nama_lengkap": "Temy Farraz A.",
+      "nama_panggilan": "Temy",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "25 April 2007",
+      "alamat": "Jl langensarilama no 12 GG karya",
+      "no_hp": "081220324668",
+      "hobi": "Olahraga",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "See you on top",
+      "motto_hidup": "Work hard in silence. Let your success do the talking",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "@temifrazz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "19/04/2026 20:51:17"
+    },
+    {
+      "id": 87,
+      "nama_lengkap": "Zakky Favian El Haq",
+      "nama_panggilan": "Zakky",
+      "kelas": "XII TKJ",
+      "jurusan": "TKJ",
+      "jenis_kelamin": "Laki-laki",
+      "tempat_tanggal_lahir": "Cirebon, 26 Februari 2008",
+      "alamat": "Jl. Soka - Sakura No. 7",
+      "no_hp": "081945089223",
+      "hobi": "Boxing",
+      "cita_cita": "Menjadi orang sukses dan bermanfaat",
+      "pesan": "Terima kasih untuk semua kenangannya. See you on top!",
+      "quote": "Work hard in silence. Let your success be your noise",
+      "motto_hidup": "Pokonya hidup aja sehidup hidup nya",
+      "foto": "/images/students/placeholder-cowok.jpg",
+      "sosial_media": {
+        "instagram": "zakyyidz",
+        "tiktok": "",
+        "twitter": ""
+      },
+      "nostalgia": {
+        "momen_favorit": "Bercanda bareng teman-teman di kelas.",
+        "cerita_lucu": "",
+        "pesan_untuk_angkatan": "Semoga angkatan kita sukses semua!"
+      },
+      "timestamp": "07/05/2026 14:10:07"
+    }
+  ]
+}
