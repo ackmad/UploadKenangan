@@ -1,0 +1,231 @@
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #FDF8F0;
+  padding: 100px 24px 80px;
+}
+
+/* Polka dots background */
+.polkaBg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+/* ─── Doodle decorations ─────────────────────────── */
+.decorations > div {
+  position: absolute;
+  z-index: 2;
+  animation: float 4s ease-in-out infinite;
+}
+.deco1 { top: 8%; left: 6%; animation-delay: 0s; }
+.deco2 { top: 12%; right: 8%; animation-delay: 0.8s; }
+.deco3 { bottom: 28%; left: 4%; animation-delay: 1.2s; }
+.deco4 { top: 20%; left: 18%; animation-delay: 0.4s; }
+.deco5 { bottom: 32%; right: 6%; animation-delay: 1.6s; }
+.deco6 { top: 60%; left: 8%; animation-delay: 2s; }
+.deco7 { bottom: 20%; right: 14%; animation-delay: 0.6s; }
+.deco8 { top: 6%; left: 38%; animation-delay: 1s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ─── Polaroids ──────────────────────────────────── */
+.polaroids {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.polFrame {
+  position: absolute;
+  background: white;
+  border: 2.5px solid var(--black);
+  padding: 8px 8px 36px;
+  box-shadow: var(--shadow-md);
+  width: 120px;
+  animation: wobble 5s ease-in-out infinite;
+}
+.polImg {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.polEmoji { font-size: 2rem; }
+.polCaption {
+  font-family: var(--font-hand);
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 6px;
+  color: #444;
+}
+.tapeTop {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 52px;
+  height: 18px;
+  background: rgba(255, 209, 102, 0.7);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.tapeTop::before {
+  content: '';
+  position: absolute;
+  inset: 2px 4px;
+  background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.4) 2px, rgba(255,255,255,0.4) 4px);
+}
+
+.pol1 { top: 10%; left: 5%; transform: rotate(-8deg); animation-delay: 0s; animation-duration: 6s; }
+.pol2 { top: 55%; left: 2%; transform: rotate(5deg); animation-delay: 1s; animation-duration: 5s; }
+.pol3 { top: 8%; right: 4%; transform: rotate(7deg); animation-delay: 0.5s; animation-duration: 7s; }
+.pol4 { bottom: 22%; right: 3%; transform: rotate(-5deg); animation-delay: 1.5s; animation-duration: 5.5s; }
+.pol5 { top: 42%; right: 8%; transform: rotate(3deg); animation-delay: 2s; animation-duration: 6.5s; }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(var(--base-rot, 0deg)); }
+  25% { transform: rotate(calc(var(--base-rot, 0deg) + 1.5deg)); }
+  75% { transform: rotate(calc(var(--base-rot, 0deg) - 1.5deg)); }
+}
+
+/* ─── Main Content ───────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 760px;
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: white;
+  border: var(--border-thick);
+  border-radius: 100px;
+  padding: 8px 22px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 28px;
+  color: var(--black);
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.lineA { font-size: clamp(2.8rem, 8vw, 5.5rem); color: var(--black); }
+.lineB { font-size: clamp(3.2rem, 9vw, 6.5rem); color: var(--coral); margin-top: -8px; }
+.lineC { font-size: clamp(2.5rem, 7vw, 5rem); color: var(--black); margin-top: -4px; }
+.lineD {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: var(--black);
+  position: relative;
+  margin-top: -4px;
+}
+.lineE { font-size: clamp(1.8rem, 5vw, 3.5rem); color: var(--black); opacity: 0.75; margin-top: 4px; }
+
+.underlineSvg {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  pointer-events: none;
+}
+
+.sub {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #555;
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.7;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.jurusan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.dot { font-size: 1.2rem; color: var(--black); opacity: 0.4; }
+.tagRpl, .tagTkj, .tagDkv {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border: var(--border);
+  border-radius: 100px;
+  box-shadow: var(--shadow-sm);
+}
+.tagRpl { background: var(--coral-light); }
+.tagTkj { background: var(--mint); }
+.tagDkv { background: var(--lavender); }
+
+/* Scroll hint */
+.scrollHint {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: #888;
+  animation: float 2.5s ease-in-out infinite;
+  z-index: 5;
+}
+
+/* Torn paper */
+.tornEdge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 6;
+}
+.tornEdge svg { width: 100%; height: 100%; }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .polFrame { width: 90px; }
+  .polImg { height: 70px; }
+  .polEmoji { font-size: 1.5rem; }
+  .pol4, .pol5 { display: none; }
+  .deco3, .deco4, .deco5, .deco6 { display: none; }
+  .content { padding: 0 8px; }
+}

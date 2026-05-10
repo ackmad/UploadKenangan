@@ -1,0 +1,194 @@
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.cork {
+  position: absolute;
+  inset: 0;
+  background-color: #C8A876;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.04) 0px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.04) 0px, transparent 1px, transparent 24px),
+    radial-gradient(circle at 2px 2px, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: auto, auto, 16px 16px;
+  opacity: 0.18;
+  z-index: 0;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #FFF8EE 0%, #F5E6C8 100%);
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.1;
+}
+.title em { font-style: italic; color: var(--coral); }
+.subtitle { font-size: 1rem; color: #666; max-width: 420px; }
+
+.addBtn { margin-top: 8px; }
+
+/* ─── Notes Board ────────────────────────────────── */
+.board {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.note {
+  position: relative;
+  padding: 22px 20px 18px;
+  border: var(--border-thick);
+  box-shadow: var(--shadow-md);
+  border-radius: 2px;
+  transition: all 0.2s var(--bounce);
+}
+.note:hover {
+  transform: rotate(0deg) translate(-2px, -2px) !important;
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+}
+
+.pin {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e55, #922);
+  border: 2px solid var(--black);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.3) inset;
+}
+
+.noteText {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: #2a2a2a;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.noteAuthor {
+  font-family: var(--font-hand);
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.45);
+  font-style: italic;
+}
+
+/* ─── Modal ──────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: #FFFEF0;
+  border: var(--border-thick);
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  max-width: 460px;
+  width: 100%;
+  padding: 40px 36px 32px;
+  position: relative;
+  animation: popIn 0.25s var(--bounce);
+}
+@keyframes popIn { from { transform: scale(0.88); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+.modalTape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 209, 102, 0.72);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.modalTape::before {
+  content: '';
+  position: absolute;
+  inset: 3px 6px;
+  background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.45) 2px, rgba(255,255,255,0.45) 4px);
+}
+
+.modalClose {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: white;
+  border: var(--border);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.15s;
+}
+.modalClose:hover { transform: translate(1px,1px); box-shadow: var(--shadow-hover); }
+
+.modalTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+}
+.modalSub { font-size: 0.9rem; color: #777; margin-bottom: 20px; }
+
+.form { display: flex; flex-direction: column; gap: 12px; }
+.textarea { min-height: 140px; }
+
+.charCount {
+  font-size: 0.8rem;
+  color: #aaa;
+  text-align: right;
+  margin-top: -4px;
+}
+
+.successMsg {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--sage-dark);
+  padding: 32px 0;
+}
+
+@media (max-width: 600px) {
+  .board { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .modal { padding: 32px 20px 24px; }
+}

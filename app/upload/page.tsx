@@ -10,19 +10,19 @@ export default function UploadPage() {
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M15 18l-6-6 6-6" />
                     </svg>
-                    Kembali
+                    Kembali ke SKINFAVERSE21
                 </Link>
-                <span className={styles.navTitle}>Upload Kenangan</span>
+                <span className={styles.navTitle}>Upload Kenangan · Angkatan 21</span>
             </nav>
 
             <div className={styles.container}>
                 {/* Header */}
                 <div className={`${styles.header} animate-fade-in-up`}>
-                    <h1 className={styles.title}>Bagikan Momenmu</h1>
+                    <h1 className={styles.title}>Bagikan Momenmu ✨</h1>
                     <p className={styles.subtitle}>
-                        Foto &amp; video yang kamu upload akan tersimpan di arsip digital angkatan 2026.
+                        Upload foto &amp; video kenangan SKINFA Angkatan 21 ke arsip digital SKINFAVERSE21.
                         <br />
-                        Galeri akan dibuka pada waktu yang sudah ditentukan — jadi simpen dulu semangatnya! ✦
+                        Setiap momen yang kamu bagikan akan menjadi bagian dari sejarah kita bersama — diabadikan selamanya. 💛
                     </p>
                 </div>
 
@@ -38,9 +38,9 @@ export default function UploadPage() {
                                 </svg>
                             </div>
                         </div>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', marginBottom: '1rem', color: 'var(--color-text)' }}>Upload via Google Drive</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.4rem', marginBottom: '1rem', color: 'var(--color-text)' }}>Upload via Google Form</h2>
                         <p style={{ color: 'var(--color-text-muted)', marginBottom: '2.5rem', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            Untuk menjaga kualitas dan memudahkan pengumpulan, silakan upload foto dan video kenangan kamu melalui link Google Forms berikut.
+                            Untuk menjaga kualitas arsip SKINFAVERSE21, silakan upload foto dan video kenangan Angkatan 21 melalui link Google Form berikut. Setiap momen berharga yang kamu bagikan akan menjadi bagian dari sejarah SKINFA kita.
                         </p>
                         
                         <a 
@@ -59,10 +59,10 @@ export default function UploadPage() {
                     </div>
 
                     <div className={styles.infoNote} style={{ marginTop: '1rem' }}>
-                        <span className={styles.infoIcon}>📁</span>
+                        <span className={styles.infoIcon}>🗂️</span>
                         <p>
-                            Foto &amp; video tersimpan aman di arsip digital angkatan 2026.
-                            Galeri akan dibuka pada waktu yang sudah ditentukan, dan bisa dilihat bersama-sama.
+                            Foto &amp; video tersimpan aman di arsip digital SKINFAVERSE21 — Angkatan 21, SMK Informatika Al-Irsyad Al-Islamiyyah.
+                            Galeri akan dibuka bersama pada waktu yang sudah ditentukan sebagai momen nostalgia kita bersama.
                         </p>
                     </div>
 

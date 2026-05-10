@@ -1,0 +1,315 @@
+.main {
+  padding: clamp(100px, 12vw, 140px) clamp(16px, 5vw, 80px);
+  min-height: 100vh;
+  background-color: var(--cream);
+  background-image: radial-gradient(var(--cream-2) 15%, transparent 15%);
+  background-size: 20px 20px;
+}
+
+.backNav { margin-bottom: 32px; }
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 56px;
+  animation: fadeInUp 0.6s var(--bounce);
+}
+
+.heroBanner {
+  width: 100%;
+  aspect-ratio: 21/9;
+  border: var(--border-thick);
+  box-shadow: 10px 10px 0px rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroEmoji {
+  font-size: clamp(6rem, 14vw, 12rem);
+  opacity: 0.25;
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -3px;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  margin-bottom: 8px;
+}
+
+.heroQuote {
+  font-family: var(--font-hand);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: rgba(0,0,0,0.6);
+}
+
+.heroMeta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.metaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 28px;
+  background: white;
+  border: var(--border-thick);
+  border-radius: 4px;
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.9);
+  flex: 1;
+  min-width: 140px;
+}
+
+.metaNum {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.metaLabel {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* JOKE CARD */
+.jokeCard {
+  position: relative;
+  background: var(--yellow);
+  border: var(--border-thick);
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.9);
+  padding: 32px 40px;
+  margin-bottom: 32px;
+  transform: rotate(-0.8deg);
+  animation: fadeInUp 0.7s var(--bounce);
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 110px;
+  height: 28px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.jokeLabel {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.jokeText {
+  font-family: var(--font-hand);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.4;
+  color: var(--black);
+}
+
+/* CHAOS CARD */
+.chaosCard {
+  background: var(--black);
+  color: white;
+  border: var(--border-thick);
+  box-shadow: 8px 8px 0px var(--cls-color, var(--coral));
+  padding: 32px 40px;
+  margin-bottom: 64px;
+  animation: fadeInUp 0.8s var(--bounce);
+}
+
+.chaosTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--yellow);
+  margin-bottom: 12px;
+}
+
+.chaosText {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
+}
+
+/* SECTION */
+.section {
+  margin-bottom: 80px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.sectionBar {
+  display: inline-block;
+  width: 8px;
+  height: 2.2rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* STUDENTS GRID */
+.studentsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.studentCard {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  border: var(--border-thick);
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 7px 7px 0px rgba(0,0,0,0.9);
+  transform: rotate(var(--rot, 0deg));
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: fadeInUp 0.5s var(--bounce) both;
+}
+
+.studentCard:hover {
+  transform: translateY(-10px) rotate(0deg) scale(1.03);
+  box-shadow: 12px 12px 0px var(--bg, var(--yellow));
+  z-index: 10;
+}
+
+.studentCard:hover .cardDoodle {
+  opacity: 1;
+  transform: scale(1) rotate(20deg);
+}
+
+.cardTape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 90px;
+  height: 24px;
+  background: rgba(255,209,102,0.8);
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: all 0.3s var(--bounce);
+}
+
+.studentCard:hover .cardTape {
+  background: var(--bg, rgba(255,209,102,0.9));
+  transform: translateX(-50%) rotate(-6deg);
+}
+
+.cardDoodle {
+  position: absolute;
+  top: -16px;
+  right: -10px;
+  font-size: 2rem;
+  opacity: 0;
+  transform: scale(0.5) rotate(0deg);
+  transition: all 0.3s var(--bounce);
+  z-index: 3;
+}
+
+.cardPhoto {
+  width: 100%;
+  aspect-ratio: 1;
+  border: var(--border-thick);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) sepia(5%);
+  transition: transform 0.3s ease;
+}
+
+.studentCard:hover .cardImg {
+  transform: scale(1.06);
+}
+
+.cardInfo { display: flex; flex-direction: column; gap: 4px; }
+
+.cardNick {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.cardName {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.cardQuote {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.3;
+  padding-left: 10px;
+  border-left: 3px solid var(--bg, var(--coral));
+}
+
+.empty {
+  text-align: center;
+  padding: 60px;
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: #888;
+}
+
+/* CLOSING */
+.closing {
+  position: relative;
+  padding: 40px;
+  background: var(--cls-color, var(--yellow));
+  border: var(--border-thick);
+  box-shadow: 8px 8px 0px rgba(0,0,0,0.9);
+  text-align: center;
+}
+
+.closing p {
+  font-family: var(--font-hand);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--black);
+  line-height: 1.4;
+}

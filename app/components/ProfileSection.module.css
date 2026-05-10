@@ -1,0 +1,327 @@
+.section {
+  background: var(--cream-2);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0 !important;
+}
+
+/* Giant BG text */
+.bgText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-size: clamp(180px, 30vw, 340px);
+  font-weight: 700;
+  color: rgba(0,0,0,0.03);
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+  letter-spacing: -0.05em;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+
+/* ─── Header ─────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.stampBadge {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  box-shadow: var(--shadow-lg);
+  background: white;
+  position: relative;
+  transform: rotate(-6deg);
+}
+.stampBadge::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  border: 2px dashed var(--black);
+}
+.stampText {
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.stampYear {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.05;
+}
+.title em { font-style: italic; color: var(--coral); }
+.school {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* ─── Stats ──────────────────────────────────────── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.statCard {
+  background: white;
+  border: var(--border-thick);
+  border-radius: 14px;
+  box-shadow: var(--shadow-md);
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s var(--bounce);
+}
+.statCard:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-lg); }
+.statEmoji { font-size: 1.8rem; }
+.statValue {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--coral);
+  line-height: 1;
+}
+.statLabel {
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* ─── Manifesto ──────────────────────────────────── */
+.manifestoWrap { display: flex; justify-content: center; }
+.manifestoCard {
+  background: #FFFEF0;
+  border: var(--border-thick);
+  border-radius: 4px;
+  box-shadow: var(--shadow-md);
+  padding: 44px 48px 36px;
+  max-width: 720px;
+  position: relative;
+}
+.manifestoTape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 100px;
+  height: 24px;
+  background: rgba(255, 209, 102, 0.7);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.manifestoTape::before {
+  content: '';
+  position: absolute;
+  inset: 3px 6px;
+  background: repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.45) 2px, rgba(255,255,255,0.45) 4px);
+}
+.manifestoTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+}
+.manifestoPara {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.manifestoSig {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.sigSvg { width: 160px; height: 40px; }
+.manifestoSig span {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--coral);
+  font-weight: 600;
+}
+
+/* ─── Classes ────────────────────────────────────── */
+.classesWrap {}
+.classesTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.classesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.classCard {
+  background: white;
+  border: var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.18s var(--bounce);
+}
+.classCard:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-md); }
+.classIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.classInfo { flex: 1; }
+.className {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--black);
+}
+.classCount {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+}
+.classBar {
+  width: 80px;
+  height: 6px;
+  background: var(--cream-3);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.classBarFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+/* ─── CTA ────────────────────────────────────────── */
+.ctaWrap { display: flex; justify-content: center; }
+.ctaCard {
+  background: var(--black);
+  border: var(--border-thick);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  padding: 52px 56px;
+  text-align: center;
+  max-width: 680px;
+  width: 100%;
+}
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 14px;
+}
+.ctaSub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+.ctaBtns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ─── Footer ─────────────────────────────────────── */
+.footer {
+  margin-top: 80px;
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--black);
+  color: rgba(255,255,255,0.85);
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  /* Counteract parent padding to go full width */
+  margin-left: calc(clamp(16px, 5vw, 80px) * -1);
+  margin-right: calc(clamp(16px, 5vw, 80px) * -1);
+  width: calc(100% + (clamp(16px, 5vw, 80px) * 2));
+}
+
+.footer p {
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.footerSub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.45);
+  font-style: italic;
+}
+
+/* ─── Mobile ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .header { flex-direction: column; text-align: center; }
+  .manifestoCard { padding: 36px 24px 28px; }
+  .ctaCard { padding: 36px 24px; }
+}
+@media (max-width: 500px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .classesGrid { grid-template-columns: 1fr; }
+}
