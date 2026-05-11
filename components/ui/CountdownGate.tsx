@@ -3,8 +3,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './CountdownGate.module.css';
 import WelcomeSequence from './WelcomeSequence';
+import OrientationPrompt from './OrientationPrompt';
+import VolumePrompt from './VolumePrompt';
 
-type Phase = 'loading' | 'countdown' | 'welcome' | 'sequence' | 'unlocked';
+type Phase = 'loading' | 'countdown' | 'welcome' | 'orientation' | 'volume' | 'sequence' | 'unlocked';
 
 export default function CountdownGate({ children }: { children: React.ReactNode }) {
   const [phase, setPhase] = useState<Phase>('loading');
@@ -111,8 +113,44 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
     return () => clearInterval(interval);
   }, [targetDate, gateMode, checkDevBypass]);
 
-  // Handle entering the site from welcome screen → start cinematic sequence
+  // Handle entering the site from welcome screen → show orientation prompt first
   const handleEnterSite = () => {
+    setPhase('orientation');
+  };
+
+  // Handle orientation choice → enter fullscreen and optionally rotate, then show volume prompt
+  const handleOrientationChoice = async (wantsLandscape: boolean) => {
+    try {
+      // Request fullscreen
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        await elem.requestFullscreen();
+      } else if ((elem as any).webkitRequestFullscreen) {
+        await (elem as any).webkitRequestFullscreen();
+      } else if ((elem as any).mozRequestFullScreen) {
+        await (elem as any).mozRequestFullScreen();
+      } else if ((elem as any).msRequestFullscreen) {
+        await (elem as any).msRequestFullscreen();
+      }
+
+      // If user wants landscape, lock orientation
+      if (wantsLandscape && screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock('landscape');
+        } catch (err) {
+          console.log('Orientation lock not supported or failed:', err);
+        }
+      }
+    } catch (err) {
+      console.log('Fullscreen request failed:', err);
+    }
+
+    // Show volume prompt
+    setPhase('volume');
+  };
+
+  // Handle volume ready → start the sequence
+  const handleVolumeReady = () => {
     setPhase('sequence');
   };
 
@@ -161,6 +199,16 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
   // ── UNLOCKED: show actual site ──
   if (phase === 'unlocked') {
     return <>{children}</>;
+  }
+
+  // ── ORIENTATION PROMPT ──
+  if (phase === 'orientation') {
+    return <OrientationPrompt onChoose={handleOrientationChoice} />;
+  }
+
+  // ── VOLUME PROMPT ──
+  if (phase === 'volume') {
+    return <VolumePrompt onReady={handleVolumeReady} />;
   }
 
   // ── CINEMATIC SEQUENCE ──

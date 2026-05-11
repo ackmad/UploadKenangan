@@ -13,7 +13,11 @@ const NAV_LINKS = [
   { href: '/yearbook',  label: '📚 Yearbook' },
 ];
 
-export default function ScrapbookNav() {
+interface Props {
+  onReplaySequence?: () => void;
+}
+
+export default function ScrapbookNav({ onReplaySequence }: Props) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,17 +62,31 @@ export default function ScrapbookNav() {
           ))}
         </ul>
 
-        {/* Hamburger */}
-        <button
-          className={styles.hamburger}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-        >
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen1 : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen2 : ''}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.barOpen3 : ''}`} />
-        </button>
+        <div className={styles.rightActions}>
+          {/* Replay button - only show if callback provided */}
+          {onReplaySequence && (
+            <button
+              onClick={onReplaySequence}
+              className={styles.replayBtn}
+              title="Putar Ulang Welcome Sequence"
+              aria-label="Putar Ulang Welcome Sequence"
+            >
+              <span className={styles.replayIcon}>🎬</span>
+            </button>
+          )}
+
+          {/* Hamburger */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            <span className={`${styles.bar} ${menuOpen ? styles.barOpen1 : ''}`} />
+            <span className={`${styles.bar} ${menuOpen ? styles.barOpen2 : ''}`} />
+            <span className={`${styles.bar} ${menuOpen ? styles.barOpen3 : ''}`} />
+          </button>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
@@ -87,6 +105,20 @@ export default function ScrapbookNav() {
                 </Link>
               </li>
             ))}
+            {/* Replay in mobile menu */}
+            {onReplaySequence && (
+              <li>
+                <button
+                  onClick={() => {
+                    setMenuOpen(false);
+                    onReplaySequence();
+                  }}
+                  className={styles.mobileReplayBtn}
+                >
+                  🎬 Putar Ulang Intro
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>
