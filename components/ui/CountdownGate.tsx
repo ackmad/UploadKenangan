@@ -30,6 +30,24 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
            localStorage.getItem('skip_countdown') === '1';
   }, []);
 
+  // ── On every fresh page load, reset all bypass flags so ENV mode is authoritative ──
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const envMode = process.env.NEXT_PUBLIC_GATE_MODE || 'auto';
+
+    // If ENV forces a specific mode, always clear any stored bypasses
+    // so refresh always respects the ENV setting
+    if (envMode !== 'auto') {
+      sessionStorage.removeItem('seen_welcome');
+      localStorage.removeItem('skip_countdown');
+    } else {
+      // Even in auto mode, clear the localStorage skip so refresh doesn't
+      // permanently bypass the gate — only the current session bypass (skip=1 URL param) survives
+      localStorage.removeItem('skip_countdown');
+    }
+  }, []); // runs once on mount = once per page load / refresh
+
   useEffect(() => {
     // ── ENV-based forced modes ──
     if (gateMode === 'open') {
