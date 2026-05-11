@@ -122,14 +122,6 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
     setPhase('unlocked');
   }, []);
 
-  // Secret dev bypass: double-click badge
-  const handleSecretBypass = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('skip_countdown', '1');
-      setPhase('unlocked');
-    }
-  };
-
   // Dev Mode Interactions
   const handlePressStart = () => {
     const timer = setTimeout(() => {
@@ -291,7 +283,7 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
       <div className={styles.main}>
 
         {/* Small badge */}
-        <div className={styles.badge} onDoubleClick={handleSecretBypass}>
+        <div className={styles.badge}>
           SKINFAVERSE21 · Angkatan 21
         </div>
 
