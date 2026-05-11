@@ -134,9 +134,9 @@ export default function CountdownGate({ children }: { children: React.ReactNode 
       }
 
       // If user wants landscape, lock orientation
-      if (wantsLandscape && screen.orientation && screen.orientation.lock) {
+      if (wantsLandscape && screen.orientation && (screen.orientation as any).lock) {
         try {
-          await screen.orientation.lock('landscape');
+          await (screen.orientation as any).lock('landscape');
         } catch (err) {
           console.log('Orientation lock not supported or failed:', err);
         }
