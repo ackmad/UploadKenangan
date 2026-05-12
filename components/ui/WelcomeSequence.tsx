@@ -19,43 +19,6 @@ const MEDIA_2 = [
 ];
 const ALL_MEDIA = [...new Set([...MEDIA_1, ...MEDIA_2])];
 
-// ── Updated timestamps from lirik1.json ──
-const SEGMENTS_1: Segment[] = [
-  { start: 0.000,  end: 0.773,  text: "After graduating",                                                                            text_id: "Setelah kelulusan itu tiba" },
-  { start: 0.793,  end: 4.278,  text: "we come to realize that there will be no more next weeks",                                    text_id: "kita baru tersadar — tak ada lagi \"minggu depan\" yang sama" },
-  { start: 5.019,  end: 7.843,  text: "no more lunch together with our classmates",                                                   text_id: "tak ada lagi makan siang yang ramai bersama mereka" },
-  { start: 7.863,  end: 9.565,  text: "no more street food after class",                                                              text_id: "tak ada lagi jajan di pinggir jalan sepulang sekolah" },
-  { start: 10.287, end: 12.430, text: "and no more moments of breaking down with them",                                               text_id: "dan tak ada lagi momen menangis bersama, saling menguatkan" },
-  { start: 13.151, end: 14.052, text: "Instead of saying",                                                                            text_id: "Bukan lagi kalimat" },
-  { start: 14.092, end: 16.856, text: "see you tomorrow or next school year",                                                         text_id: "sampai jumpa besok, atau tahun ajaran depan" },
-  { start: 16.876, end: 17.998, text: "it will be",                                                                                   text_id: "yang terucap, melainkan" },
-  { start: 18.018, end: 20.341, text: "I hope to see you one day again",                                                              text_id: "semoga kita masih bisa bertemu, entah kapan" },
-  { start: 20.321, end: 26.170, text: "It is in this realization that someday we will look back on this moment with sadness",         text_id: "Dan dalam kesadaran itulah kita tahu — suatu hari nanti, kita akan mengenang ini dengan dada yang sesak" },
-  { start: 26.951, end: 30.577, text: "as this chapter of our lives will only be a part of our stories",                             text_id: "karena babak ini dalam hidup kita hanya akan menjadi kenangan dalam cerita masing-masing" },
-  { start: 31.599, end: 34.884, text: "this thought feels sad because as we grow older",                                              text_id: "pikiran itu terasa menyakitkan, sebab semakin dewasa kita" },
-  { start: 34.904, end: 38.970, text: "we realize that our paths may go in different directions",                                     text_id: "semakin kita sadar bahwa jalan kita mungkin tak lagi beriringan" },
-  { start: 39.832, end: 43.257, text: "and there is a chance we might never see each other again",                                    text_id: "dan ada kemungkinan — yang tak ingin kita akui — bahwa kita tak akan pernah bertemu lagi" },
-];
-
-// ── Updated timestamps from lirik2.json ──
-const SEGMENTS_2: Segment[] = [
-  { start: -1.0,   end: 2.717,  text: "There are moments when you suddenly realize that one day",        text_id: "Ada kalanya kamu tiba-tiba tersadar," },
-  { start: 2.237,  end: 5.743,  text: "you and your friends will take different paths",                   text_id: "kamu dan sahabatmu akan berpisah jalan" },
-  { start: 5.844,  end: 8.047,  text: "each of you will lead your own lives",                             text_id: "masing-masing menjalani hidupnya sendiri" },
-  { start: 8.168,  end: 10.171, text: "attending different universities",                                  text_id: "kuliah di tempat yang berbeda" },
-  { start: 10.132, end: 12.916, text: "and leaving your hometown to follow your dreams",                   text_id: "meninggalkan kota ini demi mimpi masing-masing" },
-  { start: 13.057, end: 15.22,  text: "your friends may become distant",                                   text_id: "sahabatmu pun perlahan menjauh" },
-  { start: 15.321, end: 17.705, text: "and you'll be unsure of when you'll meet again",                   text_id: "dan kamu tak tahu kapan bisa bertemu lagi" },
-  { start: 17.225, end: 20.53,  text: "or create new shared experiences",                                 text_id: "atau membuat kenangan baru bersama" },
-  { start: 20.01,  end: 23.756, text: "Everyone will find themselves entangled in the demands",            text_id: "Semua akan sibuk dengan tuntutan" },
-  { start: 23.356, end: 26.621, text: "and hectic nature of pursuing success",                             text_id: "dan hiruk-pikuk mengejar kesuksesan" },
-  { start: 26.662, end: 29.286, text: "and striving to fulfill their aspirations",                         text_id: "berjuang keras mewujudkan impian mereka" },
-  { start: 29.668, end: 30.628, text: "So now",                                                            text_id: "Maka sekarang," },
-  { start: 30.169, end: 32.993, text: "as we are in this moment",                                          text_id: "selagi kita masih bersama di sini" },
-  { start: 33.094, end: 35.618, text: "let us enjoy the little things with our friends",                   text_id: "nikmati hal-hal kecil bersama mereka" },
-  { start: 35.819, end: 38.603, text: "and dig them deep within our hearts",                               text_id: "dan simpan dalam-dalam di hatimu" },
-];
-
 // ── Timing ──
 const IMAGE_DUR_1       = 6500;
 const IMAGE_DUR_2       = 7200;
@@ -77,6 +40,10 @@ export default function WelcomeSequence({ onComplete }: Props) {
   const [phase, setPhase]       = useState<Phase>('projector');
   const [countNum, setCountNum] = useState(5);
   const [exiting, setExiting]   = useState(false);
+
+  // Dynamic lyrics state
+  const [segments1, setSegments1] = useState<Segment[]>([]);
+  const [segments2, setSegments2] = useState<Segment[]>([]);
 
   const [slotA, setSlotA]     = useState<SlotState>({ src: MEDIA_1[0], kb: 'kb1' });
   const [slotB, setSlotB]     = useState<SlotState>({ src: '',          kb: 'kb2' });
@@ -101,9 +68,27 @@ export default function WelcomeSequence({ onComplete }: Props) {
   // Track current fade target to avoid redundant rAF chains
   const instrTargetRef = useRef(-1);
 
-  // Preload all images on mount
+  // Preload all images and FETCH lyrics on mount
   useEffect(() => {
+    // Preload images
     ALL_MEDIA.forEach(src => { const img = new Image(); img.src = src; });
+
+    // Fetch lyrics
+    const loadLyrics = async () => {
+      try {
+        const [res1, res2] = await Promise.all([
+          fetch('/assets/lirik/lirik1.json'),
+          fetch('/assets/lirik/lirik2.json')
+        ]);
+        const data1 = await res1.json();
+        const data2 = await res2.json();
+        setSegments1(data1.segments || []);
+        setSegments2(data2.segments || []);
+      } catch (err) {
+        console.error('Failed to load lyrics:', err);
+      }
+    };
+    loadLyrics();
   }, []);
 
   // ── Smooth volume fade via rAF ──
@@ -284,13 +269,13 @@ export default function WelcomeSequence({ onComplete }: Props) {
   // ── Audio handlers ──
   const handleTime1 = useCallback(() => {
     const t = voice1Ref.current?.currentTime;
-    if (t !== undefined) syncLyric(SEGMENTS_1, t);
-  }, [syncLyric]);
+    if (t !== undefined) syncLyric(segments1, t);
+  }, [syncLyric, segments1]);
 
   const handleTime2 = useCallback(() => {
     const t = voice2Ref.current?.currentTime;
-    if (t !== undefined) syncLyric(SEGMENTS_2, t);
-  }, [syncLyric]);
+    if (t !== undefined) syncLyric(segments2, t);
+  }, [syncLyric, segments2]);
 
   const handleV1End = useCallback(() => setPhase('interlude'), []);
   const handleV2End = useCallback(() => setPhase('outro'),     []);
