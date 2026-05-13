@@ -261,3 +261,78 @@
   .hamburger { display: flex; }
   .nav { padding: 12px 20px; }
 }
+
+/* ─── NETFLIX VARIANT (For /film) ─── */
+.netflixNav {
+  background: linear-gradient(to bottom, rgba(20, 20, 20, 0.9) 0%, transparent 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+  padding: 20px 40px;
+}
+
+.netflixNavScrolled {
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  padding: 12px 40px;
+}
+
+.netflixNav .logoText {
+  color: #E50914; /* Netflix Red */
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.netflixNav .logoText strong {
+  color: white;
+  font-weight: 900;
+}
+
+.netflixNav .link {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #e5e5e5;
+  border: none;
+  padding: 8px 12px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.netflixNav .link:hover {
+  background: transparent;
+  color: white;
+  box-shadow: none;
+  transform: none;
+}
+
+.netflixNav .linkActive {
+  background: transparent;
+  color: white;
+  font-weight: 800;
+  box-shadow: none;
+  border-bottom: 2px solid #E50914;
+  border-radius: 0;
+}
+
+.netflixNav .linkActive:hover {
+  background: transparent;
+}
+
+.netflixNav .hamburger {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.netflixNav .bar {
+  background: white;
+}
+
+@media (max-width: 768px) {
+  .netflixNav { padding: 16px 20px; }
+  .netflixNavScrolled { padding: 12px 20px; }
+}

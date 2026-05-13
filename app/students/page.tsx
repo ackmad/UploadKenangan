@@ -1,132 +1,176 @@
 'use client';
-import { useState } from 'react';
+
 import Link from 'next/link';
-import biodata from '@/data/biodata_siswa.json';
 import styles from './page.module.css';
 import ScrapbookNav from '@/components/ui/ScrapbookNav';
+import biodataList from '@/data/biodata_siswa.json';
 
-const JURUSAN_LIST = ["Semua", "RPL", "TKJ", "DKV"];
-const BG_COLORS = ['#FF9B9B', '#A8E6CF', '#C3B1E1', '#FFD166', '#89C4E1', '#FFCBA4'];
-const DOODLES = ['⭐', '✨', '⚡', '💫', '🎨', '🚀', '🌟', '🎮'];
+// Calculate class statistics
+const getClassStats = (kelas: string) => {
+  const siswa = biodataList.filter(s => s.kelas === kelas);
+  const laki = siswa.filter(s => s.jenis_kelamin === 'Laki-laki').length;
+  const perempuan = siswa.filter(s => s.jenis_kelamin === 'Perempuan').length;
+  return { total: siswa.length, laki, perempuan };
+};
+
+// Compute metadata dynamically from the flat JSON array
+const totalSiswa = biodataList.length;
+const uniqueKelas = [...new Set(biodataList.map(s => s.kelas))];
+
+const KELAS_DATA = [
+  {
+    id: 'rpl',
+    nama: 'RPL',
+    namaLengkap: 'Rekayasa Perangkat Lunak',
+    tagline: 'Kelas paling ribut tapi paling susah dilupain',
+    warna: '#FF6B6B',
+    warnaSecondary: '#FFE66D',
+    emoji: '💻',
+    doodles: ['⚡', '🚀', '💡', '🎮'],
+    stats: getClassStats('RPL'),
+    funFact: 'Kelas dengan jumlah laptop terbanyak',
+  },
+  {
+    id: 'tkj',
+    nama: 'TKJ',
+    namaLengkap: 'Teknik Komputer & Jaringan',
+    tagline: 'Tempat semua cerita random dimulai',
+    warna: '#4ECDC4',
+    warnaSecondary: '#95E1D3',
+    emoji: '🔧',
+    doodles: ['🌐', '⚙️', '🔌', '📡'],
+    stats: getClassStats('TKJ'),
+    funFact: 'Kelas paling sering ngoprek hardware',
+  },
+  {
+    id: 'dkv',
+    nama: 'DKV',
+    namaLengkap: 'Desain Komunikasi Visual',
+    tagline: 'Kelas paling aesthetic dan kreatif',
+    warna: '#C77DFF',
+    warnaSecondary: '#E0AAFF',
+    emoji: '🎨',
+    doodles: ['✨', '🖌️', '🎭', '📸'],
+    stats: getClassStats('DKV'),
+    funFact: 'Kelas dengan hasil karya paling banyak',
+  },
+];
 
 export default function StudentsPage() {
-  const [activeFilter, setActiveFilter] = useState("Semua");
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredSiswa = (biodata.siswa || []).filter((s) => {
-    const matchJurusan = activeFilter === "Semua" || s.jurusan === activeFilter;
-    const safeSearch = searchQuery.toLowerCase();
-    const matchSearch = (s.nama_lengkap || '').toLowerCase().includes(safeSearch) || 
-                        (s.nama_panggilan || '').toLowerCase().includes(safeSearch) ||
-                        (s.kelas || '').toLowerCase().includes(safeSearch) ||
-                        (s.jurusan || '').toLowerCase().includes(safeSearch);
-    return matchJurusan && matchSearch;
-  });
-
-  const renderGrid = (siswaList: typeof biodata.siswa) => {
-    if (siswaList.length === 0) return null;
-    return (
-      <div className={styles.grid}>
-        {siswaList.map((siswa, i) => {
-          const randomBg = BG_COLORS[i % BG_COLORS.length];
-          const randomDoodle = DOODLES[i % DOODLES.length];
-          const rotation = (i % 2 === 0 ? 1 : -1) * ((i % 3) + 1);
-
-          return (
-            <Link 
-              href={`/students/${siswa.id}`} 
-              key={siswa.id} 
-              className={styles.card} 
-              style={{ 
-                animationDelay: `${(i % 10) * 0.05}s`,
-                '--rot': `${rotation}deg`,
-                '--card-bg': randomBg 
-              } as React.CSSProperties}
-            >
-              <div className={styles.tape} />
-              <div className={styles.doodle}>{randomDoodle}</div>
-              
-              <div className={styles.photoWrap}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={siswa.foto} alt={siswa.nama_panggilan} className={styles.photo} loading="lazy" />
-                <span className={styles.kelasBadge}>{siswa.kelas}</span>
-              </div>
-              
-              <div className={styles.info}>
-                <h3 className={styles.name}>{siswa.nama_panggilan}</h3>
-                <p className={styles.fullName}>{siswa.nama_lengkap}</p>
-                <blockquote className={styles.quote}>&quot;{siswa.quote || siswa.motto_hidup}&quot;</blockquote>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-    );
-  };
-
   return (
     <>
       <ScrapbookNav />
       <main className={styles.main}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>Meet The Universe.</h1>
-          <p className={styles.subtitle}>Angkatan 21 bukan sekadar kumpulan nama. Mereka adalah bagian dari cerita besar SKINFAVERSE.</p>
-        </div>
-
-        <div className={styles.controls}>
-          <div className={styles.searchWrap}>
-            <input 
-              type="text" 
-              placeholder="Cari nama, kelas, atau jurusan..." 
-              className={styles.searchInput}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <span className={styles.searchIcon}>🔍</span>
+        {/* Hero Section */}
+        <div className={styles.hero}>
+          <div className={styles.heroContent}>
+            <span className={styles.badge}>🎓 Angkatan 21</span>
+            <h1 className={styles.title}>
+              Kelas & <em>Siswa</em>
+            </h1>
+            <p className={styles.subtitle}>
+              Setiap kelas punya cerita, karakter, dan kenangan sendiri. 
+              Pilih kelasmu dan buka kapsul waktu digital yang penuh nostalgia.
+            </p>
           </div>
-          <div className={styles.filters}>
-            {JURUSAN_LIST.map(j => (
-              <button 
-                key={j} 
-                className={`${styles.filterBtn} ${activeFilter === j ? styles.active : ''}`}
-                onClick={() => setActiveFilter(j)}
-              >
-                {j}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.contentArea}>
-          {filteredSiswa.length > 0 ? (
-            <>
-              {(activeFilter === 'Semua' || activeFilter === 'RPL') && filteredSiswa.filter(s => s.jurusan === 'RPL').length > 0 && (
-                <div className={styles.jurusanSection}>
-                  <h2 className={styles.jurusanTitle}>RPL <span className={styles.jurusanDot}>•</span> Rekayasa Perangkat Lunak</h2>
-                  {renderGrid(filteredSiswa.filter(s => s.jurusan === 'RPL'))}
-                </div>
-              )}
-              
-              {(activeFilter === 'Semua' || activeFilter === 'TKJ') && filteredSiswa.filter(s => s.jurusan === 'TKJ').length > 0 && (
-                <div className={styles.jurusanSection}>
-                  <h2 className={styles.jurusanTitle}>TKJ <span className={styles.jurusanDot}>•</span> Teknik Komputer & Jaringan</h2>
-                  {renderGrid(filteredSiswa.filter(s => s.jurusan === 'TKJ'))}
-                </div>
-              )}
-              
-              {(activeFilter === 'Semua' || activeFilter === 'DKV') && filteredSiswa.filter(s => s.jurusan === 'DKV').length > 0 && (
-                <div className={styles.jurusanSection}>
-                  <h2 className={styles.jurusanTitle}>DKV <span className={styles.jurusanDot}>•</span> Desain Komunikasi Visual</h2>
-                  {renderGrid(filteredSiswa.filter(s => s.jurusan === 'DKV'))}
-                </div>
-              )}
-            </>
-          ) : (
-            <div className={styles.emptyState}>
-              <span className={styles.emptyIcon}>👻</span>
-              <p>Yah, tidak ada siswa yang cocok dengan pencarianmu.</p>
+          
+          <div className={styles.heroStats}>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>{totalSiswa}</span>
+              <span className={styles.statLabel}>Total Siswa</span>
             </div>
-          )}
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>{uniqueKelas.length}</span>
+              <span className={styles.statLabel}>Jurusan</span>
+            </div>
+            <div className={styles.statCard}>
+              <span className={styles.statNumber}>3</span>
+              <span className={styles.statLabel}>Tahun Bersama</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Class Cards Grid */}
+        <div className={styles.classGrid}>
+          {KELAS_DATA.map((kelas, idx) => (
+            <Link
+              key={kelas.id}
+              href={`/students/class/${kelas.id}`}
+              className={styles.classCard}
+              style={{
+                '--card-color': kelas.warna,
+                '--card-secondary': kelas.warnaSecondary,
+                animationDelay: `${idx * 0.15}s`,
+              } as React.CSSProperties}
+            >
+              {/* Decorative elements */}
+              <div className={styles.cardDoodles}>
+                {kelas.doodles.map((doodle, i) => (
+                  <span
+                    key={i}
+                    className={styles.doodle}
+                    style={{
+                      '--doodle-delay': `${i * 0.5}s`,
+                    } as React.CSSProperties}
+                  >
+                    {doodle}
+                  </span>
+                ))}
+              </div>
+
+              {/* Card Content */}
+              <div className={styles.cardHeader}>
+                <span className={styles.cardEmoji}>{kelas.emoji}</span>
+                <div>
+                  <h2 className={styles.cardTitle}>{kelas.nama}</h2>
+                  <p className={styles.cardSubtitle}>{kelas.namaLengkap}</p>
+                </div>
+              </div>
+
+              <p className={styles.cardTagline}>&quot;{kelas.tagline}&quot;</p>
+
+              {/* Stats */}
+              <div className={styles.cardStats}>
+                <div className={styles.cardStat}>
+                  <span className={styles.cardStatIcon}>👥</span>
+                  <span className={styles.cardStatValue}>{kelas.stats.total}</span>
+                  <span className={styles.cardStatLabel}>Siswa</span>
+                </div>
+                <div className={styles.cardStat}>
+                  <span className={styles.cardStatIcon}>👨</span>
+                  <span className={styles.cardStatValue}>{kelas.stats.laki}</span>
+                  <span className={styles.cardStatLabel}>Laki-laki</span>
+                </div>
+                <div className={styles.cardStat}>
+                  <span className={styles.cardStatIcon}>👩</span>
+                  <span className={styles.cardStatValue}>{kelas.stats.perempuan}</span>
+                  <span className={styles.cardStatLabel}>Perempuan</span>
+                </div>
+              </div>
+
+              {/* Fun Fact */}
+              <div className={styles.cardFunFact}>
+                <span className={styles.funFactIcon}>💡</span>
+                <span className={styles.funFactText}>{kelas.funFact}</span>
+              </div>
+
+              {/* CTA */}
+              <div className={styles.cardCta}>
+                <span>Buka Semesta Kelas</span>
+                <span className={styles.cardArrow}>→</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Bottom Section */}
+        <div className={styles.bottomSection}>
+          <div className={styles.bottomCard}>
+            <h3 className={styles.bottomTitle}>Cari Siswa Tertentu?</h3>
+            <p className={styles.bottomText}>
+              Masuk ke halaman kelas untuk melihat seluruh siswa dan detail profil mereka.
+            </p>
+          </div>
         </div>
       </main>
     </>

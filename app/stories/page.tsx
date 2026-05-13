@@ -63,13 +63,13 @@ export default function StoriesPage() {
       <ScrapbookNav />
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Things We Never Said Out Loud.</h1>
-          <p className={styles.subtitle}>Semua orang menyimpan cerita. Beberapa cerita terlalu personal untuk dilupakan.</p>
+          <h1 className={styles.title}>Papan Pesan & Cerita.</h1>
+          <p className={styles.subtitle}>Tinggalkan catatan, pesan anonim, curhat, atau fun fact masa SMK. Bebas cerita apa saja, ini ruang kosong kita bersama.</p>
         </div>
 
         <div className={styles.controls}>
           <button className={`btn btn-black ${styles.addBtn}`} onClick={() => setIsModalOpen(true)}>
-            + Tulis Cerita Baru
+            + Tulis di Papan
           </button>
           
           <div className={styles.filters}>
@@ -113,7 +113,7 @@ export default function StoriesPage() {
           ) : (
             <div className={styles.emptyState}>
               <span className={styles.emptyIcon}>👻</span>
-              <p>Belum ada cerita di kategori ini.</p>
+              <p>Belum ada pesan atau cerita di kategori ini.</p>
             </div>
           )}
         </div>
@@ -123,13 +123,13 @@ export default function StoriesPage() {
           <div className={styles.modalOverlay} onClick={() => setIsModalOpen(false)}>
             <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
               <button className={styles.closeModal} onClick={() => setIsModalOpen(false)}>✕</button>
-              <h2 className={styles.modalTitle}>📝 Tulis Ceritamu</h2>
-              <p className={styles.modalSubtitle}>Anonim. Bebas. Jujur. Tidak ada yang tahu kamu yang nulis.</p>
+              <h2 className={styles.modalTitle}>📝 Tulis Pesan / Ceritamu</h2>
+              <p className={styles.modalSubtitle}>Bisa anonim, bisa pakai nama. Curhat, kasih fun fact, atau sampaikan pesan yang belum pernah terucap.</p>
               
               <form onSubmit={handleAddStory} className={styles.form}>
                 <textarea 
                   className={styles.textarea} 
-                  placeholder="Hal-hal yang dulu nggak sempat diucapkan..."
+                  placeholder="Tulis pesan, fun fact, atau uneg-uneg masa SMK..."
                   value={newStoryText}
                   onChange={e => setNewStoryText(e.target.value)}
                   rows={5}

@@ -1,0 +1,25 @@
+{
+  "production": "Visionine",
+  "title": "Tiga Tahun Satu Cerita",
+  "leadCast": [
+    { "name": "Ahmad", "class": "XII DKV", "role": "Lead Cast" },
+    { "name": "Faros", "class": "XII TKJ", "role": "Lead Cast" },
+    { "name": "Zidan", "class": "XII RPL", "role": "Lead Cast" }
+  ],
+  "supportingCast": [
+    { "name": "Bp. Firmansyah", "desc": "KeKom DKV" },
+    { "name": "Bp. Abdel Aziz", "desc": "Walas 12 DKV" },
+    { "name": "Ib. Surayah", "desc": "Guru MTK" },
+    { "name": "Seluruh Siswa", "desc": "Angkatan 21" }
+  ],
+  "productionTeam": {
+    "sutradara": "Abdul Aziz",
+    "astrada": "Qoyyimah",
+    "penulisNaskah": ["Welby Rizka Permana", "Zaskia Nafisa"],
+    "unitKamera": ["Aditya Eka", "Desta Azkiya' Jihad"],
+    "unitEditing": ["Marini Zahwa Azzahra", "Raisya Raffa Rahmadina"],
+    "unitPostProduksi": ["Agam Wira yudha", "Adrian Putra Pratama"]
+  },
+  "location": "SMK Informatika Al-Irsyad Al-Islamiyyah — Jl. Perjuangan No.31, Cirebon",
+  "musicLicense": "https://link-to-license.com"
+}

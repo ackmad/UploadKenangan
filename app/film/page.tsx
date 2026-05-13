@@ -1,18 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import styles from './page.module.css';
 import ScrapbookNav from '@/components/ui/ScrapbookNav';
-
-const CAST = [
-  { role: 'Sutradara', name: 'Tim Produksi DKV', emoji: '🎬', bg: '#FF9B9B' },
-  { role: 'Penulis', name: 'Tim RPL & DKV', emoji: '✍️', bg: '#FFD166' },
-  { role: 'Kamera', name: 'Tim DKV', emoji: '🎥', bg: '#A8E6CF' },
-  { role: 'Editor', name: 'Tim RPL', emoji: '🖥️', bg: '#89C4E1' },
-  { role: 'Musik', name: 'Tim Musikalisasi', emoji: '🎵', bg: '#C3B1E1' },
-  { role: 'Talent', name: 'Angkatan 21', emoji: '🌟', bg: '#FFCBA4' },
-];
+import filmData from '@/data/film.json';
 
 const BTS = [
   { img: 'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=400&h=250', title: 'Day 1: Awal Mula' },
@@ -21,8 +12,14 @@ const BTS = [
   { img: 'https://images.unsplash.com/photo-1512733596533-7b00ccf8ebaf?auto=format&fit=crop&q=80&w=400&h=250', title: 'Wrap Up!' },
 ];
 
+const CAST_COLORS = ['#FF9B9B', '#FFD166', '#A8E6CF'];
+
 export default function FilmPage() {
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const titleParts = filmData.title.split(' ');
+  const firstHalf = titleParts.slice(0, 2).join(' ');
+  const secondHalf = titleParts.slice(2).join(' ');
 
   return (
     <>
@@ -37,11 +34,13 @@ export default function FilmPage() {
 
           <div className={styles.heroContent}>
             <div className={styles.netflixBadge}>
-              <span className={styles.nIcon}>N</span>
-              <span className={styles.nText}>SKINFA ORIGINAL</span>
+              <span className={styles.nIcon}>V</span>
+              <span className={styles.nText}>{filmData.production.toUpperCase()} ORIGINAL</span>
             </div>
 
-            <h1 className={styles.filmTitle}>3 TAHUN<br/>1 CERITA</h1>
+            <h1 className={styles.filmTitle}>
+              {firstHalf}<br/>{secondHalf}
+            </h1>
             
             <div className={styles.metaData}>
               <span className={styles.match}>98% Match</span>
@@ -77,16 +76,16 @@ export default function FilmPage() {
 
         {/* CAROUSEL ROWS */}
         <section className={styles.rowSection}>
-          <h2 className={styles.rowTitle}>Top Cast</h2>
+          <h2 className={styles.rowTitle}>Lead Cast</h2>
           <div className={styles.rowScroller}>
             <div className={styles.castRow}>
-              {CAST.map((member, i) => (
-                <div key={i} className={styles.castCard} style={{ '--bg': member.bg } as React.CSSProperties}>
+              {filmData.leadCast.map((member, i) => (
+                <div key={i} className={styles.castCard} style={{ '--bg': CAST_COLORS[i % CAST_COLORS.length] } as React.CSSProperties}>
                   <div className={styles.castTape} />
-                  <div className={styles.castImage}>{member.emoji}</div>
+                  <div className={styles.castImage}>👤</div>
                   <div className={styles.castInfo}>
                     <p className={styles.castName}>{member.name}</p>
-                    <p className={styles.castRole}>{member.role}</p>
+                    <p className={styles.castRole}>{member.class}</p>
                   </div>
                 </div>
               ))}
@@ -112,19 +111,56 @@ export default function FilmPage() {
           </div>
         </section>
 
-        <section className={styles.rowSection} style={{ paddingBottom: '80px' }}>
-          <h2 className={styles.rowTitle}>Soundtrack</h2>
+        <section className={styles.rowSection}>
+          <h2 className={styles.rowTitle}>Production Team</h2>
           <div className={styles.rowScroller}>
-            <div className={styles.castRow}>
-              {[1,2,3,4,5].map(i => (
-                <div key={i} className={styles.ostCard}>
-                  <div className={styles.ostDisc}>💿</div>
-                  <div className={styles.ostInfo}>
-                    <p className={styles.ostTitle}>Track {i}</p>
-                    <p className={styles.ostArtist}>Angkatan 21</p>
-                  </div>
+            <div className={styles.teamGrid}>
+              <div className={styles.teamColumn}>
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Sutradara</span>
+                  <span className={styles.teamName}>{filmData.productionTeam.sutradara}</span>
                 </div>
-              ))}
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Astrada</span>
+                  <span className={styles.teamName}>{filmData.productionTeam.astrada}</span>
+                </div>
+              </div>
+              <div className={styles.teamColumn}>
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Penulis Naskah</span>
+                  <span className={styles.teamNames}>{filmData.productionTeam.penulisNaskah.join(', ')}</span>
+                </div>
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Unit Kamera</span>
+                  <span className={styles.teamNames}>{filmData.productionTeam.unitKamera.join(', ')}</span>
+                </div>
+              </div>
+              <div className={styles.teamColumn}>
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Editing</span>
+                  <span className={styles.teamNames}>{filmData.productionTeam.unitEditing.join(', ')}</span>
+                </div>
+                <div className={styles.teamItem}>
+                  <span className={styles.teamRole}>Post-Produksi</span>
+                  <span className={styles.teamNames}>{filmData.productionTeam.unitPostProduksi.join(', ')}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.rowSection} style={{ paddingBottom: '80px' }}>
+          <h2 className={styles.rowTitle}>Soundtrack & Info</h2>
+          <div className={styles.infoFooter}>
+            <div className={styles.infoCard}>
+              <h3>📍 Location</h3>
+              <p>{filmData.location}</p>
+            </div>
+            <div className={styles.infoCard}>
+              <h3>🎵 Music & License</h3>
+              <a href={filmData.musicLicense} target="_blank" rel="noopener noreferrer" className={styles.licenseLink}>
+                View Licenses & Soundtrack
+              </a>
             </div>
           </div>
         </section>

@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { href: '/',          label: '🏠 Home' },
   { href: '/students',  label: '🎓 Kelas & Siswa' },
   { href: '/nostalgia', label: '📷 Nostalgia' },
-  { href: '/stories',   label: '💬 Stories' },
+  { href: '/stories',   label: '💬 Papan Pesan' },
   { href: '/yearbook',  label: '📚 Yearbook' },
 ];
 
@@ -37,29 +37,35 @@ export default function ScrapbookNav({ onReplaySequence }: Props) {
   // Close mobile menu on route change
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
+  const isNetflix = pathname === '/film';
+
   return (
     <>
-      {/* Scroll progress washi tape */}
-      <div className={styles.progressBar} style={{ width: `${scrollProgress}%` }} />
+      {/* Scroll progress washi tape - Hidden in Netflix mode */}
+      {!isNetflix && <div className={styles.progressBar} style={{ width: `${scrollProgress}%` }} />}
 
-      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
+      <nav className={`${styles.nav} ${scrolled ? styles.navScrolled : ''} ${isNetflix ? styles.netflixNav : ''} ${isNetflix && scrolled ? styles.netflixNavScrolled : ''}`}>
         <Link href="/" className={styles.logo}>
-          <span className={styles.logoIcon}>📓</span>
+          {!isNetflix && <span className={styles.logoIcon}>📓</span>}
           <span className={styles.logoText}>SKINFA<strong>VERSE21</strong></span>
         </Link>
 
         {/* Desktop links */}
         <ul className={styles.links}>
-          {NAV_LINKS.map(link => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`${styles.link} ${pathname === link.href ? styles.linkActive : ''}`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map(link => {
+            // Strip emojis for Netflix mode
+            const label = isNetflix ? link.label.replace(/[^\w\s&]/gi, '').trim() : link.label;
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`${styles.link} ${pathname === link.href ? styles.linkActive : ''}`}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className={styles.rightActions}>

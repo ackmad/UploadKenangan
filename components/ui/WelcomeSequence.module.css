@@ -349,6 +349,393 @@
   line-height: 1.55;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   ENDING SEQUENCE - Emotional Closure
+   ═══════════════════════════════════════════════════════════ */
+
+.endingWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+  will-change: opacity;
+}
+
+.endingShow {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Dark silence phase */
+.endingSilence {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  z-index: 1;
+}
+
+/* Memories container */
+.memoriesLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Individual memory items (polaroids, quotes, timestamps) */
+.memoryItem {
+  position: absolute;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ── VARIED ENTRANCE ANIMATIONS ── */
+
+/* Fall from top with bounce */
+.memoryItem.fallTop {
+  animation: fallFromTop 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fallFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-120vh) scale(1.15) rotate(var(--rotate-start, 0deg)) translateZ(0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(2%) scale(1.02) rotate(var(--rotate-mid, 0deg)) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--rotate, 0deg)) translateZ(0);
+  }
+}
+
+/* Slide from left */
+.memoryItem.slideLeft {
+  animation: slideFromLeft 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw) rotate(var(--rotate-start, 0deg)) scale(0.9) translateZ(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(2%) rotate(var(--rotate-mid, 0deg)) scale(1.05) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(var(--rotate, 0deg)) scale(1) translateZ(0);
+  }
+}
+
+/* Slide from right */
+.memoryItem.slideRight {
+  animation: slideFromRight 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100vw) rotate(var(--rotate-start, 0deg)) scale(0.9) translateZ(0);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-2%) rotate(var(--rotate-mid, 0deg)) scale(1.05) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(var(--rotate, 0deg)) scale(1) translateZ(0);
+  }
+}
+
+/* Rise from bottom */
+.memoryItem.riseBottom {
+  animation: riseFromBottom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes riseFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(var(--rotate-start, 0deg)) scale(0.85) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotate, 0deg)) scale(1) translateZ(0);
+  }
+}
+
+/* Zoom in from center */
+.memoryItem.zoomIn {
+  animation: zoomFromCenter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes zoomFromCenter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(var(--rotate-start, 0deg)) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(var(--rotate, 0deg)) translateZ(0);
+  }
+}
+
+/* Fade with slight movement */
+.memoryItem.fadeFloat {
+  animation: fadeWithFloat 1s ease-out forwards;
+}
+
+@keyframes fadeWithFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) rotate(var(--rotate-start, 0deg)) scale(0.95) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--rotate, 0deg)) scale(1) translateZ(0);
+  }
+}
+
+/* ── EXIT ANIMATIONS ── */
+
+.memoryItem.freeze {
+  animation: memoryFreeze 2s ease-out forwards;
+}
+
+@keyframes memoryFreeze {
+  0% {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+  }
+  100% {
+    opacity: 0.25;
+    filter: blur(2px) brightness(0.7);
+  }
+}
+
+/* Polaroid style memory - LARGER SIZE */
+.polaroid {
+  background: rgba(255, 255, 255, 0.96);
+  padding: 16px 16px 56px;
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.7),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+  transform: rotate(var(--rotate, 0deg));
+  width: clamp(180px, 22vw, 280px);
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(var(--rotate, 0deg)) scale(1.05) translateZ(0);
+  z-index: 100;
+}
+
+.polaroidImg {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.polaroidCaption {
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+  color: #333;
+  text-align: center;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+/* Quote bubble */
+.quoteBubble {
+  background: rgba(255, 215, 0, 0.12);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: clamp(200px, 25vw, 280px);
+  backdrop-filter: blur(8px);
+}
+
+.quoteBubbleText {
+  font-family: 'Georgia', serif;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-style: italic;
+  color: rgba(255, 250, 240, 0.9);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Timestamp tag */
+.timestamp {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: rgba(255, 215, 0, 0.8);
+  white-space: nowrap;
+}
+
+/* Central emotional text - MORE VARIED POSITIONS */
+.emotionalText {
+  position: absolute;
+  z-index: 15;
+  text-align: center;
+  opacity: 0;
+  animation: emotionalFade 4s ease-in-out forwards;
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+@keyframes emotionalFade {
+  0%, 8% {
+    opacity: 0;
+    transform: translateY(20px) translateZ(0);
+  }
+  20%, 80% {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+  }
+  95%, 100% {
+    opacity: 0;
+    transform: translateY(-15px) translateZ(0);
+  }
+}
+
+.emotionalText p {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.3rem, 3vw, 2.4rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 250, 240, 0.95);
+  letter-spacing: 0.02em;
+  text-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.95),
+    0 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  line-height: 1.6;
+  padding: 0 clamp(20px, 5vw, 60px);
+}
+
+/* Gold light fade effect */
+.goldFade {
+  position: absolute;
+  inset: 0;
+  z-index: 18;
+  background: radial-gradient(circle at center, 
+    rgba(255, 215, 0, 0.2) 0%, 
+    rgba(255, 180, 50, 0.12) 40%, 
+    rgba(0, 0, 0, 0.3) 70%
+  );
+  opacity: 0;
+  animation: goldFadeIn 3.5s ease-in forwards;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+@keyframes goldFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Final logo reveal */
+.finalLogo {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: logoReveal 2.5s ease-out forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+.logoMain {
+  font-family: 'Georgia', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+  margin: 0 0 24px;
+  animation: logoGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.4));
+  }
+  to {
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6));
+  }
+}
+
+.logoSubtitle {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255, 250, 240, 0.8);
+  letter-spacing: 0.04em;
+  text-align: center;
+  margin: 0;
+  padding: 0 clamp(24px, 6vw, 80px);
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .polaroid {
+    width: clamp(140px, 28vw, 200px);
+    padding: 12px 12px 44px;
+  }
+  
+  .quoteBubble {
+    max-width: clamp(160px, 40vw, 240px);
+    padding: 12px 16px;
+  }
+  
+  .emotionalText p {
+    font-size: clamp(1.1rem, 4.5vw, 1.8rem);
+  }
+  
+  .logoMain {
+    font-size: clamp(2.5rem, 12vw, 4.5rem);
+  }
+  
+  .logoSubtitle {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 480px) {
   .filmStrip  { height: 32px; }
@@ -357,4 +744,13 @@
   .lyricId    { font-size: clamp(0.76rem, 3.3vw, 0.95rem); }
   .lyricIdArea { padding-bottom: clamp(28px, 5vh, 44px); }
   .quoteText  { font-size: clamp(1.1rem, 5vw, 1.6rem); }
+  
+  .polaroid {
+    width: clamp(120px, 32vw, 160px);
+    padding: 10px 10px 36px;
+  }
+  
+  .emotionalText p {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
 }

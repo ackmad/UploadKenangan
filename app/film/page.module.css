@@ -3,28 +3,27 @@
   background-color: #141414; /* Netflix dark background */
   color: white;
   overflow-x: hidden;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 
 /* ── HERO SECTION ── */
 .hero {
   position: relative;
-  height: 85vh;
-  min-height: 600px;
+  min-height: max(85vh, 650px);
   display: flex;
-  align-items: flex-end;
-  padding: 0 clamp(16px, 5vw, 60px) 100px;
-  border-bottom: var(--border-thick);
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 180px clamp(16px, 5vw, 60px) 100px;
 }
 
 .heroBg {
   position: absolute;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1920&h=1080");
+  background-image: url("/assets/images/cover-film.JPG");
   background-size: cover;
   background-position: center;
   z-index: 0;
-  filter: grayscale(20%) sepia(10%);
 }
 
 .heroGradient {
@@ -54,10 +53,9 @@
   position: relative;
   z-index: 10;
   max-width: 650px;
-  animation: fadeInUp 0.8s var(--bounce) both;
+  animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-/* Netflix style badge but neo-brutal */
 .netflixBadge {
   display: inline-flex;
   align-items: center;
@@ -66,18 +64,18 @@
 }
 
 .nIcon {
-  color: var(--coral);
+  color: #E50914; /* Netflix Red */
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
+  font-size: 2rem;
+  font-weight: 900;
   line-height: 1;
 }
 
 .nText {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.9);
   font-family: var(--font-display);
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   letter-spacing: 4px;
   text-transform: uppercase;
 }
@@ -85,230 +83,209 @@
 .filmTitle {
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 8vw, 6.5rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -2px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
   color: white;
-  text-shadow: 4px 4px 0px var(--coral), 8px 8px 0px rgba(0,0,0,0.8);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
 .metaData {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.match { color: #46d369; font-weight: 700; }
+.match { color: #46d369; font-weight: 800; }
 .year { color: white; }
-.age { border: 1px solid rgba(255,255,255,0.4); padding: 0 4px; border-radius: 2px; }
+.age { border: 1px solid rgba(255,255,255,0.4); padding: 1px 6px; border-radius: 3px; font-size: 0.8rem; }
 .duration { color: white; }
-.hd { border: 1px solid rgba(255,255,255,0.4); padding: 0 4px; border-radius: 2px; font-size: 0.7rem; }
+.hd { border: 1px solid rgba(255,255,255,0.4); padding: 1px 4px; border-radius: 2px; font-size: 0.7rem; font-weight: 900; }
 
 .synopsis {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.5;
-  color: rgba(255,255,255,0.9);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: rgba(255,255,255,0.95);
   margin-bottom: 32px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+  max-width: 580px;
 }
 
 .heroActions {
   display: flex;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .playBtn, .infoBtn {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 28px;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 32px;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 800;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s var(--bounce);
-  border: var(--border-thick);
+  transition: all 0.25s ease;
+  border: none;
 }
 
 .playBtn {
   background: white;
   color: black;
-  box-shadow: 4px 4px 0px var(--coral);
 }
 
 .playBtn:hover {
-  background: var(--coral);
-  color: white;
-  box-shadow: 6px 6px 0px var(--yellow);
-  transform: translate(-2px, -2px);
-}
-
-.playBtn.playing {
-  background: var(--yellow);
+  background: rgba(255, 255, 255, 0.75);
+  transform: scale(1.05);
 }
 
 .infoBtn {
   background: rgba(109, 109, 110, 0.7);
   color: white;
-  border-color: transparent;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
 }
 
 .infoBtn:hover {
-  background: rgba(109, 109, 110, 0.9);
-  border-color: white;
+  background: rgba(109, 109, 110, 0.4);
   transform: scale(1.05);
 }
 
 .genres {
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
 }
 
-.genreLabel { color: rgba(255,255,255,0.4); margin-right: 4px; }
+.genreLabel { color: rgba(255,255,255,0.4); margin-right: 6px; }
 
 /* ── CAROUSEL ROWS ── */
 .rowSection {
-  margin-top: -40px;
+  margin-bottom: 5vw;
   position: relative;
   z-index: 20;
-  margin-bottom: 60px;
-}
-
-.rowSection:not(:first-of-type) {
-  margin-top: 0;
 }
 
 .rowTitle {
   font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 800;
   color: #e5e5e5;
   margin: 0 clamp(16px, 5vw, 60px) 16px;
+  letter-spacing: -0.5px;
 }
 
 .rowScroller {
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 0 clamp(16px, 5vw, 60px) 20px;
-  scrollbar-width: none; /* Firefox */
-  -webkit-overflow-scrolling: touch;
+  overflow-y: visible;
+  padding: 10px clamp(16px, 5vw, 60px) 30px;
+  scrollbar-width: none;
 }
 
 .rowScroller::-webkit-scrollbar { display: none; }
 
-/* Cast Row */
+/* Lead Cast Cards */
 .castRow {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .castCard {
   flex: 0 0 auto;
-  width: 180px;
-  background: var(--bg, var(--yellow));
-  border: var(--border-thick);
-  border-radius: 4px;
-  padding: 16px;
-  box-shadow: 4px 4px 0px rgba(0,0,0,1);
-  position: relative;
-  transition: all 0.3s var(--bounce);
+  width: 200px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
   cursor: pointer;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .castCard:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 6px 6px 0px var(--coral);
-  z-index: 2;
-}
-
-.castTape {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-2deg);
-  width: 60px;
-  height: 20px;
-  background: rgba(255,255,255,0.8);
-  border: 1px solid rgba(0,0,0,0.2);
+  transform: scale(1.1);
+  z-index: 30;
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .castImage {
   width: 100%;
   aspect-ratio: 1;
-  background: rgba(255,255,255,0.2);
-  border: var(--border);
+  background: var(--bg, #333);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
-  margin-bottom: 12px;
+  font-size: 4rem;
+  transition: transform 0.5s ease;
+}
+
+.castCard:hover .castImage {
+  transform: scale(1.05);
+}
+
+.castInfo {
+  padding: 16px;
+  background: #1a1a1a;
 }
 
 .castName {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: black;
-  line-height: 1.1;
+  color: white;
+  margin: 0;
 }
 
 .castRole {
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: rgba(0,0,0,0.7);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
   margin-top: 4px;
 }
 
-/* BTS Row */
+/* BTS Thumbnails */
 .btsRow {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 
 .btsCard {
   flex: 0 0 auto;
-  width: 280px;
+  width: 300px;
   aspect-ratio: 16/9;
   position: relative;
-  border: 2px solid #333;
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  background: #222;
 }
 
 .btsCard:hover {
-  transform: scale(1.05);
-  border-color: white;
-  z-index: 2;
+  transform: scale(1.1);
+  z-index: 30;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .btsImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.btsCard:hover .btsImg {
-  transform: scale(1.1);
 }
 
 .btsOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -321,8 +298,8 @@
 }
 
 .playIconSm {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background: rgba(255,255,255,0.2);
   border: 2px solid white;
   border-radius: 50%;
@@ -330,8 +307,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.2rem;
-  padding-left: 4px; /* optical alignment */
+  font-size: 1rem;
   backdrop-filter: blur(4px);
 }
 
@@ -340,62 +316,132 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: white;
-  pointer-events: none;
-}
-
-/* OST Row */
-.ostCard {
-  flex: 0 0 auto;
-  width: 240px;
-  background: #222;
-  border: 2px solid #444;
-  border-radius: 4px;
   padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.ostCard:hover {
-  background: #333;
-  border-color: var(--yellow);
-  transform: translateX(4px);
-}
-
-.ostDisc {
-  font-size: 2rem;
-  animation: spin 8s linear infinite;
-}
-
-.ostCard:hover .ostDisc {
-  animation-duration: 3s;
-}
-
-.ostInfo { flex: 1; }
-
-.ostTitle {
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
   color: white;
+  margin: 0;
 }
 
-.ostArtist {
+/* ── PRODUCTION TEAM GRID ── */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 20px 0;
+}
+
+.teamColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.teamItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teamRole {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #808080; /* Gray like Netflix sub-info */
+  font-weight: 800;
+}
+
+.teamName, .teamNames {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #e5e5e5;
+  line-height: 1.2;
+}
+
+/* ── INFO FOOTER ── */
+.infoFooter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  padding: 40px clamp(16px, 5vw, 60px);
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  margin: 0 clamp(16px, 5vw, 60px);
+}
+
+.infoCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoCard p {
   font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 4px;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin: 0;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.licenseLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: #E50914;
+  font-weight: 800;
+  text-decoration: none;
+  font-family: var(--font-display);
+  transition: all 0.2s ease;
+}
+
+.licenseLink:hover {
+  color: white;
+  transform: translateX(6px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: max(75vh, 600px);
+    height: auto;
+    padding-bottom: 60px;
+  }
+  
+  .filmTitle {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+    letter-spacing: -1.5px;
+  }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .infoFooter {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .castCard { width: 160px; }
+  .btsCard { width: 240px; }
 }
