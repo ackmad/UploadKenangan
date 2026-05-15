@@ -1,0 +1,474 @@
+/* ═══════════════════════════════════════════════════════════
+   FLIP BOOK - 3D Page Turning Effect
+   ═══════════════════════════════════════════════════════════ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: linear-gradient(135deg, #2c2416 0%, #1a1410 50%, #0d0a08 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Close Button */
+.closeBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 28px;
+  font-weight: 300;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* Page Counter */
+.pageCounter {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Georgia', serif;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 12px 24px;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.currentPageNum {
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+.separator {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.totalPageNum {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Book Container */
+.bookContainer {
+  perspective: 2000px;
+  perspective-origin: 50% 50%;
+  width: 90vw;
+  max-width: 1400px;
+  height: 80vh;
+  max-height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+}
+
+/* Page Styles */
+.pageLeft,
+.pageRight,
+.pageFlip {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #f5f1e8;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.pageLeft {
+  left: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  transform-origin: right center;
+}
+
+.pageRight {
+  right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  transform-origin: left center;
+}
+
+.pageFlip {
+  right: 0;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  z-index: 2;
+}
+
+/* Flipping Animations */
+.flippingNext {
+  animation: flipNext 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+@keyframes flipNext {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-180deg);
+  }
+}
+
+.flippingPrev {
+  animation: flipPrev 0.8s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+@keyframes flipPrev {
+  0% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* Page Front & Back */
+.pageFront,
+.pageBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.pageFront {
+  transform: rotateY(0deg);
+}
+
+.pageBack {
+  transform: rotateY(180deg);
+}
+
+/* Page Content */
+.pageContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: 
+    linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px),
+    linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pageImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 20px;
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.4);
+  font-style: italic;
+}
+
+.pageLeft .pageNumber {
+  left: 20px;
+}
+
+.pageRight .pageNumber {
+  right: 20px;
+}
+
+/* Navigation Buttons */
+.navBtn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFD700;
+  font-size: 36px;
+  font-weight: 300;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.navBtn:hover:not(:disabled) {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navBtn:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.navBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navBtnPrev {
+  left: 20px;
+}
+
+.navBtnNext {
+  right: 20px;
+}
+
+/* Instructions */
+.instructions {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.instructionsSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .bookContainer {
+    width: 95vw;
+    height: 75vh;
+  }
+
+  .pageContent {
+    padding: 30px;
+  }
+
+  .navBtn {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+  }
+
+  .navBtnPrev {
+    left: 15px;
+  }
+
+  .navBtnNext {
+    right: 15px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+  .bookContainer {
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .pageContent {
+    padding: 20px;
+  }
+
+  .pageNumber {
+    font-size: 12px;
+    bottom: 15px;
+  }
+
+  .pageLeft .pageNumber {
+    left: 15px;
+  }
+
+  .pageRight .pageNumber {
+    right: 15px;
+  }
+
+  .closeBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    top: 15px;
+    right: 15px;
+  }
+
+  .pageCounter {
+    top: 20px;
+    padding: 10px 20px;
+  }
+
+  .currentPageNum {
+    font-size: 20px;
+  }
+
+  .separator,
+  .totalPageNum {
+    font-size: 16px;
+  }
+
+  .navBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 28px;
+  }
+
+  .navBtnPrev {
+    left: 10px;
+  }
+
+  .navBtnNext {
+    right: 10px;
+  }
+
+  .instructions {
+    bottom: 20px;
+    font-size: 12px;
+    padding: 0 20px;
+  }
+
+  .instructionsSub {
+    font-size: 11px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 926px) and (orientation: landscape) {
+  .bookContainer {
+    width: 95vw;
+    height: 85vh;
+  }
+
+  .pageContent {
+    padding: 15px;
+  }
+
+  .closeBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .pageCounter {
+    top: 15px;
+    padding: 8px 16px;
+  }
+
+  .currentPageNum {
+    font-size: 18px;
+  }
+
+  .separator,
+  .totalPageNum {
+    font-size: 14px;
+  }
+
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .navBtnPrev {
+    left: 10px;
+  }
+
+  .navBtnNext {
+    right: 10px;
+  }
+
+  .instructions {
+    bottom: 15px;
+    font-size: 11px;
+  }
+
+  .instructionsSub {
+    font-size: 10px;
+  }
+
+  .pageNumber {
+    font-size: 11px;
+    bottom: 10px;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .bookContainer {
+    height: 65vh;
+  }
+
+  .pageContent {
+    padding: 15px;
+  }
+
+  .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  .instructions {
+    font-size: 11px;
+  }
+}
