@@ -19,7 +19,7 @@ const komp = [
   guruData.find(g => g.id === 8), // DKV
   guruData.find(g => g.id === 7), // RPL
   guruData.find(g => g.id === 6), // TKJ
-].filter(Boolean);
+].filter((t): t is NonNullable<typeof t> => t !== undefined);
 const dudiSpiritual = guruData.filter(g => [10, 11].includes(g.id));
 const bk = guruData.find(g => g.id === 14);
 const qiroati = guruData.filter(g => [12, 26, 27, 28, 29, 30].includes(g.id));
