@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import ScrapbookNav from '@/components/ui/ScrapbookNav';
+import FilmPlayer from '@/components/ui/FilmPlayer';
 import filmData from '@/data/film.json';
 
 const CAST_COLORS = ['#FF9B9B', '#FFD166', '#A8E6CF'];
@@ -31,6 +32,12 @@ export default function FilmPage() {
   return (
     <>
       <ScrapbookNav />
+      
+      {/* Film Player Modal */}
+      {isPlaying && (
+        <FilmPlayer onClose={() => setIsPlaying(false)} />
+      )}
+      
       <main className={styles.main}>
         {/* NETFLIX-STYLE HERO */}
         <section className={styles.hero}>
@@ -63,11 +70,11 @@ export default function FilmPage() {
 
             <div className={styles.heroActions}>
               <button 
-                className={`${styles.playBtn} ${isPlaying ? styles.playing : ''}`}
-                onClick={() => setIsPlaying(!isPlaying)}
+                className={`${styles.playBtn}`}
+                onClick={() => setIsPlaying(true)}
               >
-                <span className={styles.btnIcon}>{isPlaying ? '⏸' : '▶'}</span>
-                <span>{isPlaying ? 'Pause' : 'Play'}</span>
+                <span className={styles.btnIcon}>▶</span>
+                <span>Play</span>
               </button>
               <button className={styles.infoBtn} onClick={() => setIsInfoModalOpen(true)}>
                 <span className={styles.btnIcon}>ℹ️</span>
