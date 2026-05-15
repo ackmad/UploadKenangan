@@ -11,6 +11,13 @@ import guruData from '@/data/data_guru.json';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Helper function to extract subject from peran
+const getSubject = (peran: string[]) => {
+  const subjectRole = peran.find(p => p.startsWith('Guru ') && !p.includes('Piket'));
+  if (!subjectRole) return null;
+  return subjectRole.replace('Guru ', '').trim();
+};
+
 // Grouping Logic
 const kepalaSekolah = guruData.find(g => g.id === 1);
 const bpp = guruData.find(g => g.id === 2);
@@ -95,8 +102,10 @@ export default function GuruPage() {
     let ctx = gsap.context(() => {
       // 1. Kepala Sekolah
       const tlKS = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneKepalaSekolah}`, start: 'top top', end: '+=150%', scrub: 1, pin: true } });
-      tlKS.to(`.${styles.ksName}`, { opacity: 1, y: -20, duration: 1 })
+      tlKS.to(`.${styles.ksRole}`, { opacity: 1, y: -10, duration: 0.8 })
+          .to(`.${styles.ksName}`, { opacity: 1, y: -20, duration: 1 }, '-=0.3')
           .to(`.${styles.ksPhotoWrapper}`, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.5 }, '-=0.5')
+          .to(`.${styles.ksDesc}`, { opacity: 1, y: -10, duration: 1 }, '-=0.5')
           .to(`.${styles.ksQuote}`, { opacity: 1, y: -10, duration: 1 });
 
       // 2. BPP
@@ -113,9 +122,59 @@ export default function GuruPage() {
         { opacity: 1, y: 0, x: 0, filter: 'blur(0px)', stagger: 0.5, duration: 2 }
       );
 
-      // 4. Kepala Program (Horizontal cinematic)
-      const tlKomp = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneKomp}`, start: 'top top', end: '+=300%', scrub: 1, pin: true } });
-      tlKomp.to(`.${styles.kompHorizontal}`, { x: '-200vw', ease: 'none' });
+      // 4. Kepala Program (Horizontal cinematic) - IMPROVED
+      const tlKomp = gsap.timeline({ 
+        scrollTrigger: { 
+          trigger: `.${styles.sceneKomp}`, 
+          start: 'top top', 
+          end: '+=400%', 
+          scrub: 1, 
+          pin: true 
+        } 
+      });
+      
+      // Animate each section individually for better control
+      const kompSections = gsap.utils.toArray(`.${styles.kompSection}`) as HTMLElement[];
+      
+      // Initial state: show first section
+      tlKomp.set(kompSections[0], { opacity: 1, x: 0 })
+            .set(kompSections[1], { opacity: 0, x: '100vw' })
+            .set(kompSections[2], { opacity: 0, x: '100vw' });
+      
+      // Fade in content of first section
+      tlKomp.fromTo(`.${styles.kompTitle}`, 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 0.5 }
+      )
+      .fromTo(`.${styles.kompPhotoWrapper}`, 
+        { opacity: 0, scale: 0.9, filter: 'blur(10px)' }, 
+        { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 0.8 }, 
+        '-=0.3'
+      )
+      .fromTo(`.${styles.ksName}`, 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 0.5 }, 
+        '-=0.4'
+      )
+      .fromTo(`.${styles.ksQuote}`, 
+        { opacity: 0, y: 20 }, 
+        { opacity: 1, y: 0, duration: 0.5 }, 
+        '-=0.3'
+      );
+      
+      // Transition to second section
+      tlKomp.to(`.${styles.kompHorizontal}`, { 
+        x: '-100vw', 
+        duration: 1, 
+        ease: 'power2.inOut' 
+      }, '+=0.5');
+      
+      // Transition to third section
+      tlKomp.to(`.${styles.kompHorizontal}`, { 
+        x: '-200vw', 
+        duration: 1, 
+        ease: 'power2.inOut' 
+      }, '+=1');
 
       // 5. DuDi & Spiritual (Calm fade)
       const tlFormal = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneFormal}`, start: 'top 60%', end: 'bottom 40%', scrub: 1 } });
@@ -129,7 +188,8 @@ export default function GuruPage() {
 
       // 7. Qiroati (Forming from bottom)
       const tlQiroati = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneQiroati}`, start: 'top 70%', end: 'bottom 30%', scrub: 1 } });
-      tlQiroati.fromTo(`.${styles.qiroatiCard}`, { opacity: 0, scale: 0.8, y: 100 }, { opacity: 1, scale: 1, y: 0, stagger: 0.1, duration: 1.5 });
+      tlQiroati.fromTo(`.${styles.qiroatiTitle}`, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.8 })
+               .fromTo(`.${styles.qiroatiCard}`, { opacity: 0, scale: 0.8, y: 100 }, { opacity: 1, scale: 1, y: 0, stagger: 0.1, duration: 1.5 }, '-=0.3');
 
       // 8. Admin (Structural glassmorphism)
       const tlAdmin = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneAdmin}`, start: 'top 70%', end: 'bottom 30%', scrub: 1 } });
@@ -158,8 +218,9 @@ export default function GuruPage() {
       tlK5.fromTo(`.${styles.k5Card}`, { opacity: 0, rotationY: 90 }, { opacity: 1, rotationY: 0, stagger: 0.2, duration: 1 });
 
       // 12. Satpam & Ending
-      const tlEnding = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneSatpam}`, start: 'top top', end: '+=200%', scrub: 1, pin: true } });
-      tlEnding.fromTo(`.${styles.satpamContent}`, { opacity: 0, scale: 1.2 }, { opacity: 1, scale: 1, duration: 2 })
+      const tlEnding = gsap.timeline({ scrollTrigger: { trigger: `.${styles.sceneSatpam}`, start: 'top top', end: '+=300%', scrub: 1, pin: true } });
+      tlEnding.fromTo(`.${styles.satpamContent}`, { opacity: 0, scale: 1.2 }, { opacity: 1, scale: 1, duration: 1.5 })
+              .to(`.${styles.satpamContent}`, { opacity: 1, duration: 1.5 }) // Hold visible
               .to(`.${styles.satpamContent}`, { opacity: 0, scale: 0.8, filter: 'blur(10px)', duration: 1 })
               .to(`.${styles.mosaicEnding}`, { opacity: 1, duration: 1 })
               .to(`.${styles.closingOverlay}`, { opacity: 1, duration: 1 });
@@ -188,6 +249,15 @@ export default function GuruPage() {
             <div className={styles.ksPhotoWrapper} style={{ transform: 'scale(1.1)', filter: 'blur(20px)' }}>
               <TeacherImage teacher={kepalaSekolah} photos={teacherPhotos} priority />
             </div>
+            <p className={styles.ksDesc}>
+              Memimpin SMK Al-Irsyad dengan visi membentuk generasi yang berilmu, berakhlak, dan berdaya saing.
+              Berdedikasi penuh dalam menciptakan lingkungan belajar yang kondusif, inovatif, dan berkarakter islami.
+            </p>
+            <p className={styles.ksRole}>Kepala Sekolah</p>
+            <p className={styles.ksDesc}>
+              Pemimpin SMK Al-Irsyad yang berdedikasi dalam membentuk generasi berilmu,
+              berakhlak mulia, dan berdaya saing tinggi.
+            </p>
             <p className={styles.ksQuote}>“Satu arah. Satu tujuan. Satu keluarga.”</p>
           </div>
         )}
@@ -231,13 +301,16 @@ export default function GuruPage() {
         <div className={styles.kompHorizontal}>
           {komp.map((t, i) => (
             <div key={t.id} className={`${styles.kompSection} ${i === 0 ? styles.kompAccentDKV : i === 1 ? styles.kompAccentRPL : styles.kompAccentTKJ}`}>
-              <div className={styles.kompPillar}>PILAR</div>
+              <div className={styles.kompPillar}>
+                {i === 0 ? 'DKV' : i === 1 ? 'RPL' : 'TKJ'}
+              </div>
               <div className={styles.kompContent}>
+                <div className={styles.kompTitle}>KEPALA PROGRAM</div>
                 <div className={styles.kompPhotoWrapper}>
                   <TeacherImage teacher={t} photos={teacherPhotos} />
                 </div>
-                <h2 className={styles.ksName} style={{ opacity: 1 }}>{t.nama}</h2>
-                <p className={styles.ksQuote} style={{ opacity: 1 }}>{t.peran[0]}</p>
+                <h2 className={styles.ksName} style={{ opacity: 1, fontSize: 'clamp(1.5rem, 3vw, 2.5rem)', marginBottom: '1rem', color: '#fff' }}>{t.nama}</h2>
+                <p className={styles.ksQuote} style={{ opacity: 1, fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', color: 'rgba(255,255,255,0.7)', fontWeight: 400 }}>{t.peran[0]}</p>
               </div>
             </div>
           ))}
@@ -277,6 +350,7 @@ export default function GuruPage() {
 
       {/* 7. Qiroati */}
       <section className={`${styles.section} ${styles.sceneQiroati}`}>
+        <h2 className={styles.qiroatiTitle}>Guru Qiroati</h2>
         <div className={styles.qiroatiGrid}>
           {qiroati.map(t => (
             <div key={t.id} className={styles.qiroatiCard}>
@@ -361,14 +435,18 @@ export default function GuruPage() {
           <h2 className={styles.mapelHeroText}>GURU MATA PELAJARAN</h2>
         </div>
         <div className={styles.mapelWall} ref={mapelWallRef}>
-          {mapel.map(t => (
-            <div key={t.id} className={styles.mapelItem}>
-              <TeacherImage teacher={t} photos={teacherPhotos} />
-              <div className={styles.mentorOverlay}>
-                <p style={{ color: '#fff', fontSize: '1.2rem', fontWeight: 600 }}>{t.nama}</p>
+          {mapel.map(t => {
+            const subject = getSubject(t.peran);
+            return (
+              <div key={t.id} className={styles.mapelItem}>
+                <TeacherImage teacher={t} photos={teacherPhotos} />
+                <div className={styles.mentorOverlay}>
+                  <p className={styles.mapelName}>{t.nama}</p>
+                  {subject && <p className={styles.mapelSubject}>{subject}</p>}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

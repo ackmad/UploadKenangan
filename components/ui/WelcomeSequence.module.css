@@ -4,6 +4,145 @@
    animation, zero mix-blend-mode, minimal compositor layers
    ═══════════════════════════════════════════════════════════ */
 
+/* ── LOADING SCREEN ── */
+.loadingScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loadingContent {
+  text-align: center;
+  z-index: 2;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+.loadingLogo {
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.loadingTitle {
+  font-family: var(--font-display), 'Impact', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.8);
+  margin: 0 0 1rem;
+  letter-spacing: 2px;
+}
+
+.loadingSubtitle {
+  font-family: var(--font-hand), 'Georgia', serif;
+  font-size: 1.2rem;
+  color: #ccc;
+  margin: 0;
+  font-style: italic;
+}
+
+.loadingBarContainer {
+  margin: 2rem 0;
+  animation: fadeInUp 1s ease-out 0.2s backwards;
+}
+
+.loadingBar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.loadingBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+  transition: width 0.3s ease-out;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.loadingPercentage {
+  font-family: var(--font-display), 'Impact', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFD700;
+  margin-top: 1rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.loadingStatus {
+  font-family: var(--font-hand), 'Georgia', serif;
+  font-size: 1rem;
+  color: #999;
+  margin: 1.5rem 0 0;
+  min-height: 1.5rem;
+  animation: fadeInUp 1.2s ease-out 0.4s backwards;
+}
+
+.loadingDots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 2rem;
+  animation: fadeInUp 1.4s ease-out 0.6s backwards;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #FFD700;
+  border-radius: 50%;
+  animation: dotPulse 1.4s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+@keyframes dotPulse {
+  0%, 100% { 
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loadingGrain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 /* ── ROOT ── */
 .seq {
   position: fixed;
@@ -179,41 +318,147 @@
 }
 
 /* ── Two-slot crossfade ──
-   ONLY opacity changes. No transform on the container.
-   1.5s transition = smooth but GPU isn't strained long
+   ONLY opacity changes. Transisi 2s untuk crossfade yang lebih smooth dan cinematic
+   Menggunakan cubic-bezier untuk easing yang lebih natural
 */
 .slide {
   position: absolute;
   inset: 0;
-  transition: opacity 1.5s ease-in-out;
+  transition: opacity 2s cubic-bezier(0.4, 0.0, 0.2, 1);
   will-change: opacity;
 }
 .slideIn  { opacity: 1; z-index: 1; }
 .slideOut { opacity: 0; z-index: 0; }
 
 /* ── Photo image ──
-   Ken Burns: ONE ultra-slow scale, no translate, no rotate.
-   Scale 1→1.05 over 18s. GPU composited via transform only.
-   NO will-change: transform on the img (prevents 2 large
-   compositor layers being held simultaneously).
+   Ken Burns: Variasi animasi untuk setiap foto agar tidak monoton
+   6 variasi: zoom, pan left, pan right, zoom+pan, diagonal, rotate subtle
+   Scale 1→1.08 over 20s. GPU composited via transform only.
 */
 .photoImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  animation: kenBurns 18s ease-in-out infinite alternate;
+  /* Optimasi rendering */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
-/* Single Ken Burns — just scale, nothing else */
-@keyframes kenBurns {
-  from { transform: scale(1)    translateZ(0); }
-  to   { transform: scale(1.05) translateZ(0); }
+/* Variasi 1: Zoom in center */
+.slide:has(.photoImg):nth-child(1) .photoImg,
+.slide:has(.photoImg):nth-child(7) .photoImg,
+.slide:has(.photoImg):nth-child(13) .photoImg {
+  animation: kenBurnsZoom 20s ease-in-out infinite alternate;
 }
 
-/* On mobile: no Ken Burns at all — just static */
+/* Variasi 2: Pan left + zoom */
+.slide:has(.photoImg):nth-child(2) .photoImg,
+.slide:has(.photoImg):nth-child(8) .photoImg,
+.slide:has(.photoImg):nth-child(14) .photoImg {
+  animation: kenBurnsPanLeft 22s ease-in-out infinite alternate;
+}
+
+/* Variasi 3: Pan right + zoom */
+.slide:has(.photoImg):nth-child(3) .photoImg,
+.slide:has(.photoImg):nth-child(9) .photoImg,
+.slide:has(.photoImg):nth-child(15) .photoImg {
+  animation: kenBurnsPanRight 22s ease-in-out infinite alternate;
+}
+
+/* Variasi 4: Diagonal movement */
+.slide:has(.photoImg):nth-child(4) .photoImg,
+.slide:has(.photoImg):nth-child(10) .photoImg {
+  animation: kenBurnsDiagonal 24s ease-in-out infinite alternate;
+}
+
+/* Variasi 5: Zoom out to in */
+.slide:has(.photoImg):nth-child(5) .photoImg,
+.slide:has(.photoImg):nth-child(11) .photoImg {
+  animation: kenBurnsZoomOut 21s ease-in-out infinite alternate;
+}
+
+/* Variasi 6: Subtle rotate + zoom */
+.slide:has(.photoImg):nth-child(6) .photoImg,
+.slide:has(.photoImg):nth-child(12) .photoImg {
+  animation: kenBurnsRotate 23s ease-in-out infinite alternate;
+}
+
+/* Animasi Ken Burns - Zoom center */
+@keyframes kenBurnsZoom {
+  from { transform: scale(1) translateZ(0); }
+  to   { transform: scale(1.08) translateZ(0); }
+}
+
+/* Animasi Ken Burns - Pan left */
+@keyframes kenBurnsPanLeft {
+  from { transform: scale(1) translateX(0) translateZ(0); }
+  to   { transform: scale(1.08) translateX(-3%) translateZ(0); }
+}
+
+/* Animasi Ken Burns - Pan right */
+@keyframes kenBurnsPanRight {
+  from { transform: scale(1) translateX(0) translateZ(0); }
+  to   { transform: scale(1.08) translateX(3%) translateZ(0); }
+}
+
+/* Animasi Ken Burns - Diagonal */
+@keyframes kenBurnsDiagonal {
+  from { transform: scale(1) translate(0, 0) translateZ(0); }
+  to   { transform: scale(1.08) translate(-2%, 2%) translateZ(0); }
+}
+
+/* Animasi Ken Burns - Zoom out to in */
+@keyframes kenBurnsZoomOut {
+  from { transform: scale(1.08) translateZ(0); }
+  to   { transform: scale(1) translateZ(0); }
+}
+
+/* Animasi Ken Burns - Subtle rotate */
+@keyframes kenBurnsRotate {
+  from { transform: scale(1) rotate(0deg) translateZ(0); }
+  to   { transform: scale(1.08) rotate(0.5deg) translateZ(0); }
+}
+
+/* On mobile: animasi lebih subtle untuk performa */
 @media (max-width: 768px) {
-  .photoImg { animation: none; }
+  .photoImg { 
+    animation-duration: 15s !important;
+  }
+  
+  @keyframes kenBurnsZoom {
+    from { transform: scale(1) translateZ(0); }
+    to   { transform: scale(1.04) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsPanLeft {
+    from { transform: scale(1) translateX(0) translateZ(0); }
+    to   { transform: scale(1.04) translateX(-2%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsPanRight {
+    from { transform: scale(1) translateX(0) translateZ(0); }
+    to   { transform: scale(1.04) translateX(2%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsDiagonal {
+    from { transform: scale(1) translate(0, 0) translateZ(0); }
+    to   { transform: scale(1.04) translate(-1%, 1%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsZoomOut {
+    from { transform: scale(1.04) translateZ(0); }
+    to   { transform: scale(1) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsRotate {
+    from { transform: scale(1) rotate(0deg) translateZ(0); }
+    to   { transform: scale(1.04) rotate(0.3deg) translateZ(0); }
+  }
 }
 
 /* ── Overlays — ONE combined overlay (dark + vignette) ──
@@ -752,5 +997,412 @@
   
   .emotionalText p {
     font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE LANDSCAPE - FULL SCREEN OPTIMIZATION
+   Target: 896px x 414px (iPhone landscape) dan sejenisnya
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 926px) and (orientation: landscape) {
+  /* Root container - force full screen dengan safe area */
+  .seq {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height untuk mobile */
+    overflow: hidden;
+    /* Prevent content overflow */
+    max-width: 100vw;
+    max-height: 100vh;
+  }
+  
+  /* Loading screen - optimized for landscape */
+  .loadingScreen {
+    padding: 0;
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .loadingContent {
+    max-width: 65vw;
+    padding: 0.5rem 1.5rem;
+    max-height: 90vh;
+    overflow: hidden;
+  }
+  
+  .loadingTitle {
+    font-size: clamp(1.8rem, 5vh, 2.5rem);
+    margin-bottom: 0.3rem;
+  }
+  
+  .loadingSubtitle {
+    font-size: clamp(0.75rem, 1.8vh, 0.95rem);
+  }
+  
+  .loadingBarContainer {
+    margin: 0.8rem 0;
+  }
+  
+  .loadingBar {
+    height: 6px;
+  }
+  
+  .loadingPercentage {
+    font-size: clamp(1.2rem, 3vh, 1.5rem);
+    margin-top: 0.4rem;
+  }
+  
+  .loadingStatus {
+    font-size: clamp(0.7rem, 1.6vh, 0.85rem);
+    margin-top: 0.8rem;
+  }
+  
+  .loadingDots {
+    margin-top: 1rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  /* Projector phase - compact for landscape */
+  .proj {
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .filmStrip {
+    height: 24px;
+    padding: 0 4px;
+  }
+  
+  .sprocket {
+    width: 10px;
+    height: 16px;
+  }
+  
+  .filmFrame {
+    width: min(180px, 38vh);
+    max-width: 180px;
+    max-height: 180px;
+  }
+  
+  .countNum {
+    font-size: clamp(3rem, 10vh, 5rem);
+  }
+  
+  .tick {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .tTL, .tTR, .tBL, .tBR {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+  
+  .crossCircle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Playing phase - ensure no overflow */
+  .playing {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+  
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .photoImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  /* Lyrics - optimized spacing for landscape, prevent overflow */
+  .lyricWrap {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .lyricEnArea {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 clamp(20px, 6vw, 60px);
+    max-height: 60vh;
+    overflow: hidden;
+  }
+  
+  .lyricIdArea {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0 clamp(20px, 6vw, 60px) clamp(15px, 3vh, 30px);
+    max-height: 25vh;
+    overflow: hidden;
+  }
+  
+  .lyricEn {
+    font-size: clamp(1rem, 2.5vh, 1.6rem);
+    line-height: 1.3;
+    max-width: 85vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .lyricId {
+    font-size: clamp(0.7rem, 1.6vh, 0.95rem);
+    line-height: 1.4;
+    max-width: 80vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Quote - centered and readable, no overflow */
+  .quoteWrap {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .quoteText {
+    font-size: clamp(0.95rem, 2.2vh, 1.5rem);
+    padding: 0 clamp(20px, 6vw, 80px);
+    line-height: 1.45;
+    max-width: 85vw;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Ending sequence - optimized for landscape, prevent overflow */
+  .endingWrap {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .memoriesLayer {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+  
+  .polaroid {
+    width: clamp(80px, 16vh, 140px);
+    padding: 8px 8px 28px;
+    max-width: 140px;
+  }
+  
+  .polaroidImg {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  
+  .polaroidCaption {
+    font-size: clamp(0.6rem, 1.3vh, 0.75rem);
+    margin-top: 6px;
+  }
+  
+  .quoteBubble {
+    max-width: clamp(120px, 22vh, 180px);
+    padding: 10px 14px;
+  }
+  
+  .quoteBubbleText {
+    font-size: clamp(0.65rem, 1.4vh, 0.85rem);
+    line-height: 1.35;
+  }
+  
+  .timestamp {
+    padding: 5px 10px;
+    font-size: clamp(0.55rem, 1.2vh, 0.7rem);
+  }
+  
+  .emotionalText {
+    max-width: 85vw;
+    padding: 0 clamp(20px, 6vw, 60px);
+  }
+  
+  .emotionalText p {
+    font-size: clamp(0.9rem, 2.5vh, 1.5rem);
+    padding: 0;
+    line-height: 1.4;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  .finalLogo {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    padding: 0 clamp(20px, 6vw, 60px);
+  }
+  
+  .logoMain {
+    font-size: clamp(2rem, 6vh, 3.5rem);
+    margin-bottom: 12px;
+    max-width: 85vw;
+    word-wrap: break-word;
+  }
+  
+  .logoSubtitle {
+    font-size: clamp(0.75rem, 1.8vh, 1.1rem);
+    padding: 0;
+    max-width: 80vw;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Photo animations - more subtle on landscape mobile */
+  .photoImg {
+    animation-duration: 18s !important;
+  }
+  
+  @keyframes kenBurnsZoom {
+    from { transform: scale(1) translateZ(0); }
+    to   { transform: scale(1.04) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsPanLeft {
+    from { transform: scale(1) translateX(0) translateZ(0); }
+    to   { transform: scale(1.04) translateX(-1.5%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsPanRight {
+    from { transform: scale(1) translateX(0) translateZ(0); }
+    to   { transform: scale(1.04) translateX(1.5%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsDiagonal {
+    from { transform: scale(1) translate(0, 0) translateZ(0); }
+    to   { transform: scale(1.04) translate(-1%, 1%) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsZoomOut {
+    from { transform: scale(1.04) translateZ(0); }
+    to   { transform: scale(1) translateZ(0); }
+  }
+  
+  @keyframes kenBurnsRotate {
+    from { transform: scale(1) rotate(0deg) translateZ(0); }
+    to   { transform: scale(1.04) rotate(0.25deg) translateZ(0); }
+  }
+  
+  /* Memory items - smaller and more compact, prevent overflow */
+  .memoryItem {
+    transform-origin: center center;
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
+  /* Faster animations for better mobile performance */
+  .memoryItem.fallTop {
+    animation-duration: 0.9s;
+  }
+  
+  .memoryItem.slideLeft,
+  .memoryItem.slideRight {
+    animation-duration: 0.75s;
+  }
+  
+  .memoryItem.riseBottom,
+  .memoryItem.zoomIn,
+  .memoryItem.fadeFloat {
+    animation-duration: 0.65s;
+  }
+  
+  /* Adjust memory item positions to prevent overflow */
+  .memoryItem[style*="top: 8%"] { top: 10% !important; }
+  .memoryItem[style*="top: 10%"] { top: 12% !important; }
+  .memoryItem[style*="bottom: 25%"] { bottom: 28% !important; }
+  .memoryItem[style*="bottom: 35%"] { bottom: 38% !important; }
+  .memoryItem[style*="bottom: 45%"] { bottom: 48% !important; }
+  
+  /* Ensure left/right margins */
+  .memoryItem[style*="left: 5%"] { left: 8% !important; }
+  .memoryItem[style*="left: 8%"] { left: 10% !important; }
+  .memoryItem[style*="right: 8%"] { right: 10% !important; }
+  .memoryItem[style*="right: 12%"] { right: 14% !important; }
+}
+
+/* Extra small landscape devices (like iPhone SE landscape) */
+@media (max-width: 667px) and (orientation: landscape) and (max-height: 375px) {
+  .loadingTitle {
+    font-size: clamp(1.5rem, 4vh, 2rem);
+  }
+  
+  .filmFrame {
+    width: min(140px, 32vh);
+    max-width: 140px;
+    max-height: 140px;
+  }
+  
+  .countNum {
+    font-size: clamp(2.5rem, 8vh, 4rem);
+  }
+  
+  .lyricEn {
+    font-size: clamp(0.85rem, 2.2vh, 1.3rem);
+  }
+  
+  .lyricId {
+    font-size: clamp(0.65rem, 1.4vh, 0.85rem);
+  }
+  
+  .quoteText {
+    font-size: clamp(0.85rem, 2vh, 1.3rem);
+  }
+  
+  .polaroid {
+    width: clamp(70px, 14vh, 120px);
+    padding: 6px 6px 24px;
+  }
+  
+  .emotionalText p {
+    font-size: clamp(0.8rem, 2.2vh, 1.3rem);
+  }
+  
+  .logoMain {
+    font-size: clamp(1.8rem, 5vh, 3rem);
+  }
+  
+  .logoSubtitle {
+    font-size: clamp(0.7rem, 1.6vh, 1rem);
   }
 }

@@ -5,19 +5,18 @@ import styles from './WelcomeSequence.module.css';
 
 type Segment   = { start: number; end: number; text: string; text_id: string };
 type Phase     = 'projector' | 'flash' | 'playing1' | 'interlude' | 'playing2' | 'outro' | 'ending';
-type KbClass   = 'kb1' | 'kb2' | 'kb3' | 'kb4';
+type KbClass   = 'kb1' | 'kb2' | 'kb3' | 'kb4' | 'kb5' | 'kb6';
 type SlotState = { src: string; kb: KbClass };
 
-const MEDIA_1 = [
+// Semua foto dari folder WelcomeSequenceImages
+const ALL_LOCAL_PHOTOS = [
   '/assets/images/WelcomeSequenceImages/1.jpg',
   '/assets/images/WelcomeSequenceImages/2.jpg',
-  '/assets/images/WelcomeSequenceImages/3.JPG',
+  '/assets/images/WelcomeSequenceImages/3.jpg',
   '/assets/images/WelcomeSequenceImages/5.jpg',
   '/assets/images/WelcomeSequenceImages/6.jpg',
-  '/assets/images/WelcomeSequenceImages/7.JPG',
+  '/assets/images/WelcomeSequenceImages/7.jpg',
   '/assets/images/WelcomeSequenceImages/8.jpg',
-];
-const MEDIA_2 = [
   '/assets/images/WelcomeSequenceImages/9.jpg',
   '/assets/images/WelcomeSequenceImages/10.jpg',
   '/assets/images/WelcomeSequenceImages/11.jpg',
@@ -27,16 +26,22 @@ const MEDIA_2 = [
   '/assets/images/WelcomeSequenceImages/15.jpg',
   '/assets/images/WelcomeSequenceImages/16.jpg',
 ];
-const ALL_MEDIA = [...new Set([...MEDIA_1, ...MEDIA_2])];
 
-// ── Timing ──
-const IMAGE_DUR_1       = 6500;
-const IMAGE_DUR_2       = 7200;
+// Split untuk 2 fase: 7 foto pertama, 8 foto kedua
+const FALLBACK_MEDIA_1 = ALL_LOCAL_PHOTOS.slice(0, 7);
+const FALLBACK_MEDIA_2 = ALL_LOCAL_PHOTOS.slice(7, 15);
+
+// ── Timing - Disesuaikan dengan durasi audio untuk sinkronisasi sempurna ──
+// Voice1 duration: ~43s, 7 photos = ~6.1s per photo
+const IMAGE_DUR_1       = 6100;
+// Voice2 duration: ~39s, 8 photos = ~4.9s per photo  
+const IMAGE_DUR_2       = 4900;
 const INTERLUDE_MS      = 5000;
 const VOICE_DELAY       = 3000;
 const COUNT_NUMS        = [5, 4, 3, 2, 1];
-const KB_CLASSES: KbClass[] = ['kb1', 'kb2', 'kb3', 'kb4'];
-const LYRIC_THROTTLE_MS = 150;
+// Variasi animasi Ken Burns untuk setiap foto
+const KB_CLASSES: KbClass[] = ['kb1', 'kb2', 'kb3', 'kb4', 'kb5', 'kb6'];
+const LYRIC_THROTTLE_MS = 100; // Lebih responsif untuk sinkronisasi presisi
 
 // ── Ending sequence data ──
 const EMOTIONAL_TEXTS = [
@@ -50,60 +55,85 @@ const EMOTIONAL_TEXTS = [
   { text: "3 tahun ternyata bisa secepat itu.", position: { top: '38%', left: '50%' } },
 ];
 
-const MEMORY_ITEMS = [
-  // Layer 1 - Background polaroids (falling from top)
-  { type: 'polaroid', caption: 'Kelas XII', img: '/assets/images/WelcomeSequenceImages/1.jpg', rotate: -8, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Masa indah', img: '/assets/images/WelcomeSequenceImages/2.jpg', rotate: 12, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/WelcomeSequenceImages/3.JPG', rotate: -5, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Kenangan', img: '/assets/images/WelcomeSequenceImages/5.jpg', rotate: 7, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Teman', img: '/assets/images/WelcomeSequenceImages/6.jpg', rotate: -10, animType: 'fallTop' },
+// Function to generate memory items from photo URLs
+function generateMemoryItems(photoUrls: string[]) {
+  const captions = [
+    'Kelas XII', 'Masa indah', 'Bersama', 'Kenangan', 'Teman',
+    'Senyuman', 'Canda tawa', 'Kebersamaan', 'Cerita kita', 'Momen',
+    'Perjalanan', 'Angkatan 21', 'Selamanya', 'Tak terlupa', 'Kita',
+    'Bersama', 'Selamanya', 'Nostalgia', 'Memori', 'Abadi'
+  ];
   
-  // Layer 2 - Side entries (sliding from left/right)
-  { type: 'polaroid', caption: 'Senyuman', img: '/assets/images/WelcomeSequenceImages/7.JPG', rotate: 15, animType: 'slideLeft' },
-  { type: 'polaroid', caption: 'Canda tawa', img: '/assets/images/WelcomeSequenceImages/8.jpg', rotate: -12, animType: 'slideRight' },
-  { type: 'polaroid', caption: 'Kebersamaan', img: '/assets/images/WelcomeSequenceImages/9.jpg', rotate: 6, animType: 'slideLeft' },
-  { type: 'polaroid', caption: 'Cerita kita', img: '/assets/images/WelcomeSequenceImages/10.jpg', rotate: -7, animType: 'slideRight' },
-  { type: 'polaroid', caption: 'Momen', img: '/assets/images/WelcomeSequenceImages/11.jpg', rotate: 9, animType: 'slideLeft' },
+  const animTypes = ['fallTop', 'slideLeft', 'slideRight', 'riseBottom', 'zoomIn', 'fadeFloat'];
   
-  // Layer 3 - Rising from bottom
-  { type: 'polaroid', caption: 'Perjalanan', img: '/assets/images/WelcomeSequenceImages/12.jpg', rotate: -6, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Angkatan 21', img: '/assets/images/WelcomeSequenceImages/13.jpg', rotate: 11, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/WelcomeSequenceImages/14.jpg', rotate: -9, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Tak terlupa', img: '/assets/images/WelcomeSequenceImages/15.jpg', rotate: 8, animType: 'riseBottom' },
+  const items: any[] = [];
   
-  // Layer 4 - Zoom in effects
-  { type: 'polaroid', caption: 'Kita', img: '/assets/images/WelcomeSequenceImages/16.jpg', rotate: -4, animType: 'zoomIn' },
-  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/WelcomeSequenceImages/1.jpg', rotate: 13, animType: 'zoomIn' },
-  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/WelcomeSequenceImages/2.jpg', rotate: -11, animType: 'zoomIn' },
+  // Add polaroids from photos
+  photoUrls.forEach((url, idx) => {
+    if (idx < 20) { // Max 20 polaroids
+      items.push({
+        type: 'polaroid',
+        caption: captions[idx % captions.length],
+        img: url,
+        rotate: Math.random() * 30 - 15, // Random rotation -15 to 15
+        animType: animTypes[idx % animTypes.length]
+      });
+    }
+  });
   
-  // Layer 5 - Fade float (subtle entries)
-  { type: 'polaroid', caption: 'Nostalgia', img: '/assets/images/WelcomeSequenceImages/3.JPG', rotate: 5, animType: 'fadeFloat' },
-  { type: 'polaroid', caption: 'Memori', img: '/assets/images/WelcomeSequenceImages/5.jpg', rotate: -14, animType: 'fadeFloat' },
-  { type: 'polaroid', caption: 'Abadi', img: '/assets/images/WelcomeSequenceImages/6.jpg', rotate: 10, animType: 'fadeFloat' },
+  // Add quotes
+  items.push(
+    { type: 'quote', text: 'Gak nyangka kita bisa sampai sini...', animType: 'fadeFloat' },
+    { type: 'quote', text: 'Terima kasih untuk semua kenangan ini', animType: 'slideLeft' },
+    { type: 'quote', text: 'Sampai jumpa di lain waktu...', animType: 'slideRight' },
+    { type: 'quote', text: 'Kita akan selalu ingat masa ini', animType: 'zoomIn' },
+    { type: 'quote', text: 'Selamat tinggal, masa SMA', animType: 'riseBottom' }
+  );
   
-  // Quotes scattered between photos
-  { type: 'quote', text: 'Gak nyangka kita bisa sampai sini...', animType: 'fadeFloat' },
-  { type: 'quote', text: 'Terima kasih untuk semua kenangan ini', animType: 'slideLeft' },
-  { type: 'quote', text: 'Sampai jumpa di lain waktu...', animType: 'slideRight' },
-  { type: 'quote', text: 'Kita akan selalu ingat masa ini', animType: 'zoomIn' },
-  { type: 'quote', text: 'Selamat tinggal, masa SMA', animType: 'riseBottom' },
+  // Add timestamps
+  items.push(
+    { type: 'timestamp', text: '2023 - 2026', animType: 'fadeFloat' },
+    { type: 'timestamp', text: 'Angkatan 21', animType: 'zoomIn' },
+    { type: 'timestamp', text: '16 Mei 2026', animType: 'slideLeft' },
+    { type: 'timestamp', text: 'SKINFA', animType: 'slideRight' }
+  );
   
-  // Timestamps
-  { type: 'timestamp', text: '2023 - 2026', animType: 'fadeFloat' },
-  { type: 'timestamp', text: 'Angkatan 21', animType: 'zoomIn' },
-  { type: 'timestamp', text: '16 Mei 2026', animType: 'slideLeft' },
-  { type: 'timestamp', text: 'SKINFA', animType: 'slideRight' },
-];
+  return items;
+}
 
 // ── Volume levels ──
-const VOL_SPEAKING  = 0.15;  // instrument saat voice sedang ngomong
-const VOL_GAP       = 0.45;  // instrument saat hening/jeda antar kalimat
-const VOL_INTERLUDE = 0.08;  // instrument saat interlude
-const VOL_QUOTE     = 0.80;  // instrument full saat quote muncul
+const VOL_FULL = 0.6;  // Volume penuh untuk instrument (tidak ada ducking lagi)
 
 interface Props { onComplete: () => void; }
 
+// Helper function: Shuffle array (Fisher-Yates)
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+// Helper function: Get Cloudinary optimized URL
+function getCloudinaryUrl(publicId: string, width = 1200): string {
+  const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dg2kguctm';
+  return `https://res.cloudinary.com/${cloudName}/image/upload/w_${width},h_${width},c_fill,g_auto,q_auto:good,f_auto/${publicId}`;
+}
+
 export default function WelcomeSequence({ onComplete }: Props) {
+  // Loading state
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadProgress, setLoadProgress] = useState(0);
+  const [loadingStatus, setLoadingStatus] = useState('Mempersiapkan...');
+  
+  // Dynamic media from Cloudinary
+  const [MEDIA_1, setMEDIA_1] = useState<string[]>(FALLBACK_MEDIA_1);
+  const [MEDIA_2, setMEDIA_2] = useState<string[]>(FALLBACK_MEDIA_2);
+  const [ALL_MEDIA, setALL_MEDIA] = useState<string[]>([...FALLBACK_MEDIA_1, ...FALLBACK_MEDIA_2]);
+  const [MEMORY_ITEMS, setMEMORY_ITEMS] = useState<any[]>([]);
+  
   const [phase, setPhase]       = useState<Phase>('projector');
   const [countNum, setCountNum] = useState(5);
   const [exiting, setExiting]   = useState(false);
@@ -113,7 +143,7 @@ export default function WelcomeSequence({ onComplete }: Props) {
   const [segments1, setSegments1] = useState<Segment[]>([]);
   const [segments2, setSegments2] = useState<Segment[]>([]);
 
-  const [slotA, setSlotA]     = useState<SlotState>({ src: MEDIA_1[0], kb: 'kb1' });
+  const [slotA, setSlotA]     = useState<SlotState>({ src: FALLBACK_MEDIA_1[0], kb: 'kb1' });
   const [slotB, setSlotB]     = useState<SlotState>({ src: '',          kb: 'kb2' });
   const [activeSlot, setActive] = useState<'A' | 'B'>('A');
 
@@ -136,14 +166,34 @@ export default function WelcomeSequence({ onComplete }: Props) {
   // Track current fade target to avoid redundant rAF chains
   const instrTargetRef = useRef(-1);
 
-  // Preload all images and FETCH lyrics on mount
+  // Comprehensive preloading with progress tracking
   useEffect(() => {
-    // Preload images
-    ALL_MEDIA.forEach(src => { const img = new Image(); img.src = src; });
-
-    // Fetch lyrics
-    const loadLyrics = async () => {
+    const preloadEverything = async () => {
       try {
+        let totalSteps = 0;
+        let completedSteps = 0;
+
+        const updateProgress = (status: string) => {
+          completedSteps++;
+          const progress = Math.round((completedSteps / totalSteps) * 100);
+          setLoadProgress(progress);
+          setLoadingStatus(status);
+        };
+
+        // 0. Use local photos directly - skip Cloudinary for better performance
+        setLoadingStatus('Mempersiapkan foto...');
+        setMEDIA_1(FALLBACK_MEDIA_1);
+        setMEDIA_2(FALLBACK_MEDIA_2);
+        setALL_MEDIA(ALL_LOCAL_PHOTOS);
+        setMEMORY_ITEMS(generateMemoryItems(ALL_LOCAL_PHOTOS));
+        
+        console.log('✅ Using local photos:', ALL_LOCAL_PHOTOS.length);
+
+        // Calculate total steps
+        totalSteps = ALL_LOCAL_PHOTOS.length + 4 + 2; // images + audio files + lyrics
+
+        // 1. Load lyrics first
+        setLoadingStatus('Memuat lirik...');
         const [res1, res2] = await Promise.all([
           fetch('/assets/lirik/lirik1.json'),
           fetch('/assets/lirik/lirik2.json')
@@ -152,23 +202,154 @@ export default function WelcomeSequence({ onComplete }: Props) {
         const data2 = await res2.json();
         setSegments1(data1.segments || []);
         setSegments2(data2.segments || []);
+        updateProgress('Lirik 1 siap');
+        updateProgress('Lirik 2 siap');
+
+        // 2. Preload all images with progress - optimized loading
+        setLoadingStatus('Memuat foto...');
+        
+        // Preload critical images first (first 3 photos for immediate display)
+        const criticalImages = ALL_LOCAL_PHOTOS.slice(0, 3);
+        const nonCriticalImages = ALL_LOCAL_PHOTOS.slice(3);
+        
+        // Load critical images first
+        await Promise.all(
+          criticalImages.map((src, idx) => 
+            new Promise<void>((resolve) => {
+              const img = new Image();
+              img.onload = () => {
+                updateProgress(`Foto ${idx + 1}/${ALL_LOCAL_PHOTOS.length}`);
+                resolve();
+              };
+              img.onerror = () => {
+                console.error(`Failed to load image: ${src}`);
+                updateProgress(`Foto ${idx + 1}/${ALL_LOCAL_PHOTOS.length} (error)`);
+                resolve();
+              };
+              // High priority for critical images
+              img.fetchPriority = 'high';
+              img.decoding = 'async';
+              img.src = src;
+            })
+          )
+        );
+        
+        // Load non-critical images in parallel
+        await Promise.all(
+          nonCriticalImages.map((src, idx) => 
+            new Promise<void>((resolve) => {
+              const img = new Image();
+              img.onload = () => {
+                updateProgress(`Foto ${idx + 4}/${ALL_LOCAL_PHOTOS.length}`);
+                resolve();
+              };
+              img.onerror = () => {
+                console.error(`Failed to load image: ${src}`);
+                updateProgress(`Foto ${idx + 4}/${ALL_LOCAL_PHOTOS.length} (error)`);
+                resolve();
+              };
+              // Lower priority for non-critical images
+              img.fetchPriority = 'low';
+              img.decoding = 'async';
+              img.src = src;
+            })
+          )
+        );
+
+        // 3. Preload audio files
+        setLoadingStatus('Memuat audio...');
+        const audioFiles = [
+          { ref: voice1Ref, src: '/assets/audio/voice1.mp3', name: 'Voice 1' },
+          { ref: voice2Ref, src: '/assets/audio/voice2.mp3', name: 'Voice 2' },
+          { ref: instrRef, src: '/assets/audio/instrument-full.mp3', name: 'Instrument' },
+          { ref: sfxRef, src: '/assets/audio/coundown-sfx.wav', name: 'SFX' },
+        ];
+
+        await Promise.all(
+          audioFiles.map(({ ref, src, name }) =>
+            new Promise<void>((resolve) => {
+              const audio = ref.current;
+              if (!audio) {
+                updateProgress(`${name} (skip)`);
+                resolve();
+                return;
+              }
+              
+              audio.preload = 'auto';
+              audio.src = src;
+              
+              const handleCanPlay = () => {
+                updateProgress(`${name} siap`);
+                audio.removeEventListener('canplaythrough', handleCanPlay);
+                audio.removeEventListener('error', handleError);
+                resolve();
+              };
+              
+              const handleError = () => {
+                updateProgress(`${name} (error)`);
+                audio.removeEventListener('canplaythrough', handleCanPlay);
+                audio.removeEventListener('error', handleError);
+                resolve();
+              };
+              
+              audio.addEventListener('canplaythrough', handleCanPlay);
+              audio.addEventListener('error', handleError);
+              audio.load();
+            })
+          )
+        );
+
+        // 4. Final delay to ensure everything is ready
+        setLoadingStatus('Semua siap!');
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // 5. Prepare audio for playback (unlock audio context)
+        // This ensures audio will play when projector phase starts
+        try {
+          const allAudio = [voice1Ref.current, voice2Ref.current, instrRef.current, sfxRef.current];
+          allAudio.forEach(audio => {
+            if (audio) {
+              // Set volume to 0 and play briefly to unlock
+              const originalVolume = audio.volume;
+              audio.volume = 0;
+              audio.play().then(() => {
+                audio.pause();
+                audio.currentTime = 0;
+                audio.volume = originalVolume;
+                console.log(`✅ Audio unlocked: ${audio.src}`);
+              }).catch(() => {
+                // Silently fail, will retry on actual play
+              });
+            }
+          });
+        } catch (e) {
+          console.warn('⚠️ Audio unlock failed:', e);
+        }
+        
+        setIsLoading(false);
       } catch (err) {
-        console.error('Failed to load lyrics:', err);
+        console.error('Preload error:', err);
+        setLoadingStatus('Error, melanjutkan...');
+        setTimeout(() => setIsLoading(false), 1000);
       }
     };
-    loadLyrics();
+
+    preloadEverything();
   }, []);
 
   // ── Smooth volume fade via rAF ──
   const fadeInstrTo = useCallback((target: number, force = false) => {
     if (!force && Math.abs(instrTargetRef.current - target) < 0.01) return;
     instrTargetRef.current = target;
-    const STEP = 0.012;
+    const STEP = 0.015; // Slightly faster fade untuk responsivitas
     const tick = () => {
       const instr = instrRef.current;
       if (!instr || instrTargetRef.current !== target) return; // cancelled
       const diff = target - instr.volume;
-      if (Math.abs(diff) < STEP) { instr.volume = Math.max(0, Math.min(1, target)); return; }
+      if (Math.abs(diff) < STEP) { 
+        instr.volume = Math.max(0, Math.min(1, target)); 
+        return; 
+      }
       instr.volume = Math.max(0, Math.min(1, instr.volume + (diff > 0 ? STEP : -STEP)));
       requestAnimationFrame(tick);
     };
@@ -206,7 +387,7 @@ export default function WelcomeSequence({ onComplete }: Props) {
     const el = lyricWrapRef.current;
     if (!el) return;
     el.style.opacity   = '0';
-    el.style.transform = 'translateY(6px)';
+    el.style.transform = 'translateY(8px)';
   }, []);
 
   const showLyric = useCallback((seg: Segment) => {
@@ -214,11 +395,14 @@ export default function WelcomeSequence({ onComplete }: Props) {
     if (lyricIdRef.current) lyricIdRef.current.textContent = seg.text_id;
     const el = lyricWrapRef.current;
     if (!el) return;
-    el.style.opacity   = '1';
-    el.style.transform = 'translateY(0)';
+    // Smooth fade in dengan slight movement
+    requestAnimationFrame(() => {
+      el.style.opacity   = '1';
+      el.style.transform = 'translateY(0)';
+    });
   }, []);
 
-  // ── Lyric sync + voice ducking (throttled) ──
+  // ── Lyric sync (tanpa voice ducking) ──
   const syncLyric = useCallback((segs: Segment[], t: number) => {
     const now = performance.now();
     if (now - lastCheckRef.current < LYRIC_THROTTLE_MS) return;
@@ -226,12 +410,13 @@ export default function WelcomeSequence({ onComplete }: Props) {
 
     let found = -1;
     for (let i = 0; i < segs.length; i++) {
-      const clampedStart = Math.max(0, segs[i].start);
-      if (t >= clampedStart && t <= segs[i].end) { found = i; break; }
+      // Toleransi 50ms untuk sinkronisasi lebih presisi
+      const clampedStart = Math.max(0, segs[i].start - 0.05);
+      const clampedEnd = segs[i].end + 0.05;
+      if (t >= clampedStart && t <= clampedEnd) { found = i; break; }
     }
 
-    // Duck/raise instrument based on whether voice is speaking
-    fadeInstrTo(found >= 0 ? VOL_SPEAKING : VOL_GAP);
+    // Tidak ada ducking - musik tetap full volume
 
     if (found === prevSegRef.current) return;
     prevSegRef.current = found;
@@ -239,16 +424,59 @@ export default function WelcomeSequence({ onComplete }: Props) {
     if (lyricTimer.current) { clearTimeout(lyricTimer.current); lyricTimer.current = null; }
     hideLyric();
     if (found >= 0) {
-      lyricTimer.current = setTimeout(() => showLyric(segs[found]), 380);
+      // Fade in lebih cepat untuk responsivitas
+      lyricTimer.current = setTimeout(() => showLyric(segs[found]), 280);
     }
-  }, [fadeInstrTo, hideLyric, showLyric]);
+  }, [hideLyric, showLyric]);
 
   // ── Phase effects ──
 
   useEffect(() => {
     if (phase !== 'projector') return;
-    const sfx = sfxRef.current;
-    if (sfx) { sfx.currentTime = 0; sfx.volume = 1; sfx.play().catch(() => {}); }
+    
+    // Wait for audio element to be ready
+    const waitForAudio = () => {
+      const sfx = sfxRef.current;
+      if (!sfx) {
+        console.warn('⚠️ SFX audio element not ready, waiting...');
+        // Retry after a short delay
+        setTimeout(waitForAudio, 50);
+        return;
+      }
+      
+      // Audio element is ready, play countdown sound
+      sfx.currentTime = 0; 
+      sfx.volume = 1;
+      
+      // Function to attempt playing
+      const attemptPlay = (retryCount = 0) => {
+        const playPromise = sfx.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              console.log('✅ Countdown SFX playing successfully');
+            })
+            .catch((error) => {
+              console.warn(`⚠️ Countdown SFX play attempt ${retryCount + 1} failed:`, error.message);
+              
+              // Retry up to 3 times with increasing delays
+              if (retryCount < 3) {
+                const delay = (retryCount + 1) * 100; // 100ms, 200ms, 300ms
+                setTimeout(() => attemptPlay(retryCount + 1), delay);
+              } else {
+                console.error('❌ Countdown SFX failed after 3 retries');
+              }
+            });
+        }
+      };
+      
+      // Start first attempt immediately
+      attemptPlay();
+    };
+    
+    // Start waiting for audio
+    waitForAudio();
+    
     const ts: ReturnType<typeof setTimeout>[] = [];
     COUNT_NUMS.forEach((n, i) => ts.push(setTimeout(() => setCountNum(n), i * 1000)));
     ts.push(setTimeout(() => setPhase('flash'), 5200));
@@ -266,71 +494,80 @@ export default function WelcomeSequence({ onComplete }: Props) {
     prevSegRef.current = -1;
     lastCheckRef.current = 0;
     hideLyric();
-    instrTargetRef.current = -1;
 
+    // Start instrument at full volume
     const instr = instrRef.current;
-    if (instr) { instr.volume = 0; instr.play().catch(() => {}); }
-    fadeInstrTo(VOL_GAP, true); // start at gap volume before voice
+    if (instr) { 
+      instr.volume = VOL_FULL; 
+      instr.currentTime = 0;
+      instr.loop = false; // Tidak loop, play sekali saja
+      instr.play().catch(() => {}); 
+    }
+    
     startSlideshow(MEDIA_1, IMAGE_DUR_1);
 
+    // Start voice after delay
     const vt = setTimeout(() => {
       const v1 = voice1Ref.current;
-      if (v1) { v1.volume = 1; v1.play().catch(() => {}); }
+      if (v1) { 
+        v1.currentTime = 0;
+        v1.volume = 1; 
+        v1.play().catch(() => {}); 
+      }
     }, VOICE_DELAY);
 
     return () => { clearTimeout(vt); stopSlideshow(); };
-  }, [phase, fadeInstrTo, hideLyric, startSlideshow, stopSlideshow]);
+  }, [phase, MEDIA_1, hideLyric, startSlideshow, stopSlideshow]);
 
   useEffect(() => {
     if (phase !== 'interlude') return;
     prevSegRef.current = -1;
     hideLyric();
-    fadeInstrTo(VOL_INTERLUDE, true);
+    // Musik tetap jalan dengan volume penuh, tidak ada perubahan
     const t = setTimeout(() => setPhase('playing2'), INTERLUDE_MS);
     return () => clearTimeout(t);
-  }, [phase, fadeInstrTo, hideLyric]);
+  }, [phase, hideLyric]);
 
   useEffect(() => {
     if (phase !== 'playing2') return;
     prevSegRef.current = -1;
     lastCheckRef.current = 0;
     hideLyric();
-    instrTargetRef.current = -1;
-    fadeInstrTo(VOL_GAP, true);
+    // Musik tetap jalan dengan volume penuh
     startSlideshow(MEDIA_2, IMAGE_DUR_2);
     const v2 = voice2Ref.current;
-    if (v2) { v2.volume = 1; v2.play().catch(() => {}); }
+    if (v2) { 
+      v2.currentTime = 0;
+      v2.volume = 1; 
+      v2.play().catch(() => {}); 
+    }
     return () => stopSlideshow();
-  }, [phase, fadeInstrTo, hideLyric, startSlideshow, stopSlideshow]);
+  }, [phase, MEDIA_2, hideLyric, startSlideshow, stopSlideshow]);
 
   useEffect(() => {
     if (phase !== 'outro') return;
     hideLyric();
     stopSlideshow();
 
-    // Instrument naik penuh untuk quote (lirik lagu)
-    instrTargetRef.current = -1;
-    fadeInstrTo(VOL_QUOTE, true);
+    // Musik tetap jalan dengan volume penuh sampai habis natural
 
     // t1 = 3.2s → quote fade IN
     const t1 = setTimeout(() => {
       if (quoteRef.current) quoteRef.current.classList.add(styles.quoteShow);
     }, 3200);
 
-    // t2 = 3200 + 11740 = 14940ms → quote + instrument mulai fade OUT bareng
+    // t2 = 3200 + 11740 = 14940ms → quote fade OUT (musik tetap jalan)
     const t2 = setTimeout(() => {
       if (quoteRef.current) quoteRef.current.classList.remove(styles.quoteShow);
-      instrTargetRef.current = -1;
-      fadeInstrTo(0, true); // instrument fade out bersamaan
     }, 14940);
 
-    // t3 = 14940 + 3000ms = 17940ms → setelah fade selesai, masuk ending sequence
+    // t3 = 14940 + 3000ms = 17940ms → masuk ending sequence (musik tetap jalan sampai habis)
     const t3 = setTimeout(() => {
       setPhase('ending');
     }, 17940);
 
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
-  }, [phase, fadeInstrTo, hideLyric, stopSlideshow]);
+  }, [phase, hideLyric, stopSlideshow]);
 
   // ── Audio handlers ──
   const handleTime1 = useCallback(() => {
@@ -387,15 +624,49 @@ export default function WelcomeSequence({ onComplete }: Props) {
   const isPlayPhase = phase === 'playing1' || phase === 'interlude'
                    || phase === 'playing2' || phase === 'outro';
 
+  // Show loading screen if still loading
+  if (isLoading) {
+    return (
+      <div className={styles.loadingScreen}>
+        <div className={styles.loadingContent}>
+          <div className={styles.loadingLogo}>
+            <h1 className={styles.loadingTitle}>SKINFAVERSE21</h1>
+            <p className={styles.loadingSubtitle}>Mempersiapkan kenangan...</p>
+          </div>
+          
+          <div className={styles.loadingBarContainer}>
+            <div className={styles.loadingBar}>
+              <div 
+                className={styles.loadingBarFill} 
+                style={{ width: `${loadProgress}%` }}
+              />
+            </div>
+            <div className={styles.loadingPercentage}>{loadProgress}%</div>
+          </div>
+          
+          <p className={styles.loadingStatus}>{loadingStatus}</p>
+          
+          <div className={styles.loadingDots}>
+            <span className={styles.dot} style={{ animationDelay: '0s' }} />
+            <span className={styles.dot} style={{ animationDelay: '0.2s' }} />
+            <span className={styles.dot} style={{ animationDelay: '0.4s' }} />
+          </div>
+        </div>
+        
+        <div className={styles.loadingGrain} />
+      </div>
+    );
+  }
+
   return (
     <div className={`${styles.seq} ${exiting ? styles.seqExiting : ''}`}>
 
-      <audio ref={voice1Ref} src="/assets/audio/voice1.mp3" preload="auto"
+      <audio ref={voice1Ref} preload="auto" src="/assets/audio/voice1.mp3"
              onTimeUpdate={handleTime1} onEnded={handleV1End} />
-      <audio ref={voice2Ref} src="/assets/audio/voice2.mp3" preload="auto"
+      <audio ref={voice2Ref} preload="auto" src="/assets/audio/voice2.mp3"
              onTimeUpdate={handleTime2} onEnded={handleV2End} />
-      <audio ref={instrRef}  src="/assets/audio/instrument-full.mp3" preload="auto" />
-      <audio ref={sfxRef}    src="/assets/audio/coundown-sfx.wav"    preload="auto" />
+      <audio ref={instrRef} preload="auto" src="/assets/audio/instrument-full.mp3" />
+      <audio ref={sfxRef} preload="auto" src="/assets/audio/coundown-sfx.wav" />
 
       {(phase === 'projector' || phase === 'flash') && (
         <div className={`${styles.proj} ${phase === 'flash' ? styles.projFlash : ''}`}>
@@ -426,10 +697,29 @@ export default function WelcomeSequence({ onComplete }: Props) {
       {isPlayPhase && (
         <div className={styles.playing}>
           <div className={`${styles.slide} ${activeSlot === 'A' ? styles.slideIn : styles.slideOut}`}>
-            {slotA.src && <img src={slotA.src} alt="" className={styles.photoImg} loading="eager" decoding="async" fetchPriority="high" />}
+            {slotA.src && (
+              <img 
+                src={slotA.src} 
+                alt="" 
+                className={styles.photoImg} 
+                loading="eager" 
+                decoding="async" 
+                fetchPriority="high"
+                style={{ contentVisibility: 'auto' }}
+              />
+            )}
           </div>
           <div className={`${styles.slide} ${activeSlot === 'B' ? styles.slideIn : styles.slideOut}`}>
-            {slotB.src && <img src={slotB.src} alt="" className={styles.photoImg} loading="eager" decoding="async" />}
+            {slotB.src && (
+              <img 
+                src={slotB.src} 
+                alt="" 
+                className={styles.photoImg} 
+                loading="eager" 
+                decoding="async"
+                style={{ contentVisibility: 'auto' }}
+              />
+            )}
           </div>
 
           <div className={styles.sceneOverlay} />
@@ -440,7 +730,12 @@ export default function WelcomeSequence({ onComplete }: Props) {
           <div
             ref={lyricWrapRef}
             className={styles.lyricWrap}
-            style={{ opacity: 0, transform: 'translateY(6px)', transition: 'opacity 0.4s ease, transform 0.4s ease', willChange: 'opacity, transform' }}
+            style={{ 
+              opacity: 0, 
+              transform: 'translateY(8px)', 
+              transition: 'opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)', 
+              willChange: 'opacity, transform' 
+            }}
           >
             <div className={styles.lyricEnArea}>
               <p ref={lyricEnRef} className={styles.lyricEn}>&nbsp;</p>

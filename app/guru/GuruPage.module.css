@@ -102,6 +102,29 @@
   will-change: transform, opacity, filter;
 }
 
+.ksRole {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(197, 166, 124, 0.85);
+  margin-bottom: 1rem;
+  opacity: 0;
+}
+
+.ksDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.8;
+  max-width: 480px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
 .ksQuote {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem;
@@ -242,7 +265,18 @@
 
 /* --- GROUP 4: Kepala Program --- */
 .sceneKomp {
-  background: #000;
+  background: #1a1a1a;
+  position: relative;
+  overflow: hidden;
+}
+
+.sceneKomp::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .kompHorizontal {
@@ -250,6 +284,7 @@
   width: 300vw;
   height: 100vh;
   will-change: transform;
+  position: relative;
 }
 
 .kompSection {
@@ -260,20 +295,84 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
-.kompAccentDKV { background: linear-gradient(135deg, #1f0a28 0%, #0d0514 100%); }
-.kompAccentRPL { background: linear-gradient(135deg, #0a1128 0%, #030814 100%); }
-.kompAccentTKJ { background: linear-gradient(135deg, #281a0a 0%, #140d03 100%); }
+.kompSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kompSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kompAccentDKV { 
+  background: linear-gradient(135deg, #3d1f4a 0%, #2a1535 50%, #1f0a28 100%);
+}
+
+.kompAccentDKV::before {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(197, 124, 166, 0.2) 0%,
+    transparent 60%
+  );
+}
+
+.kompAccentRPL { 
+  background: linear-gradient(135deg, #1f3d5c 0%, #152a42 50%, #0a1128 100%);
+}
+
+.kompAccentRPL::before {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(100, 150, 255, 0.2) 0%,
+    transparent 60%
+  );
+}
+
+.kompAccentTKJ { 
+  background: linear-gradient(135deg, #5c3d1f 0%, #422c15 50%, #281a0a 100%);
+}
+
+.kompAccentTKJ::before {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 180, 100, 0.2) 0%,
+    transparent 60%
+  );
+}
 
 .kompPillar {
   position: absolute;
-  font-size: 20vw;
+  font-size: clamp(10rem, 20vw, 18rem);
   font-weight: 900;
-  opacity: 0.03;
+  opacity: 0.1;
   color: #fff;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
 }
 
 .kompContent {
@@ -282,15 +381,95 @@
   align-items: center;
   text-align: center;
   z-index: 10;
+  position: relative;
+  padding: 40px 20px;
+  max-width: 90vw;
+  width: 100%;
+}
+
+.kompTitle {
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+  position: relative;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.kompTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 }
 
 .kompPhotoWrapper {
-  width: clamp(250px, 30vw, 400px);
+  width: clamp(280px, 35vw, 450px);
   aspect-ratio: 3/4;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 80px rgba(0,0,0,0.8);
-  margin-bottom: 30px;
+  box-shadow: 
+    0 30px 100px rgba(0,0,0,0.9),
+    0 0 80px rgba(255,255,255,0.1),
+    inset 0 0 0 1px rgba(255,255,255,0.1);
+  margin-bottom: 2rem;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: transform 0.3s ease;
+  opacity: 0;
+  will-change: opacity, transform, filter;
+  position: relative;
+}
+
+.kompPhotoWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0,0,0,0.3) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.kompPhotoWrapper:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+  .kompPillar {
+    font-size: clamp(6rem, 25vw, 10rem);
+    opacity: 0.06;
+  }
+  
+  .kompPhotoWrapper {
+    width: clamp(240px, 70vw, 350px);
+    margin-bottom: 1.5rem;
+  }
+  
+  .kompTitle {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+  }
+  
+  .kompContent {
+    padding: 20px 15px;
+  }
 }
 
 /* --- GROUP 5: DuDi & Spiritual --- */
@@ -391,6 +570,20 @@
 /* --- GROUP 7: Qiroati --- */
 .sceneQiroati {
   background: #050403;
+  flex-direction: column;
+  padding: 80px 40px;
+}
+
+.qiroatiTitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 60px;
+  opacity: 0;
+  z-index: 10;
 }
 
 .qiroatiGrid {
@@ -406,6 +599,14 @@
   width: 240px;
   text-align: center;
   opacity: 0;
+  position: relative;
+}
+
+.qiroatiCard h4 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
 }
 
 .qiroatiPhotoWrapper {
@@ -414,6 +615,8 @@
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 15px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* --- GROUP 8: Admin --- */
@@ -565,12 +768,30 @@
 .mentorOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent 50%);
+  background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 60%, transparent 100%);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+.mapelName {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.mapelSubject {
+  color: rgba(197, 166, 124, 0.9);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
 }
 
 .mapelItem:hover .mentorOverlay {
@@ -615,7 +836,7 @@
 /* --- GROUP 12: Satpam & Ending --- */
 .sceneSatpam {
   background: #000;
-  min-height: 200vh;
+  min-height: 300vh;
 }
 
 .satpamContainer {
@@ -627,6 +848,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 5;
 }
 
 .satpamContent {
@@ -635,6 +857,9 @@
   align-items: center;
   text-align: center;
   z-index: 10;
+  position: relative;
+  padding: 40px;
+  gap: 20px;
 }
 
 .mosaicEnding {
