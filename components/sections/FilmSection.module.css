@@ -42,7 +42,7 @@
 .bgImage {
   position: absolute;
   inset: 0;
-  background-image: url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1200&h=600");
+  background-image: url("/assets/images/cover-film.JPG");
   background-size: cover;
   background-position: center;
   filter: grayscale(30%) sepia(10%);

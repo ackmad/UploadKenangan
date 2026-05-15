@@ -8,7 +8,8 @@ import TimelineSection from '@/components/sections/TimelineSection';
 import GallerySection from '@/components/sections/GallerySection';
 import ConfessionsSection from '@/components/sections/ConfessionsSection';
 import FilmSection from '@/components/sections/FilmSection';
-import ProfileSection from '@/components/sections/ProfileSection';
+import DirectorySection from '@/components/sections/DirectorySection';
+import Footer from '@/components/ui/Footer';
 
 // Lazy-load splash so it doesn't block first paint
 const SplashScreen = dynamic(() => import('@/components/ui/SplashScreen'), { ssr: false });
@@ -36,11 +37,12 @@ export default function ScrapbookPage() {
       <div style={{ opacity: showSplash ? 0 : 1, transition: 'opacity 0.6s ease' }}>
         <ScrapbookNav onReplaySequence={handleReplaySequence} />
         <HeroSection />
-        <TimelineSection />
+        {/* <TimelineSection /> */}
         <GallerySection />
         <FilmSection />
         <ConfessionsSection />
-        <ProfileSection />
+        <DirectorySection />
+        <Footer />
       </div>
     </>
   );

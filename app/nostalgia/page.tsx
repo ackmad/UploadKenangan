@@ -21,7 +21,7 @@ export default function NostalgiaPage() {
         </div>
 
         {/* Cloudinary Media Gallery */}
-        <MediaGallery folder="skinfaverse21/nostalgia" />
+        <MediaGallery folder="SKINFAVERSE21/memoriez" />
 
         <div className={styles.footer}>
           <Link href="/" className="btn btn-black btn-lg">

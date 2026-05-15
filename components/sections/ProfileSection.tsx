@@ -46,9 +46,9 @@ export default function ProfileSection() {
             <h3 className={styles.ctaTitle}>{profile.cta.title}</h3>
             <p className={styles.ctaSub}>{profile.cta.subtitle}</p>
             <div className={styles.ctaBtns}>
-              <Link href="/students" className="btn btn-coral btn-lg">
+              <a href="/UniverseMemoriez.html" className="btn btn-coral btn-lg">
                 👥 Meet The Universe
-              </Link>
+              </a>
               <Link href="/yearbook" className="btn btn-yellow btn-lg">
                 📚 Buka Yearbook
               </Link>

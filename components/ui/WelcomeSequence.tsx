@@ -9,13 +9,23 @@ type KbClass   = 'kb1' | 'kb2' | 'kb3' | 'kb4';
 type SlotState = { src: string; kb: KbClass };
 
 const MEDIA_1 = [
-  '/assets/images/1.jpg', '/assets/images/2.jpg', '/assets/images/3.jpg',
-  '/assets/images/4.jpg', '/assets/images/5.jpg', '/assets/images/6.jpg',
-  '/assets/images/7.jpg',
+  '/assets/images/WelcomeSequenceImages/1.jpg',
+  '/assets/images/WelcomeSequenceImages/2.jpg',
+  '/assets/images/WelcomeSequenceImages/3.JPG',
+  '/assets/images/WelcomeSequenceImages/5.jpg',
+  '/assets/images/WelcomeSequenceImages/6.jpg',
+  '/assets/images/WelcomeSequenceImages/7.JPG',
+  '/assets/images/WelcomeSequenceImages/8.jpg',
 ];
 const MEDIA_2 = [
-  '/assets/images/8.jpg', '/assets/images/9.jpg', '/assets/images/10.jpg',
-  '/assets/images/11.jpg', '/assets/images/5.jpg', '/assets/images/3.jpg',
+  '/assets/images/WelcomeSequenceImages/9.jpg',
+  '/assets/images/WelcomeSequenceImages/10.jpg',
+  '/assets/images/WelcomeSequenceImages/11.jpg',
+  '/assets/images/WelcomeSequenceImages/12.jpg',
+  '/assets/images/WelcomeSequenceImages/13.jpg',
+  '/assets/images/WelcomeSequenceImages/14.jpg',
+  '/assets/images/WelcomeSequenceImages/15.jpg',
+  '/assets/images/WelcomeSequenceImages/16.jpg',
 ];
 const ALL_MEDIA = [...new Set([...MEDIA_1, ...MEDIA_2])];
 
@@ -42,34 +52,34 @@ const EMOTIONAL_TEXTS = [
 
 const MEMORY_ITEMS = [
   // Layer 1 - Background polaroids (falling from top)
-  { type: 'polaroid', caption: 'Kelas XII', img: '/assets/images/1.jpg', rotate: -8, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Masa indah', img: '/assets/images/2.jpg', rotate: 12, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/3.jpg', rotate: -5, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Kenangan', img: '/assets/images/4.jpg', rotate: 7, animType: 'fallTop' },
-  { type: 'polaroid', caption: 'Teman', img: '/assets/images/5.jpg', rotate: -10, animType: 'fallTop' },
+  { type: 'polaroid', caption: 'Kelas XII', img: '/assets/images/WelcomeSequenceImages/1.jpg', rotate: -8, animType: 'fallTop' },
+  { type: 'polaroid', caption: 'Masa indah', img: '/assets/images/WelcomeSequenceImages/2.jpg', rotate: 12, animType: 'fallTop' },
+  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/WelcomeSequenceImages/3.JPG', rotate: -5, animType: 'fallTop' },
+  { type: 'polaroid', caption: 'Kenangan', img: '/assets/images/WelcomeSequenceImages/5.jpg', rotate: 7, animType: 'fallTop' },
+  { type: 'polaroid', caption: 'Teman', img: '/assets/images/WelcomeSequenceImages/6.jpg', rotate: -10, animType: 'fallTop' },
   
   // Layer 2 - Side entries (sliding from left/right)
-  { type: 'polaroid', caption: 'Senyuman', img: '/assets/images/6.jpg', rotate: 15, animType: 'slideLeft' },
-  { type: 'polaroid', caption: 'Canda tawa', img: '/assets/images/7.jpg', rotate: -12, animType: 'slideRight' },
-  { type: 'polaroid', caption: 'Kebersamaan', img: '/assets/images/8.jpg', rotate: 6, animType: 'slideLeft' },
-  { type: 'polaroid', caption: 'Cerita kita', img: '/assets/images/9.jpg', rotate: -7, animType: 'slideRight' },
-  { type: 'polaroid', caption: 'Momen', img: '/assets/images/10.jpg', rotate: 9, animType: 'slideLeft' },
+  { type: 'polaroid', caption: 'Senyuman', img: '/assets/images/WelcomeSequenceImages/7.JPG', rotate: 15, animType: 'slideLeft' },
+  { type: 'polaroid', caption: 'Canda tawa', img: '/assets/images/WelcomeSequenceImages/8.jpg', rotate: -12, animType: 'slideRight' },
+  { type: 'polaroid', caption: 'Kebersamaan', img: '/assets/images/WelcomeSequenceImages/9.jpg', rotate: 6, animType: 'slideLeft' },
+  { type: 'polaroid', caption: 'Cerita kita', img: '/assets/images/WelcomeSequenceImages/10.jpg', rotate: -7, animType: 'slideRight' },
+  { type: 'polaroid', caption: 'Momen', img: '/assets/images/WelcomeSequenceImages/11.jpg', rotate: 9, animType: 'slideLeft' },
   
   // Layer 3 - Rising from bottom
-  { type: 'polaroid', caption: 'Perjalanan', img: '/assets/images/11.jpg', rotate: -6, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Angkatan 21', img: '/assets/images/1.jpg', rotate: 11, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/2.jpg', rotate: -9, animType: 'riseBottom' },
-  { type: 'polaroid', caption: 'Tak terlupa', img: '/assets/images/3.jpg', rotate: 8, animType: 'riseBottom' },
+  { type: 'polaroid', caption: 'Perjalanan', img: '/assets/images/WelcomeSequenceImages/12.jpg', rotate: -6, animType: 'riseBottom' },
+  { type: 'polaroid', caption: 'Angkatan 21', img: '/assets/images/WelcomeSequenceImages/13.jpg', rotate: 11, animType: 'riseBottom' },
+  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/WelcomeSequenceImages/14.jpg', rotate: -9, animType: 'riseBottom' },
+  { type: 'polaroid', caption: 'Tak terlupa', img: '/assets/images/WelcomeSequenceImages/15.jpg', rotate: 8, animType: 'riseBottom' },
   
   // Layer 4 - Zoom in effects
-  { type: 'polaroid', caption: 'Kita', img: '/assets/images/4.jpg', rotate: -4, animType: 'zoomIn' },
-  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/5.jpg', rotate: 13, animType: 'zoomIn' },
-  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/6.jpg', rotate: -11, animType: 'zoomIn' },
+  { type: 'polaroid', caption: 'Kita', img: '/assets/images/WelcomeSequenceImages/16.jpg', rotate: -4, animType: 'zoomIn' },
+  { type: 'polaroid', caption: 'Bersama', img: '/assets/images/WelcomeSequenceImages/1.jpg', rotate: 13, animType: 'zoomIn' },
+  { type: 'polaroid', caption: 'Selamanya', img: '/assets/images/WelcomeSequenceImages/2.jpg', rotate: -11, animType: 'zoomIn' },
   
   // Layer 5 - Fade float (subtle entries)
-  { type: 'polaroid', caption: 'Nostalgia', img: '/assets/images/7.jpg', rotate: 5, animType: 'fadeFloat' },
-  { type: 'polaroid', caption: 'Memori', img: '/assets/images/8.jpg', rotate: -14, animType: 'fadeFloat' },
-  { type: 'polaroid', caption: 'Abadi', img: '/assets/images/9.jpg', rotate: 10, animType: 'fadeFloat' },
+  { type: 'polaroid', caption: 'Nostalgia', img: '/assets/images/WelcomeSequenceImages/3.JPG', rotate: 5, animType: 'fadeFloat' },
+  { type: 'polaroid', caption: 'Memori', img: '/assets/images/WelcomeSequenceImages/5.jpg', rotate: -14, animType: 'fadeFloat' },
+  { type: 'polaroid', caption: 'Abadi', img: '/assets/images/WelcomeSequenceImages/6.jpg', rotate: 10, animType: 'fadeFloat' },
   
   // Quotes scattered between photos
   { type: 'quote', text: 'Gak nyangka kita bisa sampai sini...', animType: 'fadeFloat' },

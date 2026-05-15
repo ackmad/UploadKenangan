@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "nama": "Sri Wahyuni A, S.Pd",
+    "nama_file": "1_SriWahyuniA,S.Pd-KepalaSekolah",
+    "peran": ["Kepala Sekolah"]
+  },
+  {
+    "id": 2,
+    "nama": "Renny Febyana, S.Psi., S.Pd",
+    "nama_file": "2_RenyFebyana,S.Psi,S.Pd-StaffBPP",
+    "peran": [
+      "Staff BPP Yayasan Al-Irsyad Unit SMK",
+      "Penanggung Jawab Bimbingan Konseling"
+    ]
+  },
+  {
+    "id": 3,
+    "nama": "Nurkhasanah, S.Pd",
+    "nama_file": "3_Nurkhasanah,S.Pd-WakaKurikulum",
+    "peran": [
+      "Wakil Kepala Bidang Akademik (Kurikulum)",
+      "Guru Sejarah Indonesia",
+      "Guru Pendidikan Pancasila dan Kewarganegaraan"
+    ]
+  },
+  {
+    "id": 4,
+    "nama": "Dikdik Nurul Zanatul Awwaliah, S.Pd.I",
+    "nama_file": "4_DikdikNurulZanatulA.,S.Pd.I-BahasaInggris&Kesiswaan",
+    "peran": [
+      "Wakil Kepala Bidang Kesiswaan",
+      "Guru Bahasa Inggris",
+      "Ketua SPMB",
+      "Pembina OSIS",
+      "Penanggung Jawab Bina Prestasi"
+    ]
+  },
+  {
+    "id": 5,
+    "nama": "Fini Lafiani, S.Pd",
+    "nama_file": "5_FiniLafiani,S.Pd-Sarpras",
+    "peran": [
+      "Wakil Kepala Bidang Sarana dan Prasarana",
+      "Guru Projek Ilmu Pengetahuan Alam dan Sosial",
+      "Guru Seni Budaya",
+      "Wali Kelas X RPL",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 6,
+    "nama": "Abdurachim, S.Kom",
+    "nama_file": "6_Abdurachim,S.Kom-KepalaKompetenTKJ",
+    "peran": [
+      "Kepala Program Teknik Jaringan Komputer dan Telekomunikasi (TKJ)",
+      "Guru Dasar-dasar TJKT",
+      "Guru Koding dan Kecerdasan Artifisial"
+    ]
+  },
+  {
+    "id": 7,
+    "nama": "Muhammad Hafiizh, S.Kom",
+    "nama_file": "7_MuhammadHafiizh,S.Kom-KepalaKompetenRPL",
+    "peran": [
+      "Kepala Program Pengembangan Perangkat Lunak dan Gim (RPL)",
+      "Guru Dasar-dasar PPLG",
+      "Guru Koding dan Kecerdasan Artifisial",
+      "Guru Konsentrasi Keahlian RPL",
+      "Pembina Ekstrakulikuler IRMAIS"
+    ]
+  },
+  {
+    "id": 8,
+    "nama": "Firmansyah, S.Kom",
+    "nama_file": "8_Firmansyah,S.Kom-KepalaKompetenDKV",
+    "peran": [
+      "Kepala Program Desain Komunikasi Visual (DKV)",
+      "Guru Dasar-dasar DKV",
+      "Guru Koding dan Kecerdasan Artifisial",
+      "Guru Mata Pelajaran Pilihan DKV",
+      "Guru Kreativitas, Inovasi dan Kewirausahaan",
+      "Guru Konsentrasi Keahlian DKV"
+    ]
+  },
+  {
+    "id": 9,
+    "nama": "Abdel Aziz, S.Pd",
+    "nama_file": "9_AbdelAziz,S.Pd-BahasaIndonesia&WakaDuDi&WalasXIIDKV",
+    "peran": [
+      "Wakil Kepala Bidang Dunia Usaha Dunia Industri (DuDi)",
+      "Guru Bahasa Indonesia",
+      "Wali Kelas XII DKV"
+    ]
+  },
+  {
+    "id": 10,
+    "nama": "Nur Arofah",
+    "nama_file": "10_NurArofah-PJQiroati",
+    "peran": [
+      "Penanggung Jawab Qur'an Qira'ati",
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 11,
+    "nama": "Surayah, S.Pd",
+    "nama_file": "11_Surayah,S.Pd-Matematika",
+    "peran": [
+      "Penanggung Jawab Bi'ah Islamiyah (Putri)",
+      "Guru Matematika",
+      "Tim Supervisi"
+    ]
+  },
+  {
+    "id": 12,
+    "nama": "Idah Kholidah, S.Pd",
+    "nama_file": "12_IdahHolidah,S.Pd-Guru",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 13,
+    "nama": "Gilang Tania Imanisari, S.Kom",
+    "nama_file": "13_GilangTaniaImanisari,S.Kom-ProduktifTKJ&WalasXIITKJ",
+    "peran": [
+      "Guru Konsentrasi Keahlian TKJ",
+      "Guru Mata Pelajaran Pilihan TKJ",
+      "Wali Kelas XII TKJ",
+      "Pembina Ekstrakulikuler Pramuka Putri",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 14,
+    "nama": "Rifahtul Suryani, S.Pd",
+    "nama_file": "14_RifahSuryani,S.Pd-BimbinganKonseling",
+    "peran": [
+      "Guru Bimbingan dan Konseling",
+      "Pembina Ekstrakulikuler PMR",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 15,
+    "nama": "Aidha Fuji Ayu Lestari, S.Ds.",
+    "nama_file": "15_AidhaFujiAyuLestari,S.Ds-ProduktifDKV",
+    "peran": [
+      "Guru Konsentrasi Keahlian DKV",
+      "Guru Dasar-dasar DKV",
+      "Guru Mata Pelajaran Pilihan DKV",
+      "Wali Kelas X DKV",
+      "Ketua Unit Produksi DKV",
+      "Pembina Ekstrakulikuler Bidang IT (IT CLUB)",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 16,
+    "nama": "Siti Aniyah, S.Sy., M.Pd.",
+    "nama_file": "16_SitiAniyah,M.Pd-BahasaArab",
+    "peran": [
+      "Guru Bahasa Arab (Muatan Lokal)",
+      "Pustakawan",
+      "Wali Kelas XI TKJ",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 17,
+    "nama": "Sri Utami, S.T",
+    "nama_file": "17_SriUtami,S.T",
+    "peran": [
+      "Guru Konsentrasi Keahlian TKJ",
+      "Guru Pendidikan Pancasila dan Kewarganegaraan",
+      "Ketua BKK",
+      "Wali Kelas X TKJ",
+      "Guru Piket"
+    ]
+  },
+  {
+    "id": 18,
+    "nama": "Ahmad Fauzi, S.Pd.I",
+    "nama_file": "18_AhmadFauzi,S.Pd.I-PendidikanAgamaIslam",
+    "peran": [
+      "Guru Pendidikan Agama dan Budi Pekerti",
+      "Wali Kelas XI DKV"
+    ]
+  },
+  {
+    "id": 19,
+    "nama": "Fahmi, M.Kom",
+    "nama_file": "19_Fahmi,M.Kom-ProduktifRPL",
+    "peran": [
+      "Guru Konsentrasi Keahlian RPL",
+      "Guru Mata Pelajaran Pilihan RPL",
+      "Wali Kelas XI RPL",
+      "Penanggung Jawab Bi'ah Islamiyah (Putra)"
+    ]
+  },
+  {
+    "id": 20,
+    "nama": "Moh. Yahya, S.Kom.",
+    "nama_file": "20_MohYahya,S.Kom-ProduktifRPL&WaliKelas",
+    "peran": [
+      "Guru Konsentrasi Keahlian RPL",
+      "Guru Informatika",
+      "Wali Kelas XII RPL",
+      "Pembina Ekstrakulikuler Pramuka Putra"
+    ]
+  },
+  {
+    "id": 21,
+    "nama": "Agung Gumilar, SST",
+    "nama_file": "21_AgungGumilar,SST-PKK",
+    "peran": [
+      "Guru Kreativitas, Inovasi dan Kewirausahaan"
+    ]
+  },
+  {
+    "id": 22,
+    "nama": "Riki Mauludin, S.Kom.",
+    "nama_file": "22_RikiMauludin,S.Kom-ProduktifDKV",
+    "peran": [
+      "Guru Konsentrasi Keahlian DKV"
+    ]
+  },
+  {
+    "id": 23,
+    "nama": "Rosandi, S.Pd",
+    "nama_file": "23_Rosandi,S.Pd-PendidikanJasmaniDanRohani",
+    "peran": [
+      "Guru Pendidikan Jasmani, Olahraga dan Kesehatan",
+      "Pembina Ekstrakulikuler Bidang Olahraga"
+    ]
+  },
+  {
+    "id": 24,
+    "nama": "Lusi Malini, S.Pd",
+    "nama_file": "24_LusiMalini,S.Pd",
+    "peran": [
+      "Guru Matematika"
+    ]
+  },
+  {
+    "id": 25,
+    "nama": "Hikmah Lestari, M.Pd",
+    "nama_file": "25_HikmahLestari,M.Pd-BahasaInggris",
+    "peran": [
+      "Guru Bahasa Inggris",
+      "Pembina Ekstrakulikuler English Club"
+    ]
+  },
+  {
+    "id": 26,
+    "nama": "Nafi'ah, S.Kom.",
+    "nama_file": "26_Nafiah,S.Kom-Qiroati",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 27,
+    "nama": "Ike Elgina Sari, S.T",
+    "nama_file": "27_IkeElginaSari,S.T-Qiroati",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 28,
+    "nama": "Siti Zulaicha, S.E",
+    "nama_file": "28_SitiZulaicha,S.E-Qiroati",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 29,
+    "nama": "Nuni Agustina, A.Md.",
+    "nama_file": "29_NuniAgustina,A.Md-Qiroati",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 30,
+    "nama": "Yeni Kartikasari",
+    "nama_file": "30_YeniKartikasari-Qiroati",
+    "peran": [
+      "Guru Al-Qur'an Qiraati"
+    ]
+  },
+  {
+    "id": 31,
+    "nama": "Dwi Fitri Meliani, A.Md",
+    "nama_file": "31_DwiFitriMeliani,A.Md-Bendahara",
+    "peran": [
+      "Administrasi Persuratan dan Pengarsipan",
+      "Administrasi Kurikulum/Akademik",
+      "Administrasi Sarana dan Prasarana",
+      "Administrasi Keuangan/Bendahara"
+    ]
+  },
+  {
+    "id": 32,
+    "nama": "Nizar Kumaedi, S.E.",
+    "nama_file": "32_Nizar-TU",
+    "peran": [
+      "Administrasi Kepegawaian",
+      "Administrasi Kesiswaan",
+      "Administrasi Hubungan Masyarakat",
+      "Operator Dapodik Sekolah"
+    ]
+  },
+  {
+    "id": 33,
+    "nama": "Achmad Mubarok",
+    "nama_file": "33_AchmadMubarok-K5",
+    "peran": [
+      "Laboran"
+    ]
+  },
+  {
+    "id": 34,
+    "nama": "Prima Hadi Permana",
+    "nama_file": "34_PrimaHadiPermana-Informatika",
+    "peran": [
+      "Maintenance"
+    ]
+  },
+  {
+    "id": 35,
+    "nama": "Mohamad Syahlan",
+    "nama_file": "35_MohamadSyahlan-K5",
+    "peran": [
+      "Tukang Kebun",
+      "Tenaga Kebersihan",
+      "Pesuruh"
+    ]
+  },
+  {
+    "id": 36,
+    "nama": "Junarno",
+    "nama_file": "36_Junarno-K5&Kantin",
+    "peran": [
+      "Penjaga Sekolah",
+      "Tukang Kebun",
+      "Tenaga Kebersihan",
+      "Pesuruh"
+    ]
+  },
+  {
+    "id": 37,
+    "nama": "Ahkrif Namora Siregar",
+    "nama_file": "37_AkhrifNamoraSiregar-Satpam",
+    "peran": [
+      "Satpam"
+    ]
+  }
+]

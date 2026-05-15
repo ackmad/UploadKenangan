@@ -1,116 +1,83 @@
 .footer {
     width: 100%;
-    padding: 18px 24px;
-    /* sits below all page content */
+    padding: 32px 24px;
+    background-color: var(--black);
+    color: white;
     margin-top: auto;
+    border-top: var(--border-thick);
 }
 
 .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.schoolInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.schoolName {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--yellow);
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+}
+
+.schoolAddress {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+.metaInfo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     flex-wrap: wrap;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
-/* "Made with ♥ by Ackmad" */
-.credit {
-    font-size: 0.72rem;
-    color: rgba(155, 142, 130, 0.45);
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    white-space: nowrap;
-    transition: color 0.25s;
+.credit strong {
+    color: var(--peach);
+    font-weight: 700;
 }
 
-.credit:hover {
-    color: rgba(155, 142, 130, 0.7);
-}
-
-.heart {
-    color: rgba(220, 100, 100, 0.55);
-    font-size: 0.78rem;
-    display: inline-block;
-    animation: heartbeat 2.8s ease-in-out infinite;
-    transform-origin: center;
-}
-
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    14% {
-        transform: scale(1.25);
-    }
-
-    28% {
-        transform: scale(1);
-    }
-
-    42% {
-        transform: scale(1.15);
-    }
-
-    56% {
-        transform: scale(1);
-    }
-}
-
-.authorLink {
-    color: rgba(201, 169, 110, 0.55);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    transition: color 0.2s, border-color 0.2s;
-    position: relative;
-}
-
-.authorLink::after {
-    content: ' ↗';
-    font-size: 0.6rem;
-    opacity: 0;
-    transition: opacity 0.2s;
-    vertical-align: super;
-}
-
-.authorLink:hover {
-    color: rgba(201, 169, 110, 0.9);
-    border-bottom-color: rgba(201, 169, 110, 0.4);
-}
-
-.authorLink:hover::after {
-    opacity: 1;
-}
-
-/* separator dot */
 .dot {
-    color: rgba(155, 142, 130, 0.25);
-    font-size: 0.7rem;
+    opacity: 0.5;
 }
 
-/* version badge */
-.version {
-    font-size: 0.68rem;
+.year {
     font-weight: 600;
-    letter-spacing: 0.06em;
-    color: rgba(155, 142, 130, 0.35);
-    font-variant-numeric: tabular-nums;
-    padding: 2px 7px;
-    border: 1px solid rgba(155, 142, 130, 0.12);
-    border-radius: 100px;
-    background: rgba(255, 255, 255, 0.02);
-    transition: color 0.2s, border-color 0.2s;
-    cursor: default;
-    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.version:hover {
-    color: rgba(201, 169, 110, 0.6);
-    border-color: rgba(201, 169, 110, 0.2);
+@media (max-width: 600px) {
+    .metaInfo {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .dot {
+        display: none;
+    }
 }

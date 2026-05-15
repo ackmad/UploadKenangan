@@ -1,0 +1,119 @@
+.section {
+  padding: 80px 20px;
+  background-color: var(--cream);
+  position: relative;
+  z-index: 2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--black);
+  margin: 16px 0;
+}
+
+.subtitle {
+  font-family: var(--font-hand);
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: #444;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 10px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  border-radius: 16px;
+  transition: transform 0.3s var(--bounce);
+}
+
+.cardContent {
+  position: relative;
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: var(--border-thick);
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s var(--bounce);
+  background-color: white; /* default fallback */
+}
+
+.cardShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--black);
+  border-radius: 16px;
+  z-index: 1;
+  transform: translate(8px, 8px);
+  transition: transform 0.3s var(--bounce);
+}
+
+.card:hover .cardContent {
+  transform: translate(-4px, -4px);
+}
+
+.card:hover .cardShadow {
+  transform: translate(12px, 12px);
+}
+
+.emoji {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.card:nth-child(2) .emoji { animation-delay: 0.2s; }
+.card:nth-child(3) .emoji { animation-delay: 0.4s; }
+
+.cardContent h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.cardContent p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: rgba(0,0,0,0.7);
+  flex-grow: 1;
+}
+
+.arrow {
+  margin-top: 24px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--black);
+  align-self: flex-end;
+  transition: transform 0.3s var(--bounce);
+}
+
+.card:hover .arrow {
+  transform: translateX(10px);
+}

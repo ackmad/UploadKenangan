@@ -8,6 +8,7 @@ import styles from './ScrapbookNav.module.css';
 const NAV_LINKS = [
   { href: '/',          label: '🏠 Home' },
   { href: '/students',  label: '🎓 Kelas & Siswa' },
+  { href: '/guru',      label: '👨‍🏫 Guru Kita' },
   { href: '/nostalgia', label: '📷 Nostalgia' },
   { href: '/stories',   label: '💬 Papan Pesan' },
   { href: '/yearbook',  label: '📚 Yearbook' },

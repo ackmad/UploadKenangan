@@ -1,31 +1,43 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './ConfessionsSection.module.css';
 import content from '@/data/content.json';
+import { db } from '@/lib/firebase';
+import { collection, onSnapshot, query, orderBy, limit } from 'firebase/firestore';
 
 const { confessions } = content;
-const NOTE_COLORS = ['#FFD166', '#FF9B9B', '#A8E6CF', '#C3B1E1', '#89C4E1', '#FFCBA4', '#E8A0BF', '#B5EAD7'];
+
+interface Story {
+  id: string;
+  text: string;
+  color: string;
+  rot: string;
+  author: string;
+  category: string;
+}
 
 export default function ConfessionsSection() {
-  const [notes, setNotes] = useState(confessions.initialNotes);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [text, setText] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [notes, setNotes] = useState<Story[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!text.trim()) return;
-    const newNote = {
-      id: Date.now(),
-      text: text.trim(),
-      color: NOTE_COLORS[Math.floor(Math.random() * NOTE_COLORS.length)],
-      rot: `${(Math.random() * 6 - 3).toFixed(1)}deg`,
-      author: 'Anonim',
-    };
-    setNotes(prev => [newNote, ...prev]);
-    setSubmitted(true);
-    setTimeout(() => { setSubmitted(false); setModalOpen(false); setText(''); }, 1500);
-  };
+  // Real-time listener for Firestore (only limit to 8 for the homepage preview)
+  useEffect(() => {
+    const q = query(collection(db, 'stories'), orderBy('createdAt', 'desc'), limit(8));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const fetchedStories: Story[] = [];
+      snapshot.forEach((doc) => {
+        fetchedStories.push({ id: doc.id, ...doc.data() } as Story);
+      });
+      setNotes(fetchedStories);
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching stories: ", error);
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <section id="confessions" className={`section ${styles.section}`}>
@@ -33,61 +45,44 @@ export default function ConfessionsSection() {
       <div className={styles.cork} aria-hidden="true" />
 
       <div className={styles.header}>
-        <span className="tag" style={{ background: 'var(--peach)', boxShadow: 'var(--shadow-sm)' }}>{confessions.sectionTag}</span>
-        <h2 className={styles.title}>{confessions.title}<br /><em>&amp; Nostalgia</em></h2>
-        <p className={styles.subtitle}>{confessions.subtitle}</p>
+        <span className="tag" style={{ background: 'var(--peach)', boxShadow: 'var(--shadow-sm)' }}>Papan Pesan</span>
+        <h2 className={styles.title}>Confessions<br /><em>&amp; Nostalgia</em></h2>
+        <p className={styles.subtitle}>Cerita yang tidak pernah diceritakan langsung — akhirnya punya tempatnya.</p>
 
-        <button className={`btn btn-yellow ${styles.addBtn}`} onClick={() => setModalOpen(true)}>
+        <Link href="/stories" className={`btn btn-yellow ${styles.addBtn}`}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12h14"/></svg>
-          {confessions.addBtn}
-        </button>
+          Ke Papan Pesan Utama
+        </Link>
       </div>
 
-      {/* Notes board */}
+      {/* Notes board preview */}
       <div className={styles.board}>
-        {notes.map(note => (
-          <div
-            key={note.id}
-            className={styles.note}
-            style={{ background: note.color, transform: `rotate(${note.rot})` }}
-          >
-            <div className={styles.pin} />
-            <p className={styles.noteText}>{note.text}</p>
-            <span className={styles.noteAuthor}>— {note.author}</span>
+        {loading ? (
+          <div style={{ textAlign: 'center', width: '100%', gridColumn: '1 / -1', padding: '40px', fontFamily: 'var(--font-hand)', fontSize: '1.5rem' }}>
+            ⏳ Mengambil kenangan dari server...
           </div>
-        ))}
+        ) : notes.length > 0 ? (
+          notes.map(note => (
+            <div
+              key={note.id}
+              className={styles.note}
+              style={{ background: note.color, transform: `rotate(${note.rot})` }}
+            >
+              <div className={styles.pin} />
+              <p className={styles.noteText}>{note.text}</p>
+              <span className={styles.noteAuthor}>— {note.author}</span>
+            </div>
+          ))
+        ) : (
+          <div style={{ textAlign: 'center', width: '100%', gridColumn: '1 / -1', padding: '40px', fontFamily: 'var(--font-hand)', fontSize: '1.5rem' }}>
+            Belum ada cerita. Jadilah yang pertama di halaman Papan Pesan!
+          </div>
+        )}
       </div>
-
-      {/* Modal */}
-      {modalOpen && (
-        <div className={styles.overlay} onClick={() => setModalOpen(false)}>
-          <div className={styles.modal} onClick={e => e.stopPropagation()}>
-            <div className={styles.modalTape} />
-            <button className={styles.modalClose} onClick={() => setModalOpen(false)}>✕</button>
-            <h3 className={styles.modalTitle}>{confessions.modal.title}</h3>
-            <p className={styles.modalSub}>{confessions.modal.subtitle}</p>
-            {submitted ? (
-              <div className={styles.successMsg}>{confessions.modal.successMsg}</div>
-            ) : (
-              <form onSubmit={handleSubmit} className={styles.form}>
-                <textarea
-                  className={`input-notebook ${styles.textarea}`}
-                  placeholder={confessions.modal.placeholder}
-                  value={text}
-                  onChange={e => setText(e.target.value)}
-                  rows={5}
-                  maxLength={280}
-                  required
-                />
-                <div className={styles.charCount}>{text.length}/280</div>
-                <button type="submit" className="btn btn-coral" style={{ width: '100%', justifyContent: 'center' }}>
-                  {confessions.modal.submitBtn}
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
+      
+      <div style={{ textAlign: 'center', marginTop: '40px' }}>
+         <Link href="/stories" className="btn btn-black">Baca Seluruh {notes.length > 0 ? 'Cerita' : ''} &amp; Rahasia Angkatan</Link>
+      </div>
     </section>
   );
 }

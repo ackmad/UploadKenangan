@@ -1,33 +1,31 @@
 import Link from 'next/link';
 import { APP_AUTHOR, VERSION_LABEL } from '@/lib/version';
 import styles from './Footer.module.css';
+import content from '@/data/content.json';
+
+const { school } = content.site;
 
 export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className={styles.footer}>
             <div className={styles.inner}>
-                {/* Made with love */}
-                <span className={styles.credit}>
-                    Made with{' '}
-                    <span className={styles.heart} aria-label="love">♥</span>
-                    {' '}by{' '}
-                    <a
-                        href={APP_AUTHOR.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.authorLink}
-                        aria-label={`Instagram ${APP_AUTHOR.handle}`}
-                    >
-                        {APP_AUTHOR.name}
-                    </a>
-                </span>
+                <div className={styles.schoolInfo}>
+                    <h3 className={styles.schoolName}>{school.name}</h3>
+                    <p className={styles.schoolAddress}>{school.address}</p>
+                </div>
 
-                <span className={styles.dot} aria-hidden="true">·</span>
-
-                {/* Version badge */}
-                <span className={styles.version} title={`Versi aplikasi ${VERSION_LABEL}`}>
-                    {VERSION_LABEL}
-                </span>
+                <div className={styles.metaInfo}>
+                    <span className={styles.credit}>
+                        Dirancang &amp; Dikembangkan oleh{' '}
+                        <strong>Ackmad Elfan Purnama</strong>
+                    </span>
+                    <span className={styles.dot} aria-hidden="true">·</span>
+                    <span className={styles.year}>
+                        Dibuat Tahun {currentYear}
+                    </span>
+                </div>
             </div>
         </footer>
     );

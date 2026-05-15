@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { CldImage, CldVideoPlayer } from 'next-cloudinary';
-import 'next-cloudinary/dist/cld-video-player.css';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import { CldImage } from 'next-cloudinary';
 import styles from './MediaGallery.module.css';
 
 export interface NostalgiaMedia {
@@ -27,7 +26,6 @@ export default function MediaGallery({ folder = 'skinfaverse21/nostalgia' }: Pro
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [lightbox, setLightbox] = useState<NostalgiaMedia | null>(null);
-  const [filter, setFilter] = useState<'all' | 'image' | 'video'>('all');
 
   useEffect(() => {
     async function fetchMedia() {
@@ -53,7 +51,31 @@ export default function MediaGallery({ folder = 'skinfaverse21/nostalgia' }: Pro
     fetchMedia();
   }, [folder]);
 
-  const filteredMedia = filter === 'all' ? media : media.filter(m => m.type === filter);
+  // Memoize handlers to prevent re-renders
+  const handleOpenLightbox = useCallback((item: NostalgiaMedia) => {
+    setLightbox(item);
+  }, []);
+
+  const handleCloseLightbox = useCallback(() => {
+    setLightbox(null);
+  }, []);
+
+  // Memoize media items to prevent unnecessary re-renders
+  const mediaItems = useMemo(() => {
+    return media.map((item, idx) => {
+      const isImage = item.type === 'image';
+      
+      return (
+        <MediaCard
+          key={item.id}
+          item={item}
+          index={idx}
+          isImage={isImage}
+          onOpen={handleOpenLightbox}
+        />
+      );
+    });
+  }, [media, handleOpenLightbox]);
 
   if (loading) {
     return (
@@ -87,107 +109,194 @@ export default function MediaGallery({ folder = 'skinfaverse21/nostalgia' }: Pro
 
   return (
     <>
-      {/* Filter buttons */}
-      <div className={styles.filters}>
-        <button
-          className={`${styles.filterBtn} ${filter === 'all' ? styles.filterActive : ''}`}
-          onClick={() => setFilter('all')}
-        >
-          Semua ({media.length})
-        </button>
-        <button
-          className={`${styles.filterBtn} ${filter === 'image' ? styles.filterActive : ''}`}
-          onClick={() => setFilter('image')}
-        >
-          📷 Foto ({media.filter(m => m.type === 'image').length})
-        </button>
-        <button
-          className={`${styles.filterBtn} ${filter === 'video' ? styles.filterActive : ''}`}
-          onClick={() => setFilter('video')}
-        >
-          🎬 Video ({media.filter(m => m.type === 'video').length})
-        </button>
-      </div>
-
-      {/* Masonry Grid */}
+      {/* Masonry Grid with Mixed Visuals */}
       <div className={styles.masonryGrid}>
-        {filteredMedia.map((item, idx) => (
-          <div
-            key={item.id}
-            className={styles.gridItem}
-            style={{ animationDelay: `${(idx % 20) * 0.03}s` }}
-            onClick={() => setLightbox(item)}
-          >
-            <div className={styles.mediaCard}>
-              {item.type === 'image' ? (
-                <CldImage
-                  src={item.publicId}
-                  alt="Nostalgia"
-                  width={600}
-                  height={600}
-                  crop="fill"
-                  gravity="auto"
-                  quality="auto"
-                  format="auto"
-                  loading="lazy"
-                  className={styles.mediaImage}
-                />
-              ) : (
-                <div className={styles.videoThumb}>
-                  <img
-                    src={item.thumbnailUrl}
-                    alt="Video thumbnail"
-                    className={styles.mediaImage}
-                    loading="lazy"
-                  />
-                  <div className={styles.playIcon}>▶</div>
-                </div>
-              )}
-              <div className={styles.mediaOverlay}>
-                <span className={styles.mediaType}>
-                  {item.type === 'image' ? '📷' : '🎬'}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
+        {mediaItems}
       </div>
 
       {/* Lightbox */}
       {lightbox && (
-        <div className={styles.lightbox} onClick={() => setLightbox(null)}>
-          <button
-            className={styles.lightboxClose}
-            onClick={() => setLightbox(null)}
-            aria-label="Tutup"
-          >
-            ✕
-          </button>
-          <div className={styles.lightboxContent} onClick={e => e.stopPropagation()}>
-            {lightbox.type === 'image' ? (
-              <CldImage
-                src={lightbox.publicId}
-                alt="Nostalgia"
-                width={1200}
-                height={1200}
-                crop="limit"
-                quality="auto"
-                format="auto"
-                className={styles.lightboxImage}
-              />
-            ) : (
-              <CldVideoPlayer
-                src={lightbox.publicId}
-                width={1200}
-                height={675}
-                controls
-                autoPlay
-                className={styles.lightboxVideo}
-              />
-            )}
-          </div>
-        </div>
+        <Lightbox
+          item={lightbox}
+          onClose={handleCloseLightbox}
+        />
       )}
     </>
+  );
+}
+
+// Separate MediaCard component for better performance
+interface MediaCardProps {
+  item: NostalgiaMedia;
+  index: number;
+  isImage: boolean;
+  onOpen: (item: NostalgiaMedia) => void;
+}
+
+function MediaCard({ item, index, isImage, onOpen }: MediaCardProps) {
+  const handleClick = useCallback(() => {
+    onOpen(item);
+  }, [item, onOpen]);
+
+  return (
+    <div
+      className={`${styles.gridItem} ${isImage ? styles.polaroidItem : styles.filmItem}`}
+      style={{ 
+        animationDelay: `${(index % 20) * 0.05}s`,
+        ...(isImage && { '--rot': `${Math.random() * 6 - 3}deg` } as React.CSSProperties)
+      }}
+      onClick={handleClick}
+    >
+      <div className={`${styles.mediaCard} ${isImage ? styles.polaroidCard : styles.filmCard}`}>
+        
+        {/* Film Strip Holes Top */}
+        {!isImage && (
+          <div className={styles.filmHoles}>
+            {Array.from({length: 6}).map((_, i) => <div key={`t-${i}`} className={styles.hole} />)}
+          </div>
+        )}
+
+        <div className={styles.mediaContainer}>
+          {isImage ? (
+            <CldImage
+              src={item.publicId}
+              alt="Nostalgia"
+              width={400}
+              height={400}
+              crop="fill"
+              gravity="auto"
+              quality="auto:low"
+              format="auto"
+              loading="lazy"
+              className={styles.mediaImage}
+            />
+          ) : (
+            <div className={styles.videoThumb}>
+              <img
+                src={item.thumbnailUrl}
+                alt="Video thumbnail"
+                className={styles.mediaImage}
+                loading="lazy"
+              />
+              <div className={styles.playIcon}>
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Film Strip Holes Bottom */}
+        {!isImage && (
+          <div className={styles.filmHoles}>
+            {Array.from({length: 6}).map((_, i) => <div key={`b-${i}`} className={styles.hole} />)}
+          </div>
+        )}
+
+        {/* Polaroid Bottom Area */}
+        {isImage && (
+          <div className={styles.polaroidBottom}>
+            <span className={styles.polaroidTape}></span>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+}
+
+// Separate Lightbox component for better performance
+interface LightboxProps {
+  item: NostalgiaMedia;
+  onClose: () => void;
+}
+
+function Lightbox({ item, onClose }: LightboxProps) {
+  const handleBackdropClick = useCallback(() => {
+    onClose();
+  }, [onClose]);
+
+  const handleContentClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+  }, []);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [onClose]);
+
+  // Generate Cloudinary video URL
+  const getVideoUrl = (publicId: string) => {
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dg2kguctm';
+    return `https://res.cloudinary.com/${cloudName}/video/upload/q_auto,f_auto/${publicId}`;
+  };
+
+  // Generate multiple video sources for better compatibility
+  const getVideoSources = (publicId: string) => {
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'dg2kguctm';
+    const baseUrl = `https://res.cloudinary.com/${cloudName}/video/upload`;
+    
+    return [
+      {
+        src: `${baseUrl}/q_auto,f_mp4/${publicId}`,
+        type: 'video/mp4'
+      },
+      {
+        src: `${baseUrl}/q_auto,f_webm/${publicId}`,
+        type: 'video/webm'
+      }
+    ];
+  };
+
+  return (
+    <div className={styles.lightbox} onClick={handleBackdropClick}>
+      <button
+        className={styles.lightboxClose}
+        onClick={onClose}
+        aria-label="Tutup"
+      >
+        ✕
+      </button>
+      <div className={styles.lightboxContent} onClick={handleContentClick}>
+        {item.type === 'image' ? (
+          <CldImage
+            src={item.publicId}
+            alt="Nostalgia"
+            width={1200}
+            height={1200}
+            crop="limit"
+            quality="auto:good"
+            format="auto"
+            className={styles.lightboxImage}
+          />
+        ) : (
+          <video
+            className={styles.lightboxVideo}
+            controls
+            autoPlay
+            playsInline
+            preload="metadata"
+            poster={item.thumbnailUrl}
+          >
+            {getVideoSources(item.publicId).map((source, idx) => (
+              <source key={idx} src={source.src} type={source.type} />
+            ))}
+            Browser Anda tidak mendukung video HTML5.
+          </video>
+        )}
+      </div>
+    </div>
   );
 }

@@ -32,6 +32,7 @@
     "links": [
       { "href": "/", "label": "Home" },
       { "href": "/students", "label": "Students" },
+      { "href": "/guru", "label": "Guru" },
       { "href": "/classes", "label": "Classes" },
       { "href": "/nostalgia", "label": "Nostalgia" },
       { "href": "/gallery", "label": "Gallery" },
