@@ -9,15 +9,16 @@ interface Props {
 
 export default function FilmPlayer({ onClose }: Props) {
   const [loadingProgress, setLoadingProgress] = useState(0);
-  const [isBuffering, setIsBuffering] = useState(true);
   const [isReady, setIsReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // YouTube video ID
+  const YOUTUBE_VIDEO_ID = '7xcGRjFZtgg';
+  
+  // YouTube embed URL with maximum quality parameters
+  const youtubeEmbedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&quality=hd1080&hd=1&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`;
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
     // Simulate Netflix-style loading
     const loadingInterval = setInterval(() => {
       setLoadingProgress(prev => {
@@ -25,91 +26,26 @@ export default function FilmPlayer({ onClose }: Props) {
           clearInterval(loadingInterval);
           return 100;
         }
-        // Faster initial load, slower near end (realistic buffering)
-        const increment = prev < 30 ? 8 : prev < 70 ? 4 : 2;
+        // Faster initial load, slower near end
+        const increment = prev < 30 ? 10 : prev < 70 ? 5 : 3;
         return Math.min(prev + increment, 100);
       });
-    }, 150);
+    }, 100);
 
-    // Video event listeners
-    const handleLoadStart = () => {
-      console.log('📹 Video loading started');
-      setIsBuffering(true);
-    };
-
-    const handleCanPlay = () => {
-      console.log('✅ Video can play');
-      setIsBuffering(false);
-    };
-
-    const handleCanPlayThrough = () => {
-      console.log('✅ Video can play through');
+    // Set ready after loading animation
+    const readyTimeout = setTimeout(() => {
       setIsReady(true);
-      setIsBuffering(false);
-      setLoadingProgress(100);
       clearInterval(loadingInterval);
-      
-      // Auto play after loading
-      setTimeout(() => {
-        video.play().then(() => {
-          setIsPlaying(true);
-          console.log('▶️ Video playing');
-        }).catch(err => {
-          console.error('❌ Video play failed:', err);
-        });
-      }, 500);
-    };
-
-    const handleWaiting = () => {
-      console.log('⏳ Video buffering...');
-      setIsBuffering(true);
-    };
-
-    const handlePlaying = () => {
-      console.log('▶️ Video playing');
-      setIsBuffering(false);
-      setIsPlaying(true);
-    };
-
-    const handlePause = () => {
-      console.log('⏸️ Video paused');
-      setIsPlaying(false);
-    };
-
-    const handleError = (e: Event) => {
-      console.error('❌ Video error:', e);
-      setIsBuffering(false);
-    };
-
-    video.addEventListener('loadstart', handleLoadStart);
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('canplaythrough', handleCanPlayThrough);
-    video.addEventListener('waiting', handleWaiting);
-    video.addEventListener('playing', handlePlaying);
-    video.addEventListener('pause', handlePause);
-    video.addEventListener('error', handleError);
-
-    // Preload video
-    video.load();
+      setLoadingProgress(100);
+    }, 2000);
 
     return () => {
       clearInterval(loadingInterval);
-      video.removeEventListener('loadstart', handleLoadStart);
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('canplaythrough', handleCanPlayThrough);
-      video.removeEventListener('waiting', handleWaiting);
-      video.removeEventListener('playing', handlePlaying);
-      video.removeEventListener('pause', handlePause);
-      video.removeEventListener('error', handleError);
+      clearTimeout(readyTimeout);
     };
   }, []);
 
   const handleClose = () => {
-    const video = videoRef.current;
-    if (video) {
-      video.pause();
-      video.currentTime = 0;
-    }
     onClose();
   };
 
@@ -150,26 +86,17 @@ export default function FilmPlayer({ onClose }: Props) {
         </div>
       )}
 
-      {/* Video Player */}
+      {/* YouTube Player */}
       <div className={`${styles.videoContainer} ${isReady ? styles.videoVisible : ''}`}>
-        <video
-          ref={videoRef}
-          className={styles.video}
-          preload="auto"
-          playsInline
-          controls={isReady}
-        >
-          <source src="/assets/video/FiilmAngkatan-3Tahun1Cerita1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        {/* Buffering indicator */}
-        {isBuffering && isReady && (
-          <div className={styles.bufferingIndicator}>
-            <div className={styles.spinner} />
-            <p>Buffering...</p>
-          </div>
-        )}
+        <iframe
+          ref={iframeRef}
+          className={styles.youtubePlayer}
+          src={youtubeEmbedUrl}
+          title="SKINFAVERSE21 - 3 Tahun 1 Cerita"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
 
         {/* Close button */}
         {isReady && (

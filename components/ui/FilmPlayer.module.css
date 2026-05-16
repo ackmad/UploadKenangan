@@ -158,12 +158,31 @@
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .videoVisible {
   opacity: 1;
 }
 
+.youtubePlayer {
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  max-height: 1080px;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  /* Ensure smooth rendering */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Remove old video styles */
 .video {
   width: 100%;
   height: 100%;
@@ -171,39 +190,9 @@
   background: #000;
 }
 
-/* Buffering Indicator */
+/* Remove buffering indicator (YouTube handles this) */
 .bufferingIndicator {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 4px solid rgba(255, 255, 255, 0.1);
-  border-top-color: #E50914;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.bufferingIndicator p {
-  font-family: 'Netflix Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  display: none;
 }
 
 /* Close Button */
@@ -239,6 +228,14 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
+  .videoContainer {
+    padding: 10px;
+  }
+
+  .youtubePlayer {
+    border-radius: 4px;
+  }
+
   .loadingBarContainer {
     min-width: 300px;
   }
@@ -266,6 +263,14 @@
 }
 
 @media (max-width: 480px) {
+  .videoContainer {
+    padding: 5px;
+  }
+
+  .youtubePlayer {
+    border-radius: 0;
+  }
+
   .loadingBarContainer {
     min-width: 250px;
   }
@@ -290,6 +295,22 @@
 
 /* Mobile Landscape */
 @media (max-width: 926px) and (orientation: landscape) {
+  .videoContainer {
+    padding: 10px;
+  }
+
+  .youtubePlayer {
+    max-height: 90vh;
+  }
+
+  .closeBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    top: 10px;
+    right: 10px;
+  }
+
   .loadingContent {
     gap: 20px;
   }
