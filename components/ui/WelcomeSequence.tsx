@@ -202,6 +202,8 @@ export default function WelcomeSequence({ onComplete }: Props) {
         const data2 = await res2.json();
         setSegments1(data1.segments || []);
         setSegments2(data2.segments || []);
+        console.log('✅ Lirik 1 loaded:', data1.segments?.length, 'segments');
+        console.log('✅ Lirik 2 loaded:', data2.segments?.length, 'segments');
         updateProgress('Lirik 1 siap');
         updateProgress('Lirik 2 siap');
 
@@ -391,14 +393,19 @@ export default function WelcomeSequence({ onComplete }: Props) {
   }, []);
 
   const showLyric = useCallback((seg: Segment) => {
+    console.log('📺 Showing lyric:', seg.text);
     if (lyricEnRef.current) lyricEnRef.current.textContent = seg.text;
     if (lyricIdRef.current) lyricIdRef.current.textContent = seg.text_id;
     const el = lyricWrapRef.current;
-    if (!el) return;
+    if (!el) {
+      console.error('❌ lyricWrapRef.current is null!');
+      return;
+    }
     // Smooth fade in dengan slight movement
     requestAnimationFrame(() => {
       el.style.opacity   = '1';
       el.style.transform = 'translateY(0)';
+      console.log('✅ Lyric displayed, opacity:', el.style.opacity);
     });
   }, []);
 
@@ -414,6 +421,11 @@ export default function WelcomeSequence({ onComplete }: Props) {
       const clampedStart = Math.max(0, segs[i].start - 0.05);
       const clampedEnd = segs[i].end + 0.05;
       if (t >= clampedStart && t <= clampedEnd) { found = i; break; }
+    }
+
+    // Debug logging
+    if (found >= 0 && found !== prevSegRef.current) {
+      console.log('🎵 Lyric sync:', found, segs[found].text, 'at', t.toFixed(2), 's');
     }
 
     // Tidak ada ducking - musik tetap full volume
@@ -495,6 +507,9 @@ export default function WelcomeSequence({ onComplete }: Props) {
     lastCheckRef.current = 0;
     hideLyric();
 
+    console.log('🎬 Phase: playing1 started');
+    console.log('📝 Segments1 available:', segments1.length);
+
     // Start instrument at full volume
     const instr = instrRef.current;
     if (instr) { 
@@ -512,12 +527,14 @@ export default function WelcomeSequence({ onComplete }: Props) {
       if (v1) { 
         v1.currentTime = 0;
         v1.volume = 1; 
-        v1.play().catch(() => {}); 
+        v1.play()
+          .then(() => console.log('✅ Voice1 playing'))
+          .catch((e) => console.error('❌ Voice1 play failed:', e)); 
       }
     }, VOICE_DELAY);
 
     return () => { clearTimeout(vt); stopSlideshow(); };
-  }, [phase, MEDIA_1, hideLyric, startSlideshow, stopSlideshow]);
+  }, [phase, MEDIA_1, segments1, hideLyric, startSlideshow, stopSlideshow]);
 
   useEffect(() => {
     if (phase !== 'interlude') return;
@@ -533,16 +550,22 @@ export default function WelcomeSequence({ onComplete }: Props) {
     prevSegRef.current = -1;
     lastCheckRef.current = 0;
     hideLyric();
+    
+    console.log('🎬 Phase: playing2 started');
+    console.log('📝 Segments2 available:', segments2.length);
+    
     // Musik tetap jalan dengan volume penuh
     startSlideshow(MEDIA_2, IMAGE_DUR_2);
     const v2 = voice2Ref.current;
     if (v2) { 
       v2.currentTime = 0;
       v2.volume = 1; 
-      v2.play().catch(() => {}); 
+      v2.play()
+        .then(() => console.log('✅ Voice2 playing'))
+        .catch((e) => console.error('❌ Voice2 play failed:', e)); 
     }
     return () => stopSlideshow();
-  }, [phase, MEDIA_2, hideLyric, startSlideshow, stopSlideshow]);
+  }, [phase, MEDIA_2, segments2, hideLyric, startSlideshow, stopSlideshow]);
 
   useEffect(() => {
     if (phase !== 'outro') return;
@@ -572,12 +595,16 @@ export default function WelcomeSequence({ onComplete }: Props) {
   // ── Audio handlers ──
   const handleTime1 = useCallback(() => {
     const t = voice1Ref.current?.currentTime;
-    if (t !== undefined) syncLyric(segments1, t);
+    if (t !== undefined && segments1.length > 0) {
+      syncLyric(segments1, t);
+    }
   }, [syncLyric, segments1]);
 
   const handleTime2 = useCallback(() => {
     const t = voice2Ref.current?.currentTime;
-    if (t !== undefined) syncLyric(segments2, t);
+    if (t !== undefined && segments2.length > 0) {
+      syncLyric(segments2, t);
+    }
   }, [syncLyric, segments2]);
 
   const handleV1End = useCallback(() => setPhase('interlude'), []);
