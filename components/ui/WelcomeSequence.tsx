@@ -394,13 +394,26 @@ export default function WelcomeSequence({ onComplete }: Props) {
 
   const showLyric = useCallback((seg: Segment) => {
     console.log('📺 Showing lyric:', seg.text);
-    if (lyricEnRef.current) lyricEnRef.current.textContent = seg.text;
-    if (lyricIdRef.current) lyricIdRef.current.textContent = seg.text_id;
+    if (lyricEnRef.current) {
+      lyricEnRef.current.textContent = seg.text;
+      lyricEnRef.current.style.visibility = 'visible';
+      lyricEnRef.current.style.display = 'block';
+    }
+    if (lyricIdRef.current) {
+      lyricIdRef.current.textContent = seg.text_id;
+      lyricIdRef.current.style.visibility = 'visible';
+      lyricIdRef.current.style.display = 'block';
+    }
     const el = lyricWrapRef.current;
     if (!el) {
       console.error('❌ lyricWrapRef.current is null!');
       return;
     }
+    // Force visibility
+    el.style.visibility = 'visible';
+    el.style.display = 'flex';
+    el.style.zIndex = '9999';
+    
     // Smooth fade in dengan slight movement
     requestAnimationFrame(() => {
       el.style.opacity   = '1';
@@ -761,14 +774,18 @@ export default function WelcomeSequence({ onComplete }: Props) {
               opacity: 0, 
               transform: 'translateY(8px)', 
               transition: 'opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)', 
-              willChange: 'opacity, transform' 
+              willChange: 'opacity, transform',
+              position: 'fixed',
+              zIndex: 9999,
+              visibility: 'visible',
+              display: 'flex'
             }}
           >
             <div className={styles.lyricEnArea}>
-              <p ref={lyricEnRef} className={styles.lyricEn}>&nbsp;</p>
+              <p ref={lyricEnRef} className={styles.lyricEn} style={{ visibility: 'visible', display: 'block' }}>&nbsp;</p>
             </div>
             <div className={styles.lyricIdArea}>
-              <p ref={lyricIdRef} className={styles.lyricId}>&nbsp;</p>
+              <p ref={lyricIdRef} className={styles.lyricId} style={{ visibility: 'visible', display: 'block' }}>&nbsp;</p>
             </div>
           </div>
 
