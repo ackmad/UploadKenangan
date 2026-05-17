@@ -25,6 +25,35 @@ export default function FilmPage() {
       .catch(console.error);
   }, []);
 
+  const handlePlayClick = async () => {
+    try {
+      // Request fullscreen
+      if (document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+      } else if ((document.documentElement as any).webkitRequestFullscreen) {
+        await (document.documentElement as any).webkitRequestFullscreen();
+      } else if ((document.documentElement as any).mozRequestFullScreen) {
+        await (document.documentElement as any).mozRequestFullScreen();
+      } else if ((document.documentElement as any).msRequestFullscreen) {
+        await (document.documentElement as any).msRequestFullscreen();
+      }
+
+      // Lock orientation to landscape
+      if (screen.orientation && screen.orientation.lock) {
+        try {
+          await screen.orientation.lock('landscape');
+        } catch (err) {
+          console.log('Orientation lock not supported:', err);
+        }
+      }
+    } catch (err) {
+      console.log('Fullscreen request failed:', err);
+    }
+
+    // Open the player
+    setIsPlaying(true);
+  };
+
   const titleParts = filmData.title.split(' ');
   const firstHalf = titleParts.slice(0, 2).join(' ');
   const secondHalf = titleParts.slice(2).join(' ');
@@ -65,13 +94,13 @@ export default function FilmPage() {
             </div>
 
             <p className={styles.synopsis}>
-              Tiga tahun di SKINFA bukan hanya tentang belajar. Di balik seragam putih abu-abu, tersimpan ribuan cerita — persahabatan, tugas deadline, cinta monyet, hingga perpisahan yang datang terlalu cepat. Ini adalah arsip perjalanan Angkatan 21.
+              Tiga tahun di SKINFA bukan hanya tentang belajar. Di balik seragam putih abu-abu, tersimpan ribuan cerita — persahabatan, tugas deadline, hingga perpisahan yang datang terlalu cepat. Ini adalah arsip perjalanan Angkatan 21.
             </p>
 
             <div className={styles.heroActions}>
               <button 
                 className={`${styles.playBtn}`}
-                onClick={() => setIsPlaying(true)}
+                onClick={handlePlayClick}
               >
                 <span className={styles.btnIcon}>▶</span>
                 <span>Play</span>
@@ -213,7 +242,7 @@ export default function FilmPage() {
                 <div className={styles.infoModalTitleWrapper}>
                   <h2 className={styles.infoModalTitle}>{filmData.title}</h2>
                   <div className={styles.infoModalActions}>
-                    <button className={styles.playBtnModal} onClick={() => { setIsInfoModalOpen(false); setIsPlaying(true); }}>
+                    <button className={styles.playBtnModal} onClick={() => { setIsInfoModalOpen(false); handlePlayClick(); }}>
                       <span className={styles.btnIcon}>▶</span> Play
                     </button>
                     <button className={styles.circleBtn}>+</button>
@@ -232,7 +261,7 @@ export default function FilmPage() {
                     <span className={styles.hd}>HD</span>
                   </div>
                   <p className={styles.infoModalSynopsis}>
-                    Tiga tahun di SKINFA bukan hanya tentang belajar. Di balik seragam putih abu-abu, tersimpan ribuan cerita — persahabatan, tugas deadline, cinta monyet, hingga perpisahan yang datang terlalu cepat. Ini adalah arsip perjalanan Angkatan 21. Sebuah mahakarya bersama untuk mengenang masa-masa yang tidak akan pernah kembali.
+                    Tiga tahun di SKINFA bukan hanya tentang belajar. Di balik seragam putih abu-abu, tersimpan ribuan cerita — persahabatan, tugas deadline, hingga perpisahan yang datang terlalu cepat. Ini adalah arsip perjalanan Angkatan 21. Sebuah mahakarya bersama untuk mengenang masa-masa yang tidak akan pernah kembali.
                   </p>
                 </div>
                 <div className={styles.infoModalRight}>

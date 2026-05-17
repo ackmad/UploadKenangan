@@ -15,10 +15,13 @@ import { VERSION_LABEL, APP_BUILD_DATE } from '@/lib/version';
 // Lazy-load splash so it doesn't block first paint
 const SplashScreen = dynamic(() => import('@/components/ui/SplashScreen'), { ssr: false });
 const WelcomeSequence = dynamic(() => import('@/components/ui/WelcomeSequence'), { ssr: false });
+const OrientationSelector = dynamic(() => import('@/components/ui/OrientationSelector'), { ssr: false });
 
 export default function ScrapbookPage() {
   const [showSplash, setShowSplash] = useState(true);
   const [showSequence, setShowSequence] = useState(false);
+  const [showOrientationSelector, setShowOrientationSelector] = useState(false);
+  const [selectedOrientation, setSelectedOrientation] = useState<'portrait' | 'landscape' | null>(null);
 
   // Log version info on mount
   useState(() => {
@@ -30,16 +33,34 @@ export default function ScrapbookPage() {
   const handleSplashDone = useCallback(() => setShowSplash(false), []);
   
   const handleReplaySequence = useCallback(() => {
+    // Show orientation selector first
+    setShowOrientationSelector(true);
+  }, []);
+
+  const handleOrientationSelect = useCallback((orientation: 'portrait' | 'landscape') => {
+    setSelectedOrientation(orientation);
+    setShowOrientationSelector(false);
     setShowSequence(true);
+  }, []);
+
+  const handleOrientationCancel = useCallback(() => {
+    setShowOrientationSelector(false);
   }, []);
 
   const handleSequenceComplete = useCallback(() => {
     setShowSequence(false);
+    setSelectedOrientation(null);
   }, []);
 
   return (
     <>
       {showSplash && <SplashScreen onDone={handleSplashDone} />}
+      {showOrientationSelector && (
+        <OrientationSelector 
+          onSelect={handleOrientationSelect} 
+          onCancel={handleOrientationCancel}
+        />
+      )}
       {showSequence && <WelcomeSequence onComplete={handleSequenceComplete} />}
 
       {/* Version Badge - Fixed position */}
