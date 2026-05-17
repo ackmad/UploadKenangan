@@ -13,7 +13,7 @@ export default function FilmPlayer({ onClose }: Props) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   // YouTube video ID
-  const YOUTUBE_VIDEO_ID = '7xcGRjFZtgg';
+  const YOUTUBE_VIDEO_ID = 'tR3KkDRbop8';
   
   // YouTube embed URL with maximum quality parameters
   const youtubeEmbedUrl = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080&quality=hd1080&hd=1&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`;
@@ -55,9 +55,9 @@ export default function FilmPlayer({ onClose }: Props) {
       {!isReady && (
         <div className={styles.loadingScreen}>
           <div className={styles.loadingContent}>
-            {/* Netflix N logo animation */}
+            {/* VISIONINE V logo animation */}
             <div className={styles.netflixLogo}>
-              <div className={styles.nLetter}>N</div>
+              <div className={styles.nLetter}>V</div>
             </div>
             
             {/* Loading bar */}
