@@ -27,9 +27,9 @@ export default function OrientationSelector({ onSelect, onCancel }: Props) {
       }
 
       // Lock orientation
-      if (screen.orientation && screen.orientation.lock) {
+      if (screen.orientation && (screen.orientation as any).lock) {
         try {
-          await screen.orientation.lock(orientation);
+          await (screen.orientation as any).lock(orientation);
         } catch (err) {
           console.log('Orientation lock not supported:', err);
         }

@@ -39,9 +39,9 @@ export default function FilmPage() {
       }
 
       // Lock orientation to landscape
-      if (screen.orientation && screen.orientation.lock) {
+      if (screen.orientation && (screen.orientation as any).lock) {
         try {
-          await screen.orientation.lock('landscape');
+          await (screen.orientation as any).lock('landscape');
         } catch (err) {
           console.log('Orientation lock not supported:', err);
         }
